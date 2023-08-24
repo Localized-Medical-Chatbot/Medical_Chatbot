@@ -1,0 +1,51 @@
+version: "3.1"
+
+stories:
+
+- story: Booking Help Needed
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: BookAppointment
+  - action: utter_bookingHelp
+  - intent: accept
+  - action: utter_bookingHelp
+
+- story: Booking Help Not Needed
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: BookAppointment
+  - action: utter_bookingHelp
+  - intent: deny
+  - action: utter_chooseSpecialization
+  - intent: ChooseSpecialization
+  - action: utter_chooseDoctor
+  - intent: ChooseDoctor
+  - action: utter_chooseDate
+  - intent: ChooseDate
+  - action: utter_chooseTime
+  - intent: ChooseTime
+  - action: utter_confirmAppointment
+  - intent: accept
+  - action: utter_InformconfirmAppointment
+
+
+
+
+
+
+
+
+
+
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
