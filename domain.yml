@@ -15,10 +15,12 @@ intents:
   - ChooseTime
   - action_demo
   - doctor_details
+  - clinic_details
 
 actions:
   - action_hello_world
   - action_get_doctor_name
+  - action_get_clinic_details
 
 responses:
 

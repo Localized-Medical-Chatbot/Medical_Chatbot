@@ -2,6 +2,98 @@ version: "3.1"
 
 nlu:
 
+- intent: clinic_details
+  examples: |
+
+    - I'm interested in clinic details.
+    - Can you provide me with information about clinics?
+    - I want to learn about clinic specifics.
+    - Please share clinic details with me.
+    - Could you give me information on clinics?
+    - I'm looking for details about clinics.
+    - Can you tell me more about clinics?
+    - I'm curious about the details of clinics.
+    - Please provide me with clinic-related information.
+    - I'd like to know more about clinics.
+
+    - I'm interested in [burn clinic](clinics) details.
+    - Can you provide me with information about the [burn clinic](clinics)?
+    - I want to learn about [burn clinic](clinics) specifics.
+    - Please share [burn clinic](clinics) details with me.
+    - Could you give me information on the [burn clinic](clinics)?
+    - I'm looking for details about the clinic that specializes in [burn](clinics) cases.
+    - Can you tell me more about the clinic for [burn](clinics) patients?
+    - I'm curious about the specifics of the [burn](clinics) treatment center.
+    - Please provide me with information regarding the [burn care](clinics) facility.
+    - I'd like to know more about the clinic that deals with [burn](clinics) injuries.
+
+    - I'm interested in [cardiology](clinics) clinic details.
+    - Can you provide me with information about the [cardiology](clinics) clinic?
+    - I want to learn about [cardiology](clinics) clinic specifics.
+    - Please share [cardiology](clinics) clinic details with me.
+    - Could you give me information on the [heart clinic](clinics)?
+    - I'm looking for details about the clinic specializing in [heart](clinics) conditions.
+    - Can you tell me more about the [cardiology](clinics) department?
+    - I'm curious about the specifics of the [heart](clinics) care center.
+    - Please provide me with information regarding the [cardiac](clinics) clinic.
+    - I'd like to know more about the clinic for [heart-related](clinics) issues.
+
+    - I'm interested in [gynecology](clinics) clinic details.
+    - Can you provide me with information about the [gynecology](clinics) clinic?
+    - I want to learn about [gynecology](clinics) clinic specifics.
+    - Please share [gynecology](clinics) clinic details with me.
+    - Could you give me information on the [women's health](clinics) clinic?
+    - I'm looking for details about the clinic specializing in [female reproductive](clinics) health.
+    - Can you tell me more about the [gynecological](clinics) department?
+    - I'm curious about the specifics of the [women's wellness](clinics) center.
+    - Please provide me with information regarding the [gynecological](clinics) clinic.
+    - I'd like to know more about the clinic for [women's health](clinics).
+
+    - I'm interested in [mental](clinics) health clinic details.
+    - Can you provide me with information about the [mental](clinics) health clinic?
+    - I want to learn about [mental](clinics) health clinic specifics.
+    - Please share [mental](clinics) health clinic details with me.
+    - Could you give me information on the clinic that focuses on [psychological](clinics) well-being?
+    - I'm looking for details about the clinic specializing in [mental](clinics) wellness.
+    - Can you tell me more about the [psychiatric](clinics) ?
+    - I'm curious about the specifics of the [mental](clinics) health treatment center.
+    - Please provide me with information regarding the clinic for [psychological](clinics) care.
+    - I'd like to know more about the clinic that deals with [mental](clinics) health.
+
+    - I'm interested in [neurology](clinics) clinic details.
+    - Can you provide me with information about the [neurology](clinics) clinic?
+    - I want to learn about [neurology](clinics) clinic specifics.
+    - Please share [neurology](clinics) clinic details with me.
+    - Could you give me information on the clinic that specializes in [nervous](clinics) system disorders?
+    - I'm looking for details about the clinic focusing on [neurological](clinics) conditions.
+    - Can you tell me more about the [neurologic](clinics) department?
+    - I'm curious about the specifics of the [neurology](clinics) treatment center.
+    - Please provide me with information regarding the clinic for [nerve-related](clinics) disorders.
+    - I'd like to know more about the clinic that deals with [neurology](clinics).
+
+    - I'm interested in [pediatrics](clinics) clinic details.
+    - Can you provide me with information about the [pediatrics](clinics) clinic?
+    - I want to learn about [pediatrics](clinics) clinic specifics.
+    - Please share [pediatrics](clinics) clinic details with me.
+    - Could you give me information on the [children's](clinics) clinic?
+    - I'm looking for details about the clinic specializing in [pediatric](clinics) care.
+    - Can you tell me more about the [pediatric](clinics) department?
+    - I'm curious about the specifics of the [children's](clinics) medical center.
+    - Please provide me with information regarding the [pediatric](clinics) clinic.
+    - I'd like to know more about the clinic for [kids' health](clinics).
+
+    - I'm interested in [surgery](clinics) clinic details.
+    - Can you provide me with information about the [surgery](clinics) clinic?
+    - I want to learn about [surgery](clinics) clinic specifics.
+    - Please share [surgery](clinics) clinic details with me.
+    - Could you give me information on the clinic that specializes in [surgical](clinics) procedures?
+    - I'm looking for details about the clinic focusing on [surgical](clinics) interventions.
+    - Can you tell me more about the [surgical](clinics) department?
+    - I'm curious about the specifics of the [surgical](clinics) center.
+    - Please provide me with information regarding the clinic for [surgical](clinics) treatments.
+    - I'd like to know more about the clinic that deals with [surgery](clinics).
+
+
 - intent: doctor_details
   examples: |
     - i want to know the details of the doctor

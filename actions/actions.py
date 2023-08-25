@@ -89,8 +89,25 @@ class ActionGetDoctorName(Action):
         db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
         results = db.query("SELECT first_name FROM doctor WHERE first_name = 'Jennifer';")
         # developer_name = results[0]
-        results = str(results)
+        results = str(results[0])
         db.disconnect()
         
-        dispatcher.utter_message(text=results)
+        dispatcher.utter_message(text=results+"Just hardcorded value")
+        return[]
+    
+class ActionGetClinicDetails(Action):
+
+    def name(self) -> Text:
+        return "action_get_clinic_details"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+        results = db.query("SELECT last_name FROM doctor WHERE first_name = 'Jennifer';")
+        results = str(results[0])
+        db.disconnect()
+        
+        dispatcher.utter_message(text=results+"Just hardcorded value")
         return[]
