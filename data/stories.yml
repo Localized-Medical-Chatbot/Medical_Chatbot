@@ -1,6 +1,11 @@
 version: "3.1"
 
 stories:
+- story: doctor details demo
+  steps: 
+  - intent: doctor_details
+  - action: action_get_doctor_name
+  
 - story : hello world action demo
   steps:
   - intent: action_demo

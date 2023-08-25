@@ -1,6 +1,15 @@
 version: "3.1"
 
 nlu:
+
+- intent: doctor_details
+  examples: |
+    - i want to know the details of the doctor
+    - tell me about the doctor
+    - the name of the doctor
+    - what is the name of the doctor
+    - doctor details
+    
 - intent: action_demo
   examples: |
     - world
