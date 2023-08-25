@@ -103,11 +103,16 @@ class ActionGetClinicDetails(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
-        results = db.query("SELECT last_name FROM doctor WHERE first_name = 'Jennifer';")
-        results = str(results[0])
-        db.disconnect()
         
-        dispatcher.utter_message(text=results+"Just hardcorded value")
+        entities = tracker.latest_message['entities']
+        for e in entities:
+            if e["entity"]=='clinics':
+                clinic_name = e['value']
+                db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+                results = db.query(f"SELECT description FROM clinic WHERE name = '{clinic_name}';")
+                results = str(results[0])
+                dispatcher.utter_message(text=f"{clinic_name} \n"+results)
+                db.disconnect()
+            else:
+                dispatcher.utter_message(text="The clinic you specified is not recognized ") # message is not correct, for the logic
         return[]
