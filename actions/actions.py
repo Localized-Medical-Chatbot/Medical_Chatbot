@@ -60,8 +60,8 @@ class DatabaseConnection:
 # set your details here
 DATABASE_NAME = 'hospitaldb'
 USERNAME = 'root'
-PASSWORD = None # set your password 
-HOST = 'LOCALHOST'
+PASSWORD = 'GSsql2022' # set your password 
+HOST = 'localhost'
 
 
 class ActionHelloWorld(Action):
