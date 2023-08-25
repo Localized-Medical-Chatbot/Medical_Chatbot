@@ -1,2 +1,4 @@
 /models/
 /.rasa/
+activate.bat
+.gitignore
