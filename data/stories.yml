@@ -1,6 +1,10 @@
 version: "3.1"
 
 stories:
+- story : hello world action demo
+  steps:
+  - intent: action_demo
+  - action: action_hello_world
 
 - story: Booking Help Needed
   steps:
@@ -29,14 +33,6 @@ stories:
   - action: utter_confirmAppointment
   - intent: accept
   - action: utter_InformconfirmAppointment
-
-
-
-
-
-
-
-
 
 
 

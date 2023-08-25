@@ -1,6 +1,14 @@
 version: "3.1"
 
 nlu:
+- intent: action_demo
+  examples: |
+    - world
+    - world
+    - can you tell me about the world
+    - global things
+    - globally
+
 - intent: greet
   examples: |
     - hey

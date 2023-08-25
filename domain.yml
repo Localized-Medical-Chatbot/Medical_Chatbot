@@ -13,6 +13,10 @@ intents:
   - ChooseDoctor
   - ChooseDate
   - ChooseTime
+  - action_demo
+
+actions:
+  - action_hello_world
 
 responses:
 
