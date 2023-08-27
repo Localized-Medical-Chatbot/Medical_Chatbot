@@ -19,10 +19,30 @@ intents:
   - doctor_specialties
   - emergency_procedures
   - hospital_billing
+  - clinic_details
+  - doctor_details
 
+actions:
+- action_get_additional_clinic_details
+- utter_continue
+- action_get_clinic_details
+- utter_want_more_details
+- utter_greet
+- action_hello_world
+- action_get_doctor_name
 
 entities:
   - food
+  - clinics
+
+slots:
+  clinic_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: clinics
+      intent: clinic_details
 
 responses:
   utter_greet:
@@ -44,6 +64,9 @@ responses:
     \n We have best facilities in Sri Lanka. \
     \n We have best medical equipment in Sri Lanka. 
     \n We have best medical staff in Sri Lanka."
+
+  utter_want_more_details:
+    - text: do you want more details about the clinic?
 
   utter_parking_info:
     - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
