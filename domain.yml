@@ -8,62 +8,147 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - BookAppointment
-  - ChooseSpecialization
-  - ChooseDoctor
-  - ChooseDate
-  - ChooseTime
-  - action_demo
-  - doctor_details
-  - clinic_details
+  - about_hospital
+  - parking_info
+  - cafeteria_info
+  - contact_info
+  - medical_services
+  - ambulance_services
+  - appointment_booking
+  - visiting_hours
+  - doctor_specialties
+  - emergency_procedures
+  - hospital_billing
 
-actions:
-  - action_hello_world
-  - action_get_doctor_name
-  - action_get_clinic_details
+
+entities:
+  - food
 
 responses:
-
   utter_greet:
-  - text: "Hey! How can I help you?"
-
-  utter_bookingHelp:
-  - text: "Do you need special help to choose your problem ?"
-
-  utter_chooseSpecialization:
-  - text: "Specialization of the Doctor you need ?"
-
-  utter_chooseDoctor:
-  - text: "Who is the Doctor you need ?"
-
-  utter_chooseDate:
-  - text: "What is the date you need ?"
-
-  utter_chooseTime:
-  - text: "what is the time you need ?"
-
-  utter_confirmAppointment:
-  - text: "Do you want to confirm your Appointment"
-  
-  utter_InformconfirmAppointment:
-  - text: "Your Appoinment is confirmed"
+    - text: "Hey! How can I help you?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
+
+  utter_about_hospital:
+    - text: "We are Paira Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
+    \n We provide best service for you 
+    \n Our service time is 24 hours. 
+    \n You can come any time to our hospital. 
+    \n We have best doctors in Sri Lanka. 
+    \n We have best facilities in Sri Lanka. \
+    \n We have best medical equipment in Sri Lanka. 
+    \n We have best medical staff in Sri Lanka."
+
+  utter_parking_info:
+    - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
+  
+  utter_cafeteria_info:
+    - text: Absolutely! We have a cafeteria located on the ground floor near the main entrance. It offers a variety of delicious food options for patients, visitors, and staff.
+
+  utter_contact_info:
+    - text: "You can contact our hospital by calling our main phone number at 
+    \n 021 2227958 
+    \n 021 4532566
+    or email to us 
+    \n pariahospital@gmail.com
+    \n Our dedicated staff will be happy to assist you with any inquiries or information you may need."
+
+  utter_medical_services:
+    - text: "Our hospital offers a comprehensive range of medical services, including diagnostics, treatments, surgeries, and specialized care. Our expert medical team is here to ensure your well-being."
+
+  utter_ambulance_services:
+    - text: "Yes, we provide ambulance services for medical emergencies. If you require an ambulance, please call our emergency helpline at 1990. Our trained medical team will respond promptly to assist you."
+
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
+
+  utter_appointment_booking:
+    - text: "To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time."
+
+  utter_visiting_hours:
+    - text: "Our visiting hours for patients are from 8:00 AM to 8:00 PM. This allows visitors to spend quality time with their loved ones in the hospital."
+
+  utter_doctor_specialties:
+    - text: "We have a range of doctor specialties, such as cardiology, dermatology, gastroenterology, and more. Each specialization focuses on specific areas of medical expertise."
+
+  utter_emergency_procedures:
+    - text: "In a medical emergency, it's important to stay calm. Dial 1990 for immediate assistance. If needed, administer first aid and wait for medical professionals to arrive."
+
+  utter_hospital_billing:
+    - text: "Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available."
+
+
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # - ChooseSpecialization
+  # - ChooseDoctor
+  # - ChooseDate
+  # - ChooseTime
+  # - Ask_Medical_Info
+  # - Search_Symptoms
+  # - Ask_Hospital_Info
+  # - Hospital_active_time
+  # - booking_doctor
+  # - order_pizza
+  # - BookingAppointment
+######--------------------------------------########
+# utter_bookingHelp:
+#     - text: "Do you need special help to choose your problem ?"
+
+#   utter_chooseSpecialization:
+#     - text: "Specialization of the Doctor you need ?"
+
+#   utter_chooseDoctor:
+#     - text: "Who is the Doctor you need ?"
+
+#   utter_chooseDate:
+#     - text: "What is the date you need ?"
+
+#   utter_chooseTime:
+#     - text: "what is the time you need ?"
+
+#   utter_confirmAppointment:
+#     - text: "Do you want to confirm your Appointment"
+
+#   utter_InformconfirmAppointment:
+#     - text: "Your Appoinment is confirmed"
+
+#     utter_ask_hospital_info:
+#     - text: Sure you can ask!
+
+#   utter_hospital_active_time:
+#     - text: You can come any time to Hospital, because our hospital gives 24 hours service.
+
+#   # utter_ask_medical_info:
+#   #   - text: I'm here to provide medical information and answer your health-related questions. Just ask me anything!
+
+#   utter_search_symptoms:
+#     - text: Sure, I can help you with that. Please provide me with the specific symptoms you want to know about.

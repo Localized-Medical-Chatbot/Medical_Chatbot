@@ -1,57 +1,107 @@
 version: "3.1"
-  
+
 stories:
-- story: clinic details
-  steps: 
-  - intent: clinic_details
-  - action: action_get_clinic_details
+  - story: intro
+    steps:
+      - intent: greet/exit
+      - action: utter_greet
+      - intent: about_hospital
+      - action: utter_about_hospital
+  - story: Parking
+    steps:
+      - intent: parking_info
+      - action: utter_parking_info
+  - story: Cafeteria
+    steps:
+      - intent: cafeteria_info
+      - action: utter_cafeteria_info
+  - story: Contact
+    steps:
+      - intent: contact_info
+      - action: utter_contact_info
+  - story: Medical
+    steps:
+      - intent: medical_services
+      - action: utter_medical_services
+  - story: Ambulance
+    steps:
+      - intent: ambulance_services
+      - action: utter_ambulance_services
 
-- story: doctor details demo
-  steps: 
-  - intent: doctor_details
-  - action: action_get_doctor_name
-  
-- story : hello world action demo
-  steps:
-  - intent: action_demo
-  - action: action_hello_world
+  - story: Booking Method
+    steps:
+      - intent: appointment_booking
+      - action: utter_appointment_booking
 
-- story: Booking Help Needed
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: BookAppointment
-  - action: utter_bookingHelp
-  - intent: accept
-  - action: utter_bookingHelp
+  - story: Visiting Hours
+    steps:
+      - intent: visiting_hours
+      - action: utter_visiting_hours
 
-- story: Booking Help Not Needed
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: BookAppointment
-  - action: utter_bookingHelp
-  - intent: deny
-  - action: utter_chooseSpecialization
-  - intent: ChooseSpecialization
-  - action: utter_chooseDoctor
-  - intent: ChooseDoctor
-  - action: utter_chooseDate
-  - intent: ChooseDate
-  - action: utter_chooseTime
-  - intent: ChooseTime
-  - action: utter_confirmAppointment
-  - intent: accept
-  - action: utter_InformconfirmAppointment
+  - story: User wants to know about doctor specialties
+    steps:
+      - intent: doctor_specialties
+      - action: utter_doctor_specialties
 
+  - story: User inquires about emergency procedures
+    steps:
+      - intent: emergency_procedures
+      - action: utter_emergency_procedures
 
+  - story: User asks about hospital billing
+    steps:
+      - intent: hospital_billing
+      - action: utter_hospital_billing
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+# - story: Booking Help Needed
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: BookAppointment
+#     - action: utter_bookingHelp
+#     - intent: accept
+#     - action: utter_bookingHelp
+
+# - story: Booking Help Not Needed
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: booking_doctor
+#     - action: utter_chooseDoctor
+#     # - intent: BookAppointment
+#     # - action: utter_bookingHelp
+#     - intent: deny
+#     - action: utter_chooseSpecialization
+#     - intent: ChooseSpecialization
+#     - action: utter_chooseDoctor
+#     - intent: ChooseDoctor+
+#     - action: utter_chooseDate
+#     - intent: ChooseDate
+#     - action: utter_chooseTime
+#     - intent: ChooseTime
+#     - action: utter_confirmAppointment
+#     - intent: accept
+#     - action: utter_InformconfirmAppointment
+
+# # Hospital Common details
+# - story: Hospital Common Information
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: Ask_Hospital_Info
+#     - action: utter_ask_hospital_info
+#     - intent: Hospital_active_time
+#     - action: utter_hospital_active_time
+#     # - intent: Ask_Medical_Info
+#     # - action: utter_ask_medical_info
+#     # - intent: Search_Symptoms
+#     # - action: utter_search_symptoms
