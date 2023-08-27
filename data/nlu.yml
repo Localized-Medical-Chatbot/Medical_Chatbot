@@ -93,191 +93,191 @@ nlu:
     - the name of the doctor
     - what is the name of the doctor
     - doctor details
-  - intent: greet
-    examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-      - moin
-      - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
 
-  - intent: goodbye
-    examples: |
-      - cu
-      - good by
-      - cee you later
-      - good night
-      - bye
-      - goodbye
-      - have a nice day
-      - see you around
-      - bye bye
-      - see you later
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
 
-  - intent: accept
-    examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
+- intent: accept
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
 
-  - intent: deny
-    examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
 
-  - intent: mood_great
-    examples: |
-      - perfect
-      - great
-      - amazing
-      - feeling like a king
-      - wonderful
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - so perfect
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
 
-  - intent: mood_unhappy
-    examples: |
-      - my day was horrible
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-      - not very good
-      - extremly sad
-      - so saad
-      - so sad
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
 
-  - intent: bot_challenge
-    examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
 
-  - intent: about_hospital
-    examples: |
-      - tell me about the hospital
-      - what is the hospital
-      - what is the hospital's name
-      - what is the hospital's location
-      - what is the hospital's address
-      - what is the hospital's contact number
-      - Tell me about the hospital's services.
+- intent: about_hospital
+  examples: |
+    - tell me about the hospital
+    - what is the hospital
+    - what is the hospital's name
+    - what is the hospital's location
+    - what is the hospital's address
+    - what is the hospital's contact number
+    - Tell me about the hospital's services.
 
-  - intent: parking_info
-    examples: |
-      - Is there parking available at the hospital?
-      - Tell me about the hospital's parking facilities.
-      - What are the parking options for visitors?
-      - Can you provide information about hospital parking?
-      - Where can I park my vehicle at the hospital?
+- intent: parking_info
+  examples: |
+    - Is there parking available at the hospital?
+    - Tell me about the hospital's parking facilities.
+    - What are the parking options for visitors?
+    - Can you provide information about hospital parking?
+    - Where can I park my vehicle at the hospital?
 
-  - intent: cafeteria_info
-    examples: |
-      - Is there a cafeteria in the hospital?
-      - Tell me about the hospital's cafeteria.
-      - Can you provide information about food options at the hospital?
-      - What are the dining facilities available in the hospital?
-      - Where can I find something to eat within the hospital?
+- intent: cafeteria_info
+  examples: |
+    - Is there a cafeteria in the hospital?
+    - Tell me about the hospital's cafeteria.
+    - Can you provide information about food options at the hospital?
+    - What are the dining facilities available in the hospital?
+    - Where can I find something to eat within the hospital?
 
-  - intent: contact_info
-    examples: |
-      - How can I contact the hospital?
-      - Tell me the hospital's contact details.
-      - What is the hospital's phone number?
-      - Can you provide information about how to contact the hospital?
-      - How do I get in touch with the hospital's staff?
+- intent: contact_info
+  examples: |
+    - How can I contact the hospital?
+    - Tell me the hospital's contact details.
+    - What is the hospital's phone number?
+    - Can you provide information about how to contact the hospital?
+    - How do I get in touch with the hospital's staff?
 
-  - intent: medical_services
-    examples: |
-      - What medical services does the hospital provide?
-      - Tell me about the treatments available at the hospital.
-      - Can you list the healthcare services offered by the hospital?
-      - What types of medical care are available here?
-      - Explain the range of treatments and services at the hospital.
-      - Describe the specialties covered by the hospital's doctors.
-      - Give me an overview of the medical services provided.
+- intent: medical_services
+  examples: |
+    - What medical services does the hospital provide?
+    - Tell me about the treatments available at the hospital.
+    - Can you list the healthcare services offered by the hospital?
+    - What types of medical care are available here?
+    - Explain the range of treatments and services at the hospital.
+    - Describe the specialties covered by the hospital's doctors.
+    - Give me an overview of the medical services provided.
 
-  - intent: ambulance_services
-    examples: |
-      - Do you provide ambulance services?
-      - How can I request an ambulance?
-      - Is there an ambulance service available?
-      - Can you arrange for an ambulance?
-      - What's the process for calling an ambulance?
-      - Tell me about the hospital's ambulance services.
-      - How do I get an ambulance to the hospital?
+- intent: ambulance_services
+  examples: |
+    - Do you provide ambulance services?
+    - How can I request an ambulance?
+    - Is there an ambulance service available?
+    - Can you arrange for an ambulance?
+    - What's the process for calling an ambulance?
+    - Tell me about the hospital's ambulance services.
+    - How do I get an ambulance to the hospital?
 
-  - intent: appointment_booking
-    examples: |
-      - How can I book an appointment with a doctor?
-      - Tell me the process for scheduling a medical appointment.
-      - Can I make an appointment to see a specialist?
-      - What's the procedure to schedule a doctor's visit?
-      - Explain how to book a consultation with a physician.
-      - Give me information about appointment availability.
+- intent: appointment_booking
+  examples: |
+    - How can I book an appointment with a doctor?
+    - Tell me the process for scheduling a medical appointment.
+    - Can I make an appointment to see a specialist?
+    - What's the procedure to schedule a doctor's visit?
+    - Explain how to book a consultation with a physician.
+    - Give me information about appointment availability.
 
-  - intent: visiting_hours
-    examples: |
-      - What are the visiting hours for patients?
-      - When can I visit someone in the hospital?
-      - Tell me the visiting hours for Qs.
-      - Can you provide information about the hospital's visiting hours?
-      - What time can I visit a Q?
-      - When are the best times to visit patients?
-      - How late can I stay to visit someone in the hospital?
+- intent: visiting_hours
+  examples: |
+    - What are the visiting hours for patients?
+    - When can I visit someone in the hospital?
+    - Tell me the visiting hours for Qs.
+    - Can you provide information about the hospital's visiting hours?
+    - What time can I visit a Q?
+    - When are the best times to visit patients?
+    - How late can I stay to visit someone in the hospital?
 
-  - intent: doctor_specialties
-    examples: |
-      - What are the different types of doctors?
-      - Tell me about medical specialties.
-      - Explain various doctor specializations.
-      - Can you list different medical fields?
-      - Describe doctor roles and expertise.
+- intent: doctor_specialties
+  examples: |
+    - What are the different types of doctors?
+    - Tell me about medical specialties.
+    - Explain various doctor specializations.
+    - Can you list different medical fields?
+    - Describe doctor roles and expertise.
 
-  - intent: emergency_procedures
-    examples: |
-      - What should I do in a medical emergency?
-      - Tell me about emergency procedures.
-      - Explain how to respond to medical crises.
-      - What steps should I take during emergencies?
-      - Describe actions in case of urgent situations.
+- intent: emergency_procedures
+  examples: |
+    - What should I do in a medical emergency?
+    - Tell me about emergency procedures.
+    - Explain how to respond to medical crises.
+    - What steps should I take during emergencies?
+    - Describe actions in case of urgent situations.
 
-  - intent: hospital_billing
-    examples: |
-      - How does hospital billing work?
-      - Tell me about payment for medical services.
-      - Explain hospital charges and fees.
-      - What's the process for paying medical bills?
-      - Describe the billing and payment procedures.
+- intent: hospital_billing
+  examples: |
+    - How does hospital billing work?
+    - Tell me about payment for medical services.
+    - Explain hospital charges and fees.
+    - What's the process for paying medical bills?
+    - Describe the billing and payment procedures.
 
 
 - synonym: burn

@@ -68,6 +68,9 @@ responses:
   utter_want_more_details:
     - text: do you want more details about the clinic?
 
+  utter_continue:
+    - text: If you want to know anything please ask me.
+
   utter_parking_info:
     - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
   
