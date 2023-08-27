@@ -3,7 +3,7 @@ version: "3.1"
 stories:
   - story: intro
     steps:
-      - intent: greet/exit
+      - intent: greet
       - action: utter_greet
       - intent: about_hospital
       - action: utter_about_hospital
