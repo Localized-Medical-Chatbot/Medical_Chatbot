@@ -1,6 +1,45 @@
 version: "3.1"
 
 stories:
+
+- story: clinic details with additional info
+  steps: 
+  - intent: greet
+  - action: utter_greet
+  - intent: clinic_details
+    entities:
+      - clinics: cardiology
+  - slot_was_set:
+      - clinic_type : cardiology
+  - action: action_get_clinic_details
+  - action: utter_want_more_details
+  - intent: accept
+  - action: action_get_additional_clinic_details
+
+- story: clinic details with OUT additional info
+  steps: 
+  - intent: greet
+  - action: utter_greet
+  - intent: clinic_details
+    entities:
+      - clinics: cardiology
+  - slot_was_set:
+      - clinic_type : cardiology
+  - action: action_get_clinic_details
+  - action: utter_want_more_details
+  - intent: deny
+  - action: utter_continue
+
+- story: clinic details
+  steps: 
+  - intent: clinic_details
+  - action: action_get_clinic_details
+
+- story: doctor details demo
+  steps: 
+  - intent: doctor_details
+  - action: action_get_doctor_name
+  
   - story: intro
     steps:
       - intent: greet
