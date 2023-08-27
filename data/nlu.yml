@@ -1,6 +1,98 @@
 version: "3.1"
 
 nlu:
+- intent: clinic_details
+  examples: |
+    - I'm interested in clinic details.
+    - Can you provide me with information about clinics?
+    - I want to learn about clinic specifics.
+    - Please share clinic details with me.
+    - Could you give me information on clinics?
+    - I'm looking for details about clinics.
+    - Can you tell me more about clinics?
+    - I'm curious about the details of clinics.
+    - Please provide me with clinic-related information.
+    - I'd like to know more about clinics.
+    
+    - I'm interested in [burn clinic]{"entity": "clinics", "value": "burn"} details.
+    - Can you provide me with information about the [burn clinic]{"entity": "clinics", "value": "burn"}?
+    - I want to learn about [burn clinic]{"entity": "clinics", "value": "burn"} specifics.
+    - Please share [burn clinic]{"entity": "clinics", "value": "burn"} details with me.
+    - Could you give me information on the [burn clinic]{"entity": "clinics", "value": "burn"}?
+    - I'm looking for details about the clinic that specializes in [burn](clinics) cases.
+    - Can you tell me more about the clinic for [burn](clinics) patients?
+    - I'm curious about the specifics of the [burn](clinics) treatment center.
+    - Please provide me with information regarding the [burn care]{"entity": "clinics", "value": "burn"} facility.
+    - I'd like to know more about the clinic that deals with [burn](clinics) injuries.
+    - I'm interested in [cardiology](clinics) clinic details.
+    - Can you provide me with information about the [cardiology](clinics) clinic?
+    - I want to learn about [cardiology](clinics) clinic specifics.
+    - Please share [cardiology](clinics) clinic details with me.
+    - Could you give me information on the [heart clinic]{"entity": "clinics", "value": "cardiology"}?
+    - I'm looking for details about the clinic specializing in [heart]{"entity": "clinics", "value": "cardiology"} conditions.
+    - Can you tell me more about the [cardiology](clinics) department?
+    - I'm curious about the specifics of the [heart]{"entity": "clinics", "value": "cardiology"} care center.
+    - Please provide me with information regarding the [cardiac]{"entity": "clinics", "value": "cardiology"} clinic.
+    - I'd like to know more about the clinic for [heart-related]{"entity": "clinics", "value": "cardiology"} issues.
+    - I'm interested in [gynecology](clinics) clinic details.
+    - Can you provide me with information about the [gynecology](clinics) clinic?
+    - I want to learn about [gynecology](clinics) clinic specifics.
+    - Please share [gynecology](clinics) clinic details with me.
+    - Could you give me information on the [women's health]{"entity": "clinics", "value": "gynecology"} clinic?
+    - I'm looking for details about the clinic specializing in [female reproductive]{"entity": "clinics", "value": "gynecology"} health.
+    - Can you tell me more about the [gynecological]{"entity": "clinics", "value": "gynecology"} department?
+    - I'm curious about the specifics of the [women's wellness]{"entity": "clinics", "value": "gynecology"} center.
+    - Please provide me with information regarding the [gynecological]{"entity": "clinics", "value": "gynecology"} clinic.
+    - I'd like to know more about the clinic for [women's health]{"entity": "clinics", "value": "gynecology"}.
+    - I'm interested in [mental]{"entity": "clinics", "value": "psychology"} health clinic details.
+    - Can you provide me with information about the [mental]{"entity": "clinics", "value": "psychology"} health clinic?
+    - I want to learn about [mental]{"entity": "clinics", "value": "psychology"} health clinic specifics.
+    - Please share [mental]{"entity": "clinics", "value": "psychology"} health clinic details with me.
+    - Could you give me information on the clinic that focuses on [psychological]{"entity": "clinics", "value": "psychology"} well-being?
+    - I'm looking for details about the clinic specializing in [mental]{"entity": "clinics", "value": "psychology"} wellness.
+    - Can you tell me more about the [psychiatric]{"entity": "clinics", "value": "psychology"} ?
+    - I'm curious about the specifics of the [mental]{"entity": "clinics", "value": "psychology"} health treatment center.
+    - Please provide me with information regarding the clinic for [psychological]{"entity": "clinics", "value": "psychology"} care.
+    - I'd like to know more about the clinic that deals with [mental]{"entity": "clinics", "value": "psychology"} health.
+    - I'm interested in [neurology](clinics) clinic details.
+    - Can you provide me with information about the [neurology](clinics) clinic?
+    - I want to learn about [neurology](clinics) clinic specifics.
+    - Please share [neurology](clinics) clinic details with me.
+    - Could you give me information on the clinic that specializes in [nervous]{"entity": "clinics", "value": "neurology"} system disorders?
+    - I'm looking for details about the clinic focusing on [neurological]{"entity": "clinics", "value": "neurology"} conditions.
+    - Can you tell me more about the [neurologic]{"entity": "clinics", "value": "neurology"} department?
+    - I'm curious about the specifics of the [neurology](clinics) treatment center.
+    - Please provide me with information regarding the clinic for [nerve-related]{"entity": "clinics", "value": "neurology"} disorders.
+    - I'd like to know more about the clinic that deals with [neurology](clinics).
+    - I'm interested in [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details.
+    - Can you provide me with information about the [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic?
+    - I want to learn about [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic specifics.
+    - Please share [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details with me.
+    - Could you give me information on the [children's]{"entity": "clinics", "value": "pediatric"} clinic?
+    - I'm looking for details about the clinic specializing in [pediatric](clinics) care.
+    - Can you tell me more about the [pediatric](clinics) department?
+    - I'm curious about the specifics of the [children's]{"entity": "clinics", "value": "pediatric"} medical center.
+    - Please provide me with information regarding the [pediatric](clinics) clinic.
+    - I'd like to know more about the clinic for [kids' health]{"entity": "clinics", "value": "pediatric"}.
+    - I'm interested in [surgery](clinics) clinic details.
+    - Can you provide me with information about the [surgery](clinics) clinic?
+    - I want to learn about [surgery](clinics) clinic specifics.
+    - Please share [surgery](clinics) clinic details with me.
+    - Could you give me information on the clinic that specializes in [surgical]{"entity": "clinics", "value": "surgery"} procedures?
+    - I'm looking for details about the clinic focusing on [surgical]{"entity": "clinics", "value": "surgery"} interventions.
+    - Can you tell me more about the [surgical]{"entity": "clinics", "value": "surgery"} department?
+    - I'm curious about the specifics of the [surgical]{"entity": "clinics", "value": "surgery"} center.
+    - Please provide me with information regarding the clinic for [surgical]{"entity": "clinics", "value": "surgery"} treatments.
+    - I'd like to know more about the clinic that deals with [surgery](clinics).
+    - i want to know about [cardiology](clinics) clinic
+    - i want to know about [pediatric](clinics) clinic
+- intent: doctor_details
+  examples: |
+    - i want to know the details of the doctor
+    - tell me about the doctor
+    - the name of the doctor
+    - what is the name of the doctor
+    - doctor details
   - intent: greet
     examples: |
       - hey
@@ -186,6 +278,44 @@ nlu:
       - Explain hospital charges and fees.
       - What's the process for paying medical bills?
       - Describe the billing and payment procedures.
+
+
+- synonym: burn
+  examples: |
+    - burn clinic
+    - burn care
+- synonym: cardiology
+  examples: |
+    - heart clinic
+    - heart
+    - cardiac
+    - heart-related
+- synonym: gynecology
+  examples: |
+    - women's health
+    - female reproductive
+    - gynecological
+    - women's wellness
+- synonym: psychology
+  examples: |
+    - mental
+    - psychological
+    - psychiatric
+- synonym: neurology
+  examples: |
+    - nervous
+    - neurological
+    - neurologic
+    - nerve-related
+- synonym: pediatric
+  examples: |
+    - pediatrics
+    - children's
+    - kids' health
+- synonym: surgery
+  examples: |
+    - surgical
+
 
 # - intent: ChooseSpecialization
 #     examples: |
