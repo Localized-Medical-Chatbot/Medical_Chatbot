@@ -11,6 +11,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from datetime import timedelta, date
 
 import mysql.connector
 class DatabaseConnection:
@@ -104,15 +105,61 @@ class ActionGetClinicDetails(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        entities = tracker.latest_message['entities']
-        for e in entities:
-            if e["entity"]=='clinics':
-                clinic_name = e['value']
-                db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
-                results = db.query(f"SELECT description FROM clinic WHERE name = '{clinic_name}';")
-                results = str(results[0])
-                dispatcher.utter_message(text=f"{clinic_name} \n"+results)
-                db.disconnect()
+        clinic_type = tracker.get_slot("clinic_type")
+        if not clinic_type:
+            dispatcher.utter_message(text="Please provide the name of the clinic that you want to know more about.")
+        else:
+            clinic_types = ["pediatric","psychology","burn","cardiology","gynecology","neurology","surgery"]
+            if clinic_type not in clinic_types:
+                dispatcher.utter_message(text=f"We dont have clinic that you specified. we have {clinic_types}. please provide one of them as clinic type you want. ")
             else:
-                dispatcher.utter_message(text="The clinic you specified is not recognized ") # message is not correct, for the logic
+                db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+                results = db.query(f"SELECT description FROM clinic WHERE name = '{clinic_type}';")
+                response= f"Details of the {clinic_type} clinic\n\n"
+                db.disconnect()
+
+                for row in results:
+                    description = str(row[0])
+                    response = f"{response} {description} \n\n"
+
+                dispatcher.utter_message(text= response)
+        return[]
+
+
+class ActionGetAdditionalClinicDetails(Action):
+
+    def name(self) -> Text:
+        return "action_get_additional_clinic_details"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        clinic_type = tracker.get_slot("clinic_type")
+        if not clinic_type:
+            dispatcher.utter_message(text="Please provide the name of the clinic that you want to know more about.")
+        else:
+            clinic_types = ["pediatric","psychology","burn","cardiology","gynecology","neurology","surgery"]
+            if clinic_type not in clinic_types:
+                dispatcher.utter_message(text=f"We dont have clinic that you specified. we have {clinic_types}. please provide one of them as clinic type you want. ")
+            else:
+                db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+                results = db.query(f"SELECT start_time, end_time, date FROM schedule WHERE clinic_id = ( SELECT id FROM clinic WHERE name = '{clinic_type}');")
+                response= f"{clinic_type} Clinic: The schedule of the clinic is as follows.\n\n"
+                db.disconnect()
+
+                for row in results:
+                    start_time = timedelta(seconds=row[0].seconds)
+                    end_time = timedelta(seconds=row[1].seconds)
+                    date_value = row[2]
+
+                    start_time_str = str(start_time.seconds // 3600).zfill(2) + ':' + str((start_time.seconds // 60) % 60).zfill(2)
+                    end_time_str = str(end_time.seconds // 3600).zfill(2) + ':' + str((end_time.seconds // 60) % 60).zfill(2)
+                    date_str = date_value.strftime('%Y-%m-%d')
+
+                    response = f"{response} Start time: {start_time_str}\n End time: {end_time_str}\n Date:{date_str} \n\n"
+
+                dispatcher.utter_message(text= response)
+                
+
         return[]
