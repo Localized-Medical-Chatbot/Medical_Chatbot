@@ -1,106 +1,105 @@
 version: "3.1"
 
 stories:
+  - story: clinic details with additional info
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: clinic_details
+        entities:
+          - clinics: cardiology
+      - slot_was_set:
+          - clinic_type: cardiology
+      - action: action_get_clinic_details
+      - action: utter_want_more_details
+      - intent: accept
+      - action: action_get_additional_clinic_details
 
-- story: clinic details with additional info
-  steps: 
-  - intent: greet
-  - action: utter_greet
-  - intent: clinic_details
-    entities:
-      - clinics: cardiology
-  - slot_was_set:
-      - clinic_type : cardiology
-  - action: action_get_clinic_details
-  - action: utter_want_more_details
-  - intent: accept
-  - action: action_get_additional_clinic_details
+  - story: clinic details with OUT additional info
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: clinic_details
+        entities:
+          - clinics: cardiology
+      - slot_was_set:
+          - clinic_type: cardiology
+      - action: action_get_clinic_details
+      - action: utter_want_more_details
+      - intent: deny
+      - action: utter_continue
 
-- story: clinic details with OUT additional info
-  steps: 
-  - intent: greet
-  - action: utter_greet
-  - intent: clinic_details
-    entities:
-      - clinics: cardiology
-  - slot_was_set:
-      - clinic_type : cardiology
-  - action: action_get_clinic_details
-  - action: utter_want_more_details
-  - intent: deny
-  - action: utter_continue
+  - story: clinic details
+    steps:
+      - intent: clinic_details
+      - action: action_get_clinic_details
 
-- story: clinic details
-  steps: 
-  - intent: clinic_details
-  - action: action_get_clinic_details
+  - story: doctor details demo
+    steps:
+      - intent: doctor_details
+      - action: action_get_doctor_name
 
-- story: doctor details demo
-  steps: 
-  - intent: doctor_details
-  - action: action_get_doctor_name
-  
-- story: intro
-  steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: about_hospital
-    - action: utter_about_hospital
-- story: Parking
-  steps:
-    - intent: parking_info
-    - action: utter_parking_info
-- story: Cafeteria
-  steps:
-    - intent: cafeteria_info
-    - action: utter_cafeteria_info
-- story: Contact
-  steps:
-    - intent: contact_info
-    - action: utter_contact_info
-- story: Medical
-  steps:
-    - intent: medical_services
-    - action: utter_medical_services
-- story: Ambulance
-  steps:
-    - intent: ambulance_services
-    - action: utter_ambulance_services
+  - story: intro
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: about_hospital
+      - action: utter_about_hospital
+  - story: Parking
+    steps:
+      - intent: parking_info
+      - action: utter_parking_info
+  - story: Cafeteria
+    steps:
+      - intent: cafeteria_info
+      - action: utter_cafeteria_info
+  - story: Contact
+    steps:
+      - intent: contact_info
+      - action: utter_contact_info
+  - story: Medical
+    steps:
+      - intent: medical_services
+      - action: utter_medical_services
+  - story: Ambulance
+    steps:
+      - intent: ambulance_services
+      - action: utter_ambulance_services
 
-- story: Booking Method
-  steps:
-    - intent: appointment_booking
-    - action: utter_appointment_booking
+  - story: Booking Method
+    steps:
+      - intent: appointment_booking
+      - action: utter_appointment_booking
 
-- story: Visiting Hours
-  steps:
-    - intent: visiting_hours
-    - action: utter_visiting_hours
+  - story: Visiting Hours
+    steps:
+      - intent: visiting_hours
+      - action: utter_visiting_hours
 
-- story: User wants to know about doctor specialties
-  steps:
-    - intent: doctor_specialties
-    - action: utter_doctor_specialties
+  - story: User wants to know about doctor specialties
+    steps:
+      - intent: doctor_specialties
+      - action: utter_doctor_specialties
 
-- story: User inquires about emergency procedures
-  steps:
-    - intent: emergency_procedures
-    - action: utter_emergency_procedures
+  - story: User inquires about emergency procedures
+    steps:
+      - intent: emergency_procedures
+      - action: utter_emergency_procedures
 
-- story: User asks about hospital billing
-  steps:
-    - intent: hospital_billing
-    - action: utter_hospital_billing
+  - story: User asks about hospital billing
+    steps:
+      - intent: hospital_billing
+      - action: utter_hospital_billing
 
-- story: sad path 2
-  steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: mood_unhappy
-    - action: utter_cheer_up
-    - action: utter_did_that_help
-    - intent: deny
-    - action: utter_goodbye
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
 # - story: Booking Help Needed
 #   steps:
 #     - intent: greet
