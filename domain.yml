@@ -116,6 +116,8 @@ responses:
   utter_hospital_billing:
     - text: "Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available."
 
+  utter_out_domain:
+    - text: "I'm a MedicalChatbot I can't answer for this type of questions \n Sorry!"
 
 
 session_config:
