@@ -95,32 +95,20 @@ nlu:
       - doctor details
   - intent: greet
     examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-      - moin
-      - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
+      - සාදරයෙන් පිලිගන්නවා
+      - සුභ උදෑසනක්
+      - ආයුඛෝවන්
+      - හලෝ
+      - Hello
+      - Hi
 
   - intent: goodbye
     examples: |
-      - cu
-      - good by
-      - cee you later
-      - good night
-      - bye
-      - goodbye
-      - have a nice day
-      - see you around
-      - bye bye
-      - see you later
+      - ගිහිල්ලා එන්නම්
+      - සුභ දවසක්
+      - සුභ සන්ද්යාවක්
+      - බායි
+      - Bye
 
   - intent: accept
     examples: |
@@ -130,6 +118,12 @@ nlu:
       - of course
       - that sounds good
       - correct
+      - බොහොම ස්තුතියි
+      - ස්තුතියි
+      - ඔව්
+      - ඇත්ත වශයෙන්ම
+      - ඇත්ත වශයෙන්
+      - නිවැරදි
 
   - intent: deny
     examples: |
@@ -140,6 +134,12 @@ nlu:
       - don't like that
       - no way
       - not really
+      - නැත
+      - කවදාවත් නැත
+      - කොහෙත්ම නැහැ
+      - එසේ සිතන්න එපා
+      - ඇත්තෙන්ම නැහැ
+      - නැහැ
 
   - intent: mood_great
     examples: |
@@ -157,6 +157,11 @@ nlu:
       - so so perfect
       - so good
       - so perfect
+      - හොඳින්
+      - මම හොඳින් ඉන්නවා
+      - මම හොඳින්
+      - සුපිරියි
+      - සුපිරි
 
   - intent: mood_unhappy
     examples: |
@@ -174,6 +179,15 @@ nlu:
       - extremly sad
       - so saad
       - so sad
+      - මට දුකයි
+      - දුකයි
+      - මට එතරම් හොඳක් දැනෙන්නේ නැත
+      - මම කලකිරී සිටිමි
+      - හරිම දුකයි
+      - අසතුටුදායකයි
+      - හොඳ නැහැ
+      - ඉතා හොඳ නැත
+      - ගොඩාක් දුකයි
 
   - intent: bot_challenge
     examples: |
@@ -181,6 +195,11 @@ nlu:
       - are you a human?
       - am I talking to a bot?
       - am I talking to a human?
+      - ඔබ බොට් කෙනෙක්ද?
+      - ඔබ මනුෂ්‍යයෙක්ද?
+      - මනුස්සයෙක්ද?
+      - මම කතා කරන්නේ බොට් එකකටද?
+      - මම කතා කරන්නේ මිනිසෙකුටද?
 
   - intent: about_hospital
     examples: |

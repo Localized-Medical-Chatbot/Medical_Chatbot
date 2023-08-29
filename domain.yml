@@ -46,14 +46,14 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Hey! How can I help you?"
+    - text: "මම ඔබට සහය වන්නේ කෙසේද?"
 
   utter_cheer_up:
-    - text: "Here is something to cheer you up:"
+    - text: "මෙන්න ඔබව සතුටු කිරීමට යමක්"
       image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-    - text: "Did that help you?"
+    - text: "එය ඔබට උදව් කළාද?"
 
   utter_about_hospital:
     - text: "We are Paira Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
@@ -93,13 +93,13 @@ responses:
 
 
   utter_happy:
-    - text: "Great, carry on!"
+    - text: "නියමයි, කරගෙන යන්න!"
 
   utter_goodbye:
-    - text: "Bye"
+    - text: "බායි"
 
   utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
+    - text: "මම බොට් කෙනෙක් 🤖."
 
   utter_appointment_booking:
     - text: "To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time."
