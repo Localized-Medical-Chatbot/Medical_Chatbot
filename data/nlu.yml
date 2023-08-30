@@ -14,79 +14,79 @@ nlu:
       - කරුණාකර මට සායනයට අදාළ තොරතුරු ලබා දෙන්න.
       - මම සායන ගැන වැඩි විස්තර දැනගන්න කැමතියි.
 
-# - I'm interested in [burn clinic]{"entity": "clinics", "value": "burn"} details.
-# - Can you provide me with information about the [burn clinic]{"entity": "clinics", "value": "burn"}?
-# - I want to learn about [burn clinic]{"entity": "clinics", "value": "burn"} specifics.
-# - Please share [burn clinic]{"entity": "clinics", "value": "burn"} details with me.
-# - Could you give me information on the [burn clinic]{"entity": "clinics", "value": "burn"}?
-# - I'm looking for details about the clinic that specializes in [burn](clinics) cases.
-# - Can you tell me more about the clinic for [burn](clinics) patients?
-# - I'm curious about the specifics of the [burn](clinics) treatment center.
-# - Please provide me with information regarding the [burn care]{"entity": "clinics", "value": "burn"} facility.
-# - I'd like to know more about the clinic that deals with [burn](clinics) injuries.
-# - I'm interested in [cardiology](clinics) clinic details.
-# - Can you provide me with information about the [cardiology](clinics) clinic?
-# - I want to learn about [cardiology](clinics) clinic specifics.
-# - Please share [cardiology](clinics) clinic details with me.
-# - Could you give me information on the [heart clinic]{"entity": "clinics", "value": "cardiology"}?
-# - I'm looking for details about the clinic specializing in [heart]{"entity": "clinics", "value": "cardiology"} conditions.
-# - Can you tell me more about the [cardiology](clinics) department?
-# - I'm curious about the specifics of the [heart]{"entity": "clinics", "value": "cardiology"} care center.
-# - Please provide me with information regarding the [cardiac]{"entity": "clinics", "value": "cardiology"} clinic.
-# - I'd like to know more about the clinic for [heart-related]{"entity": "clinics", "value": "cardiology"} issues.
-# - I'm interested in [gynecology](clinics) clinic details.
-# - Can you provide me with information about the [gynecology](clinics) clinic?
-# - I want to learn about [gynecology](clinics) clinic specifics.
-# - Please share [gynecology](clinics) clinic details with me.
-# - Could you give me information on the [women's health]{"entity": "clinics", "value": "gynecology"} clinic?
-# - I'm looking for details about the clinic specializing in [female reproductive]{"entity": "clinics", "value": "gynecology"} health.
-# - Can you tell me more about the [gynecological]{"entity": "clinics", "value": "gynecology"} department?
-# - I'm curious about the specifics of the [women's wellness]{"entity": "clinics", "value": "gynecology"} center.
-# - Please provide me with information regarding the [gynecological]{"entity": "clinics", "value": "gynecology"} clinic.
-# - I'd like to know more about the clinic for [women's health]{"entity": "clinics", "value": "gynecology"}.
-# - I'm interested in [mental]{"entity": "clinics", "value": "psychology"} health clinic details.
-# - Can you provide me with information about the [mental]{"entity": "clinics", "value": "psychology"} health clinic?
-# - I want to learn about [mental]{"entity": "clinics", "value": "psychology"} health clinic specifics.
-# - Please share [mental]{"entity": "clinics", "value": "psychology"} health clinic details with me.
-# - Could you give me information on the clinic that focuses on [psychological]{"entity": "clinics", "value": "psychology"} well-being?
-# - I'm looking for details about the clinic specializing in [mental]{"entity": "clinics", "value": "psychology"} wellness.
-# - Can you tell me more about the [psychiatric]{"entity": "clinics", "value": "psychology"} ?
-# - I'm curious about the specifics of the [mental]{"entity": "clinics", "value": "psychology"} health treatment center.
-# - Please provide me with information regarding the clinic for [psychological]{"entity": "clinics", "value": "psychology"} care.
-# - I'd like to know more about the clinic that deals with [mental]{"entity": "clinics", "value": "psychology"} health.
-# - I'm interested in [neurology](clinics) clinic details.
-# - Can you provide me with information about the [neurology](clinics) clinic?
-# - I want to learn about [neurology](clinics) clinic specifics.
-# - Please share [neurology](clinics) clinic details with me.
-# - Could you give me information on the clinic that specializes in [nervous]{"entity": "clinics", "value": "neurology"} system disorders?
-# - I'm looking for details about the clinic focusing on [neurological]{"entity": "clinics", "value": "neurology"} conditions.
-# - Can you tell me more about the [neurologic]{"entity": "clinics", "value": "neurology"} department?
-# - I'm curious about the specifics of the [neurology](clinics) treatment center.
-# - Please provide me with information regarding the clinic for [nerve-related]{"entity": "clinics", "value": "neurology"} disorders.
-# - I'd like to know more about the clinic that deals with [neurology](clinics).
-# - I'm interested in [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details.
-# - Can you provide me with information about the [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic?
-# - I want to learn about [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic specifics.
-# - Please share [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details with me.
-# - Could you give me information on the [children's]{"entity": "clinics", "value": "pediatric"} clinic?
-# - I'm looking for details about the clinic specializing in [pediatric](clinics) care.
-# - Can you tell me more about the [pediatric](clinics) department?
-# - I'm curious about the specifics of the [children's]{"entity": "clinics", "value": "pediatric"} medical center.
-# - Please provide me with information regarding the [pediatric](clinics) clinic.
-# - I'd like to know more about the clinic for [kids' health]{"entity": "clinics", "value": "pediatric"}.
-# - I'm interested in [surgery](clinics) clinic details.
-# - Can you provide me with information about the [surgery](clinics) clinic?
-# - I want to learn about [surgery](clinics) clinic specifics.
-# - Please share [surgery](clinics) clinic details with me.
-# - Could you give me information on the clinic that specializes in [surgical]{"entity": "clinics", "value": "surgery"} procedures?
-# - I'm looking for details about the clinic focusing on [surgical]{"entity": "clinics", "value": "surgery"} interventions.
-# - Can you tell me more about the [surgical]{"entity": "clinics", "value": "surgery"} department?
-# - I'm curious about the specifics of the [surgical]{"entity": "clinics", "value": "surgery"} center.
-# - Please provide me with information regarding the clinic for [surgical]{"entity": "clinics", "value": "surgery"} treatments.
-# - I'd like to know more about the clinic that deals with [surgery](clinics).
-# - i want to know about [cardiology](clinics) clinic
-# - i want to know about [pediatric](clinics) clinic
-  
+  # - I'm interested in [burn clinic]{"entity": "clinics", "value": "burn"} details.
+  # - Can you provide me with information about the [burn clinic]{"entity": "clinics", "value": "burn"}?
+  # - I want to learn about [burn clinic]{"entity": "clinics", "value": "burn"} specifics.
+  # - Please share [burn clinic]{"entity": "clinics", "value": "burn"} details with me.
+  # - Could you give me information on the [burn clinic]{"entity": "clinics", "value": "burn"}?
+  # - I'm looking for details about the clinic that specializes in [burn](clinics) cases.
+  # - Can you tell me more about the clinic for [burn](clinics) patients?
+  # - I'm curious about the specifics of the [burn](clinics) treatment center.
+  # - Please provide me with information regarding the [burn care]{"entity": "clinics", "value": "burn"} facility.
+  # - I'd like to know more about the clinic that deals with [burn](clinics) injuries.
+  # - I'm interested in [cardiology](clinics) clinic details.
+  # - Can you provide me with information about the [cardiology](clinics) clinic?
+  # - I want to learn about [cardiology](clinics) clinic specifics.
+  # - Please share [cardiology](clinics) clinic details with me.
+  # - Could you give me information on the [heart clinic]{"entity": "clinics", "value": "cardiology"}?
+  # - I'm looking for details about the clinic specializing in [heart]{"entity": "clinics", "value": "cardiology"} conditions.
+  # - Can you tell me more about the [cardiology](clinics) department?
+  # - I'm curious about the specifics of the [heart]{"entity": "clinics", "value": "cardiology"} care center.
+  # - Please provide me with information regarding the [cardiac]{"entity": "clinics", "value": "cardiology"} clinic.
+  # - I'd like to know more about the clinic for [heart-related]{"entity": "clinics", "value": "cardiology"} issues.
+  # - I'm interested in [gynecology](clinics) clinic details.
+  # - Can you provide me with information about the [gynecology](clinics) clinic?
+  # - I want to learn about [gynecology](clinics) clinic specifics.
+  # - Please share [gynecology](clinics) clinic details with me.
+  # - Could you give me information on the [women's health]{"entity": "clinics", "value": "gynecology"} clinic?
+  # - I'm looking for details about the clinic specializing in [female reproductive]{"entity": "clinics", "value": "gynecology"} health.
+  # - Can you tell me more about the [gynecological]{"entity": "clinics", "value": "gynecology"} department?
+  # - I'm curious about the specifics of the [women's wellness]{"entity": "clinics", "value": "gynecology"} center.
+  # - Please provide me with information regarding the [gynecological]{"entity": "clinics", "value": "gynecology"} clinic.
+  # - I'd like to know more about the clinic for [women's health]{"entity": "clinics", "value": "gynecology"}.
+  # - I'm interested in [mental]{"entity": "clinics", "value": "psychology"} health clinic details.
+  # - Can you provide me with information about the [mental]{"entity": "clinics", "value": "psychology"} health clinic?
+  # - I want to learn about [mental]{"entity": "clinics", "value": "psychology"} health clinic specifics.
+  # - Please share [mental]{"entity": "clinics", "value": "psychology"} health clinic details with me.
+  # - Could you give me information on the clinic that focuses on [psychological]{"entity": "clinics", "value": "psychology"} well-being?
+  # - I'm looking for details about the clinic specializing in [mental]{"entity": "clinics", "value": "psychology"} wellness.
+  # - Can you tell me more about the [psychiatric]{"entity": "clinics", "value": "psychology"} ?
+  # - I'm curious about the specifics of the [mental]{"entity": "clinics", "value": "psychology"} health treatment center.
+  # - Please provide me with information regarding the clinic for [psychological]{"entity": "clinics", "value": "psychology"} care.
+  # - I'd like to know more about the clinic that deals with [mental]{"entity": "clinics", "value": "psychology"} health.
+  # - I'm interested in [neurology](clinics) clinic details.
+  # - Can you provide me with information about the [neurology](clinics) clinic?
+  # - I want to learn about [neurology](clinics) clinic specifics.
+  # - Please share [neurology](clinics) clinic details with me.
+  # - Could you give me information on the clinic that specializes in [nervous]{"entity": "clinics", "value": "neurology"} system disorders?
+  # - I'm looking for details about the clinic focusing on [neurological]{"entity": "clinics", "value": "neurology"} conditions.
+  # - Can you tell me more about the [neurologic]{"entity": "clinics", "value": "neurology"} department?
+  # - I'm curious about the specifics of the [neurology](clinics) treatment center.
+  # - Please provide me with information regarding the clinic for [nerve-related]{"entity": "clinics", "value": "neurology"} disorders.
+  # - I'd like to know more about the clinic that deals with [neurology](clinics).
+  # - I'm interested in [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details.
+  # - Can you provide me with information about the [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic?
+  # - I want to learn about [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic specifics.
+  # - Please share [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details with me.
+  # - Could you give me information on the [children's]{"entity": "clinics", "value": "pediatric"} clinic?
+  # - I'm looking for details about the clinic specializing in [pediatric](clinics) care.
+  # - Can you tell me more about the [pediatric](clinics) department?
+  # - I'm curious about the specifics of the [children's]{"entity": "clinics", "value": "pediatric"} medical center.
+  # - Please provide me with information regarding the [pediatric](clinics) clinic.
+  # - I'd like to know more about the clinic for [kids' health]{"entity": "clinics", "value": "pediatric"}.
+  # - I'm interested in [surgery](clinics) clinic details.
+  # - Can you provide me with information about the [surgery](clinics) clinic?
+  # - I want to learn about [surgery](clinics) clinic specifics.
+  # - Please share [surgery](clinics) clinic details with me.
+  # - Could you give me information on the clinic that specializes in [surgical]{"entity": "clinics", "value": "surgery"} procedures?
+  # - I'm looking for details about the clinic focusing on [surgical]{"entity": "clinics", "value": "surgery"} interventions.
+  # - Can you tell me more about the [surgical]{"entity": "clinics", "value": "surgery"} department?
+  # - I'm curious about the specifics of the [surgical]{"entity": "clinics", "value": "surgery"} center.
+  # - Please provide me with information regarding the clinic for [surgical]{"entity": "clinics", "value": "surgery"} treatments.
+  # - I'd like to know more about the clinic that deals with [surgery](clinics).
+  # - i want to know about [cardiology](clinics) clinic
+  # - i want to know about [pediatric](clinics) clinic
+
   - intent: doctor_details
     examples: |
       - මට වෛද්‍යවරයාගේ විස්තර දැන ගැනීමට අවශ්‍යයි
@@ -167,6 +167,7 @@ nlu:
   - intent: about_hospital
     examples: |
       - මට රෝහල ගැන කියන්න
+      - රෝහල් විස්තර පිලිබදව කියන්න
       - රෝහල කුමක්ද ?
       - රෝහලේ නම කුමක්ද ?
       - රෝහල පිහිටා ඇති ස්ථානය කුමක්ද?
@@ -177,6 +178,7 @@ nlu:
   - intent: parking_info
     examples: |
       - රෝහලේ වාහන නැවැත්වීමේ පහසුකම් තිබේද?
+      - වාහන නැවැත්වීමේ පහසුකම් පිලිබදව
       - රෝහලේ වාහන නැවැත්වීමේ පහසුකම් ගැන මට කියන්න.
       - අමුත්තන් සඳහා වාහන නැවැත්වීමේ විකල්ප මොනවාද?
       - ඔබට රෝහල් වාහන නැවැත්වීම පිළිබඳ තොරතුරු ලබා දිය හැකිද?
@@ -184,6 +186,7 @@ nlu:
 
   - intent: cafeteria_info
     examples: |
+      - ආපනශාලා පිලිබදව
       - රෝහලේ ආපන ශාලාවක් තිබේද?
       - රෝහලේ ආපනශාලාව ගැන මට කියන්න.
       - ඔබට රෝහලේ ආහාර විකල්ප පිළිබඳ තොරතුරු ලබා දිය හැකිද?
@@ -193,6 +196,7 @@ nlu:
   - intent: contact_info
     examples: |
       - මට රෝහල සම්බන්ධ කර ගත හැක්කේ කෙසේද?
+      - රෝහල සම්බන්ද කරගැනීම පිලිබදව
       - රෝහලේ සම්බන්ධතා විස්තර මට කියන්න
       - රෝහලේ දුරකථන අංකය කුමක්ද?
       - රෝහල සම්බන්ධ කර ගන්නේ කෙසේද යන්න පිළිබඳ තොරතුරු ලබා දිය හැකිද?
@@ -201,6 +205,7 @@ nlu:
   - intent: medical_services
     examples: |
       - රෝහල සපයන වෛද්ය සේවාවන් මොනවාද?
+      - රෝහල සපයන වෛද්‍ය සේවා පිලිබදව
       - රෝහලේ තිබෙන ප්‍රතිකාර ගැන කියන්න
       - ඔබට රෝහලෙන් පිරිනමන සෞඛ්‍ය සේවා ලැයිස්තුගත කළ හැකිද?
       - මෙහි ඇති වෛද්‍ය ප්‍රතිකාර වර්ග මොනවාද?
@@ -213,6 +218,7 @@ nlu:
       - ඔබ ගිලන් රථ සේවා සපයනවාද?
       - ගිලන් රථයක් ඉල්ලා සිටිය හැක්කේ කෙසේද?
       - ගිලන් රථ සේවාවක් තිබේද?
+      - ගිලන් රථ සේවා පිලිබදව
       - ඔබට ගිලන් රථයක් සූදානම් කළ හැකිද?
       - ගිලන් රථයක් ඇමතීමේ ක්‍රියාවලිය කුමක්ද?
       - රෝහලේ ගිලන් රථ සේවා ගැන මට කියන්න
@@ -221,6 +227,7 @@ nlu:
   - intent: appointment_booking
     examples: |
       - වෛද්‍යවරයෙකු සමඟ හමුවීමක් වෙන්කරවා ගත හැක්කේ කෙසේද?
+      - වෛද්‍යවරයෙකු සමග හමුවීමක් වෙන්කරවාගැනීම පිලිබදව
       - වෛද්‍ය හමුවීමක් උපලේඛනගත කිරීමේ ක්‍රියාවලිය මට කියන්න
       - විශේෂඥයෙකු හමුවීමට මට හමුවීමක් කළ හැකිද?
       - වෛද්‍යවරයෙකුගේ පැමිණීම සැලසුම් කිරීමේ ක්‍රියා පටිපාටිය කුමක්ද?
@@ -230,6 +237,7 @@ nlu:
   - intent: visiting_hours
     examples: |
       - රෝගීන් බැලීම සඳහා පැමිණෙන වේලාවන් මොනවාද?
+      - රෝගීන් බැලීම සඳහා පැමිණෙන වේලාවන් පිලිබදව
       - රෝගීන් බැලීම සඳහා පැමිණිය හැකි වේලාවන් මොනවාද?
       - මට රෝහලේ සිටින කෙනෙකු බැලීමට හැක්කේ කවදාද?
       - රෝගීන් බැලීම සඳහා පැමිණෙන වේලාවන් මට කියන්න.
@@ -241,6 +249,7 @@ nlu:
     examples: |
       - විවිධ වර්ගයේ වෛද්‍යවරුන් කවුරුන්ද?
       - වෛද්‍යවරුන්ගේ විශේෂඥතා මොනවාද?
+      - වෛද්‍යවරුන්ගේ විශේෂඥතා පිලිබදව
       - වෛද්‍ය විශේෂඥතා ගැන මට කියන්න
       - විවිධ වෛද්‍ය විශේෂඥතා පැහැදිලි කරන්න
       - ඔබට විවිධ වෛද්‍ය විශේෂඥතා ක්ෂේත්‍ර ලැයිස්තුගත කළ හැකිය
@@ -249,6 +258,7 @@ nlu:
   - intent: emergency_procedures
     examples: |
       - හදිසි වෛද්‍ය අවස්ථාවක මා කළ යුත්තේ කුමක්ද?
+      - හදිසි අවස්ථාවක ඔබ කටයුතු කලයුතු ආකාරය පිලිබදව
       - හදිසි ක්‍රියා පටිපාටි ගැන මට කියන්න.
       - වෛද්‍ය අර්බුදවලට ප්‍රතිචාර දක්වන්නේ කෙසේද යන්න පැහැදිලි කරන්න.
       - හදිසි අවස්ථා වලදී මා ගත යුතු පියවර මොනවාද?
@@ -257,6 +267,7 @@ nlu:
   - intent: hospital_billing
     examples: |
       - රෝහල් බිල්පත් වැඩ කරන්නේ කෙසේද?
+      - රෝහල් බිල්පත් පිලිබදව
       - වෛද්‍ය සේවා සඳහා ගෙවීම ගැන මට කියන්න.
       - රෝහල් ගාස්තු සහ ගාස්තු පැහැදිලි කරන්න.
       - වෛද්‍ය බිල්පත් ගෙවීමේ ක්‍රියාවලිය කුමක්ද?
@@ -266,28 +277,44 @@ nlu:
     examples: |
       - පිළිස්සුම් සායනය
       - පිළිස්සුම් රැකවරණය
+      - පිලිසුම්
+      - පිලිස්සුම්
   - synonym: cardiology
     examples: |
       - හෘද සායනය
       - හදවත
       - හෘද රෝග
       - හදවතට සම්බන්ධ
+      - හදවතේ රෝග
+      - හදවතේ සිදුරක්
+      - හදවතේ හිලක්
+      - හදවත පසාරු වෙලා
+
   - synonym: gynecology
     examples: |
       - කාන්තා සෞඛ්‍යය
       - කාන්තා ප්‍රජනක
       - නාරිවේදය
       - කාන්තා යහපැවැත්ම
+      - කාන්තා ලිංගික
+      - කාන්තා ලිංග
+      - ස්ත්‍රී
+      - ස්තී ලිංග
   - synonym: psychology
     examples: |
       - මානසික
       - මනෝ විද්‍යාත්මක
       - මනෝ චිකිත්සක
+      - මානසික අසහනය
+      - මානසික ව්‍යාධි
+      - මනස අවුල්
+
   - synonym: neurology
     examples: |
       - ස්නායු
       - ස්නායු රෝග
       - ස්නායු සම්බන්ධ
+      - ස්නායු ප්‍රශ්න
   - synonym: pediatric
     examples: |
       - ළමා රෝග
@@ -306,8 +333,6 @@ nlu:
       - කාලගුණ අනාවැකිය කියන්න පුලුවන්ද?
       - පිටත කාලගුණය කොහොමද?
       - වේලාව කීය ද?
-
-
 
 # - Do you know the time?
 # - Tell me a joke
