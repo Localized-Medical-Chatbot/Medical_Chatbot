@@ -107,7 +107,7 @@ class ActionGetClinicDetails(Action):
         
         clinic_type = tracker.get_slot("clinic_type")
         if not clinic_type:
-            dispatcher.utter_message(text="Please provide the name of the clinic that you want to know more about.")
+            dispatcher.utter_message(text="ඔබට වැඩිදුර දැන ගැනීමට අවශ්‍ය සායනයේ නම ලබා දෙන්න.")
         else:
             clinic_types = ["pediatric","psychology","burn","cardiology","gynecology","neurology","surgery"]
             if clinic_type not in clinic_types:
@@ -137,7 +137,7 @@ class ActionGetAdditionalClinicDetails(Action):
         
         clinic_type = tracker.get_slot("clinic_type")
         if not clinic_type:
-            dispatcher.utter_message(text="Please provide the name of the clinic that you want to know more about.")
+            dispatcher.utter_message(text="ඔබට වැඩිදුර දැන ගැනීමට අවශ්‍ය සායනයේ නම ලබා දෙන්න.")
         else:
             clinic_types = ["pediatric","psychology","burn","cardiology","gynecology","neurology","surgery"]
             if clinic_type not in clinic_types:

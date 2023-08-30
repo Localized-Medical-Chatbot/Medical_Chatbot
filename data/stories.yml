@@ -97,9 +97,28 @@ stories:
       - action: utter_greet
       - intent: mood_unhappy
       - action: utter_cheer_up
-      - action: utter_did_that_help
       - intent: deny
       - action: utter_goodbye
+
+
+# stories:
+# - story: Making Happy Path
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: mood_unhappy
+#     - action: utter_cheer_up
+#     - intent: accept
+#     - action: utter_happy
+
+# - story: Making Not Happy Path
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: mood_unhappy
+#     - action: utter_cheer_up
+#     - intent: deny
+#     - action: utter_goodbye
 # - story: Booking Help Needed
 #   steps:
 #     - intent: greet
