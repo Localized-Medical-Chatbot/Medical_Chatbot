@@ -108,7 +108,8 @@ nlu:
       - goodmorning
       - goodevening
       - good afternoon
-      - again
+      - home
+      - go to home
 
   - intent: goodbye
     examples: |
@@ -190,8 +191,9 @@ nlu:
       - what is the hospital's name
       - what is the hospital's location
       - what is the hospital's address
-      - what is the hospital's contact number
-      - Tell me about the hospital's services.
+      - hospital details
+      - hospital info
+      - give me hospital details
 
   - intent: parking_info
     examples: |
@@ -216,6 +218,8 @@ nlu:
       - What is the hospital's phone number?
       - Can you provide information about how to contact the hospital?
       - How do I get in touch with the hospital's staff?
+      - hospital contact number.
+      - hospital contact info
 
   - intent: medical_services
     examples: |

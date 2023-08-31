@@ -114,6 +114,8 @@ responses:
           payload: "/emergency_procedures"
         - title: "About Hospital Billings"
           payload: "/hospital_billing"
+        - title: "Home"
+          payload: "/greet"
 
   utter_want_more_details:
     - text: do you want more details about the clinic?
@@ -133,6 +135,8 @@ responses:
           payload: "/pediatric"
         - title: "Surgery"
           payload: "/surgery"
+        - title: "Home"
+          payload: "/greet"
        
 
   utter_continue:
@@ -165,6 +169,8 @@ responses:
           payload: "/emergency_procedures"
         - title: "About Hospital Billings"
           payload: "/hospital_billing"
+        - title: "Home"
+          payload: "/greet"
 
   utter_parking_info:
     - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
@@ -180,6 +186,8 @@ responses:
         
         - title: "About Patient visiting hours"
           payload: "/visiting_hours"
+        - title: "Home"
+          payload: "/greet"
         
 
   utter_cafeteria_info:
@@ -194,6 +202,8 @@ responses:
           payload: "/cafeteria_info"
         - title: "About Patient visiting hours"
           payload: "/visiting_hours"
+        - title: "Home"
+          payload: "/greet"
       
 
   utter_contact_info:
@@ -205,10 +215,7 @@ responses:
     \n Our dedicated staff will be happy to assist you with any inquiries or information you may need."
       buttons:
 
-        - title: "About Hospital Details?"
-          payload: "/about_hospital"
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
+        
         - title: "Services Provided from the Hospital"
           payload: "/medical_services"
         - title: "How to Book an Appointment with a Doctor"
@@ -225,6 +232,8 @@ responses:
           payload: "/visiting_hours"
         - title: "About Hospital Billings"
           payload: "/hospital_billing"
+        - title: "Home"
+          payload: "/greet"
   
   utter_medical_services:
     - text: "Our hospital offers a comprehensive range of medical services, including diagnostics, treatments, surgeries, and specialized care. Our expert medical team is here to ensure your well-being."
@@ -241,6 +250,8 @@ responses:
           payload: "/doctor_specialties" 
         - title: "Details about the clinic"
           payload: "clinic_details"
+        - title: "Home"
+          payload: "/greet"
   
   utter_ambulance_services:
     - text: "Yes, we provide ambulance services for medical emergencies. If you require an ambulance, please call our emergency helpline at 1990. Our trained medical team will respond promptly to assist you."
@@ -259,6 +270,8 @@ responses:
           payload: "/emergency_procedures"
         - title: "About Hospital Billings"
           payload: "/hospital_billing"
+        - title: "Home"
+          payload: "/greet"
 
   utter_happy:
     - text: "Great, carry on!"
@@ -267,7 +280,7 @@ responses:
     - text: "Bye"
 
   utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
+    - text: "I am a Hospital Bot, Who is here to help you."
 
   utter_appointment_booking:
     - text: "To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time."
@@ -276,9 +289,9 @@ responses:
         - title: "Details about the doctor"
           payload: "/doctor_details" 
         - title: "Types of Doctors"
-          payload: "/doctor_specialties" 
-        - title: "Details about the clinic"
-          payload: "clinic_details"
+          payload: "/doctor_specialties"
+        - title: "Home"
+          payload: "/greet" 
   
   utter_visiting_hours:
     - text: "Our visiting hours for patients are from 8:00 AM to 8:00 PM. This allows visitors to spend quality time with their loved ones in the hospital."
@@ -294,6 +307,8 @@ responses:
           payload: "/parking_info"
         - title: "About Cafeteria Details"
           payload: "/cafeteria_info"
+        - title: "Home"
+          payload: "/greet"
 
         
   utter_doctor_specialties:
@@ -314,6 +329,8 @@ responses:
           payload: "/pediatric"
         - title: "Surgery"
           payload: "/surgery"
+        - title: "Home"
+          payload: "/greet"
   utter_emergency_procedures:
     - text: "In a medical emergency, it's important to stay calm. Dial 1990 for immediate assistance. If needed, administer first aid and wait for medical professionals to arrive."
       buttons:
@@ -338,6 +355,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   utter_hospital_billing:
     - text: "Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available."
@@ -351,6 +370,8 @@ responses:
           payload: "/medical_services"
         - title: "How to Book an Appointment with a Doctor"
           payload: "/appointment_booking"
+        - title: "Home"
+          payload: "/greet"
         
         
         
@@ -384,6 +405,8 @@ responses:
           payload: "/emergency_procedures"
         - title: "About Hospital Billings"
           payload: "/hospital_billing"
+        - title: "Home"
+          payload: "/greet"
 
   utter_user_first_aid_burn:
     - text: "I'm not a medical professional, but for a minor burn, you can run cool water over the affected area for about 10 minutes and cover it with a clean, non-stick bandage."
@@ -409,6 +432,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -436,6 +461,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -464,6 +491,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -492,6 +521,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -520,6 +551,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -548,6 +581,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -575,6 +610,9 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
+        
 
   
   
@@ -602,7 +640,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
-
+        - title: "Home"
+          payload: "/greet"
   
   
   utter_ask_first_aid_allergic_reaction:
@@ -629,7 +668,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
-
+        - title: "Home"
+          payload: "/greet"
   
   
   utter_ask_first_aid_eye_injury:
@@ -656,6 +696,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
   
   
@@ -683,6 +725,8 @@ responses:
           payload: "/user_first_aid_eye_injury"
         - title: "when someone fainted"
           payload: "/user_first_aid_fainting"
+        - title: "Home"
+          payload: "/greet"
 
 
 
