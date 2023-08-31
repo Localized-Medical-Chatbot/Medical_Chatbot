@@ -108,6 +108,7 @@ nlu:
       - goodmorning
       - goodevening
       - good afternoon
+      - again
 
   - intent: goodbye
     examples: |
@@ -244,6 +245,8 @@ nlu:
       - What's the procedure to schedule a doctor's visit?
       - Explain how to book a consultation with a physician.
       - Give me information about appointment availability.
+      - i need to make a booking.
+      - how can I make a booking.
 
   - intent: visiting_hours
     examples: |
@@ -279,6 +282,90 @@ nlu:
       - What's the process for paying medical bills?
       - Describe the billing and payment procedures.
 
+  - intent: user_first_aid_burn
+    examples: |
+      - What should I do for a minor burn?
+      - I burned my hand, what's the first aid?
+      - How do I treat a burn at home?
+      - when skin burned
+
+  - intent: user_first_aid_choking
+    examples: |
+      - Someone is choking, what do I do?
+      - How can I help if someone is choking?
+      - Steps for assisting a choking person?
+      - when someone is choking
+
+  - intent: user_first_aid_bleeding
+    examples: |
+      - How do I stop heavy bleeding?
+      - What's the first aid for a deep cut?
+      - My friend is bleeding, what should I do?
+      - when bleeding wound
+
+  - intent: user_first_aid_drowning
+    examples: |
+      - What are the steps for helping a drowning person?
+      - How to assist with drowning incidents?
+      - First aid for drowning
+      - Drowning victim emergency
+      - when someone drowning
+
+  - intent: user_first_aid_poisoning
+    examples: |
+      - I think someone ingested poison, what should I do?
+      - How to help with poisoning?
+      - First aid for poisoning cases
+      - Poison ingestion emergency
+      - when someone poisoned
+
+  - intent: user_first_aid_fracture
+    examples: |
+      - What's the first aid for a broken bone?
+      - Help with treating fractures
+      - First aid for fractures
+      - Fracture injury care
+      - when broken bone
+
+  - intent: user_first_aid_seizure
+    examples: |
+      - Someone is having a seizure, what should I do?
+      - How to help with seizures?
+      - First aid for seizures
+      - Seizure emergency response
+
+  - intent: user_first_aid_heart_attack
+    examples: |
+      - What should I do if someone has a heart attack?
+      - Help with heart attack first aid
+      - First aid for heart attack
+      - Heart attack emergency response
+      - when heart attack
+
+  - intent: user_first_aid_allergic_reaction
+    examples: |
+      - Someone is having an allergic reaction, what do I do?
+      - How to assist with allergic reactions?
+      - First aid for allergic reactions
+      - Allergic reaction emergency
+      - when allergic reaction
+
+  - intent: user_first_aid_eye_injury
+    examples: |
+      - What's the first aid for an eye injury?
+      - Help with treating eye injuries
+      - First aid for eye injuries
+      - Eye injury care instructions
+      - when eye injury
+
+  - intent: user_first_aid_fainting
+    examples: |
+      - Someone fainted, what should I do?
+      - How to help with fainting episodes?
+      - First aid for fainting
+      - Fainting emergency response
+      - when someone fainted
+
   - synonym: burn
     examples: |
       - burn clinic
@@ -289,23 +376,27 @@ nlu:
       - heart
       - cardiac
       - heart-related
+      - cardiology
   - synonym: gynecology
     examples: |
       - women's health
       - female reproductive
       - gynecological
       - women's wellness
+      - gynecology
   - synonym: psychology
     examples: |
       - mental
       - psychological
       - psychiatric
+      - psychology
   - synonym: neurology
     examples: |
       - nervous
       - neurological
       - neurologic
       - nerve-related
+      - neurology
   - synonym: pediatric
     examples: |
       - pediatrics
@@ -314,6 +405,7 @@ nlu:
   - synonym: surgery
     examples: |
       - surgical
+      - surgery
 
   - intent: out_domain
     examples: |
