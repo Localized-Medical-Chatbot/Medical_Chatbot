@@ -33,9 +33,9 @@ actions:
 - utter_want_more_details
 - action_hello_world
 - action_get_doctor_name
+- validate_appointment_form
 entities:
 - date
-# - first_name
 - food
 - clinics
 slots:
@@ -54,6 +54,23 @@ slots:
         conditions:
           - active_loop: appointment_form
             requested_slot: first_name
+  doctor_id:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: appointment_form
+            requested_slot: doctor_id
+
+  doctor_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: appointment_form
+            requested_slot: doctor_name
+
   last_name:
     type: text
     influence_conversation: true
@@ -73,7 +90,9 @@ forms:
     required_slots:
     - first_name
     - last_name
+    - doctor_name
     - date
+    - doctor_id
 responses:
   utter_greet:
   - text: Hey! How can I help you?
@@ -135,6 +154,8 @@ responses:
   - text: Please provide your first name
   utter_ask_appointment_form_last_name:
   - text: Please provide your Last name
+  utter_ask_appointment_form_doctor_name:
+  - text: please provode name of the doctor.
   utter_ask_appointment_form_date:
   - text: Please provide the date
 session_config:
