@@ -29,10 +29,6 @@ stories:
       - intent: deny
       - action: utter_continue
 
-  - story: clinic details
-    steps:
-      - intent: clinic_details
-      - action: action_get_clinic_details
 
   - story: doctor details demo
     steps:

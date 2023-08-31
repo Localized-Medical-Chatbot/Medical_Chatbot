@@ -270,16 +270,6 @@ nlu:
     - channel a doctor
     - doctor appointment
     - shedule an appointment
-# - intent: patient_first_name
-#   examples: |
-#     - my name is [Jhon](first_name)
-#     - I'am [Jhon](first_name)
-#     - [Jhon](first_name)
-#     - My name is [Kamal](first_name)
-#     - here is [Kumar](first_name)
-#     - My first name is [Zeya](first_name)
-#     - I'am [Vincent](first_name)
-#     - my name is [[Jhon](first_name)]
 
 - intent: user_first_aid_burn
   examples: |
@@ -365,6 +355,49 @@ nlu:
     - Fainting emergency response
     - when someone fainted
 
+- intent: appointment_date
+  examples: |
+    - appointment date is [2023/09/08](date)
+    - [2024/02/10](date)
+    - make this appointment on [2025/04/06](date)
+    - on [2024/08/31](date)
+    - the date is [2026/12/31](date)
+    - [2023/08/31](date)
+    - [2020-1-14](date)
+    - [2004.08.05](date)
+
+- intent: out_domain
+  examples: |
+    - What's the weather like today?
+    - Can you tell me the weather forecast?
+    - How's the weather outside?
+    - What time is it?
+    - Can you give me the current time?
+    - Do you know the time?
+    - Tell me a joke
+    - Can you share a funny joke?
+    - I could use a laugh, tell me a joke
+    - Can you recommend a good restaurant?
+    - Any movie recommendations for the weekend?
+    - I'm looking for a book to read, any suggestions?
+    - Have you been to any nice vacation spots?
+    - What's a must-visit place for a traveler?
+    - Tell me about travel tips and hacks
+    - How does your algorithm work?
+    - Can you explain the technology behind this?
+    - I'm curious about the technical details
+    - What's your opinion on political topic?
+    - Who should I vote for in the upcoming election?
+    - Tell me about your political stance
+    - You're cute/sexy/hot
+    - Let's go on a date
+    - Let's talk about gardening
+    - I want to discuss the latest fashion trends
+    - Tell me about celebrity gossip
+    - Buy this product now!
+    - You've won a prize! Click this link
+    - Make money fast with this scheme!
+
 - synonym: burn
   examples: |
     - burn clinic
@@ -406,37 +439,6 @@ nlu:
     - surgical
     - surgery
 
-- intent: out_domain
-  examples: |
-    - What's the weather like today?
-    - Can you tell me the weather forecast?
-    - How's the weather outside?
-    - What time is it?
-    - Can you give me the current time?
-    - Do you know the time?
-    - Tell me a joke
-    - Can you share a funny joke?
-    - I could use a laugh, tell me a joke
-    - Can you recommend a good restaurant?
-    - Any movie recommendations for the weekend?
-    - I'm looking for a book to read, any suggestions?
-    - Have you been to any nice vacation spots?
-    - What's a must-visit place for a traveler?
-    - Tell me about travel tips and hacks
-    - How does your algorithm work?
-    - Can you explain the technology behind this?
-    - I'm curious about the technical details
-    - What's your opinion on political topic?
-    - Who should I vote for in the upcoming election?
-    - Tell me about your political stance
-    - You're cute/sexy/hot
-    - Let's go on a date
-    - Let's talk about gardening
-    - I want to discuss the latest fashion trends
-    - Tell me about celebrity gossip
-    - Buy this product now!
-    - You've won a prize! Click this link
-    - Make money fast with this scheme!
 
 # - intent: ChooseSpecialization
 #     examples: |
