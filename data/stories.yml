@@ -91,6 +91,67 @@ stories:
       - intent: hospital_billing
       - action: utter_hospital_billing
 
+  - story: User asks about first aid for a burn
+    steps:
+      # - user: |
+      #     What should I do for a burn?
+      - intent: user_first_aid_burn
+      - action: utter_user_first_aid_burn
+
+  - story: User asks about first aid for choking
+    steps:
+      # - user: |
+      #     Someone is choking! What do I do?
+      - intent: user_first_aid_choking
+      - action: utter_user_first_aid_choking
+
+  - story: User asks about first aid for bleeding
+    steps:
+      # - user: |
+      #     How should I handle bleeding?
+      - intent: user_first_aid_bleeding
+      - action: utter_user_first_aid_bleeding
+
+  - story: User assists with a drowning incident
+    steps:
+      - intent: user_first_aid_drowning
+      - action: utter_ask_first_aid_drowning
+
+  - story: User helps with a poisoning case
+    steps:
+      - intent: user_first_aid_poisoning
+      - action: utter_ask_first_aid_poisoning
+
+  - story: User provides first aid for a fracture
+    steps:
+      - intent: user_first_aid_fracture
+      - action: utter_ask_first_aid_fracture
+
+  - story: User assists with a seizure emergency
+    steps:
+      - intent: user_first_aid_seizure
+      - action: utter_ask_first_aid_seizure
+
+  - story: User responds to a heart attack situation
+    steps:
+      - intent: user_first_aid_heart_attack
+      - action: utter_ask_first_aid_heart_attack
+
+  - story: User helps with an allergic reaction
+    steps:
+      - intent: user_first_aid_allergic_reaction
+      - action: utter_ask_first_aid_allergic_reaction
+
+  - story: User provides first aid for an eye injury
+    steps:
+      - intent: user_first_aid_eye_injury
+      - action: utter_ask_first_aid_eye_injury
+
+  - story: User assists with a fainting episode
+    steps:
+      - intent: user_first_aid_fainting
+      - action: utter_ask_first_aid_fainting
+      
   - story: sad path 2
     steps:
       - intent: greet

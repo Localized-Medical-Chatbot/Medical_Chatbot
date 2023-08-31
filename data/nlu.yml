@@ -280,77 +280,231 @@ nlu:
 #     - My first name is [Zeya](first_name)
 #     - I'am [Vincent](first_name)
 #     - my name is [[Jhon](first_name)]
-- intent: appointment_date
-  examples: |
-    - appointment date is [2023/09/08](date)
-    - [2024/02/10](date)
-    - make this appointment on [2025/04/06](date)
-    - on [2024/08/31](date)
-    - the date is [2026/12/31](date)
-    - [2023/08/31](date)
-- intent: out_domain
-  examples: |
-    - What's the weather like today?
-    - Can you tell me the weather forecast?
-    - How's the weather outside?
-    - What time is it?
-    - Can you give me the current time?
-    - Do you know the time?
-    - Tell me a joke
-    - Can you share a funny joke?
-    - I could use a laugh, tell me a joke
-    - Can you recommend a good restaurant?
-    - Any movie recommendations for the weekend?
-    - I'm looking for a book to read, any suggestions?
-    - Have you been to any nice vacation spots?
-    - What's a must-visit place for a traveler?
-    - Tell me about travel tips and hacks
-    - How does your algorithm work?
-    - Can you explain the technology behind this?
-    - I'm curious about the technical details
-    - What's your opinion on political topic?
-    - Who should I vote for in the upcoming election?
-    - Tell me about your political stance
-    - You're cute/sexy/hot
-    - Let's go on a date
-    - Let's talk about gardening
-    - I want to discuss the latest fashion trends
-    - Tell me about celebrity gossip
-    - Buy this product now!
-    - You've won a prize! Click this link
-    - Make money fast with this scheme!
-- synonym: burn
-  examples: |
-    - burn clinic
-    - burn care
-- synonym: cardiology
-  examples: |
-    - heart clinic
-    - heart
-    - cardiac
-    - heart-related
-- synonym: gynecology
-  examples: |
-    - women's health
-    - female reproductive
-    - gynecological
-    - women's wellness
-- synonym: psychology
-  examples: |
-    - mental
-    - psychological
-    - psychiatric
-- synonym: neurology
-  examples: |
-    - nervous
-    - neurological
-    - neurologic
-    - nerve-related
-- synonym: pediatric
-  examples: |
-    - pediatrics
-    - children's
-    - kids' health
-- synonym: surgery
-  examples: |
-    - surgical
+
+  - intent: user_first_aid_burn
+    examples: |
+      - What should I do for a minor burn?
+      - I burned my hand, what's the first aid?
+      - How do I treat a burn at home?
+      - when skin burned
+
+  - intent: user_first_aid_choking
+    examples: |
+      - Someone is choking, what do I do?
+      - How can I help if someone is choking?
+      - Steps for assisting a choking person?
+      - when someone is choking
+
+  - intent: user_first_aid_bleeding
+    examples: |
+      - How do I stop heavy bleeding?
+      - What's the first aid for a deep cut?
+      - My friend is bleeding, what should I do?
+      - when bleeding wound
+
+  - intent: user_first_aid_drowning
+    examples: |
+      - What are the steps for helping a drowning person?
+      - How to assist with drowning incidents?
+      - First aid for drowning
+      - Drowning victim emergency
+      - when someone drowning
+
+  - intent: user_first_aid_poisoning
+    examples: |
+      - I think someone ingested poison, what should I do?
+      - How to help with poisoning?
+      - First aid for poisoning cases
+      - Poison ingestion emergency
+      - when someone poisoned
+
+  - intent: user_first_aid_fracture
+    examples: |
+      - What's the first aid for a broken bone?
+      - Help with treating fractures
+      - First aid for fractures
+      - Fracture injury care
+      - when broken bone
+
+  - intent: user_first_aid_seizure
+    examples: |
+      - Someone is having a seizure, what should I do?
+      - How to help with seizures?
+      - First aid for seizures
+      - Seizure emergency response
+
+  - intent: user_first_aid_heart_attack
+    examples: |
+      - What should I do if someone has a heart attack?
+      - Help with heart attack first aid
+      - First aid for heart attack
+      - Heart attack emergency response
+      - when heart attack
+
+  - intent: user_first_aid_allergic_reaction
+    examples: |
+      - Someone is having an allergic reaction, what do I do?
+      - How to assist with allergic reactions?
+      - First aid for allergic reactions
+      - Allergic reaction emergency
+      - when allergic reaction
+
+  - intent: user_first_aid_eye_injury
+    examples: |
+      - What's the first aid for an eye injury?
+      - Help with treating eye injuries
+      - First aid for eye injuries
+      - Eye injury care instructions
+      - when eye injury
+
+  - intent: user_first_aid_fainting
+    examples: |
+      - Someone fainted, what should I do?
+      - How to help with fainting episodes?
+      - First aid for fainting
+      - Fainting emergency response
+      - when someone fainted
+
+  - synonym: burn
+    examples: |
+      - burn clinic
+      - burn care
+  - synonym: cardiology
+    examples: |
+      - heart clinic
+      - heart
+      - cardiac
+      - heart-related
+      - cardiology
+  - synonym: gynecology
+    examples: |
+      - women's health
+      - female reproductive
+      - gynecological
+      - women's wellness
+      - gynecology
+  - synonym: psychology
+    examples: |
+      - mental
+      - psychological
+      - psychiatric
+      - psychology
+  - synonym: neurology
+    examples: |
+      - nervous
+      - neurological
+      - neurologic
+      - nerve-related
+      - neurology
+  - synonym: pediatric
+    examples: |
+      - pediatrics
+      - children's
+      - kids' health
+  - synonym: surgery
+    examples: |
+      - surgical
+      - surgery
+
+  - intent: out_domain
+    examples: |
+      - What's the weather like today?
+      - Can you tell me the weather forecast?
+      - How's the weather outside?
+      - What time is it?
+      - Can you give me the current time?
+      - Do you know the time?
+      - Tell me a joke
+      - Can you share a funny joke?
+      - I could use a laugh, tell me a joke
+      - Can you recommend a good restaurant?
+      - Any movie recommendations for the weekend?
+      - I'm looking for a book to read, any suggestions?
+      - Have you been to any nice vacation spots?
+      - What's a must-visit place for a traveler?
+      - Tell me about travel tips and hacks
+      - How does your algorithm work?
+      - Can you explain the technology behind this?
+      - I'm curious about the technical details
+      - What's your opinion on political topic?
+      - Who should I vote for in the upcoming election?
+      - Tell me about your political stance
+      - You're cute/sexy/hot
+      - Let's go on a date
+      - Let's talk about gardening
+      - I want to discuss the latest fashion trends
+      - Tell me about celebrity gossip
+      - Buy this product now!
+      - You've won a prize! Click this link
+      - Make money fast with this scheme!
+
+# - intent: ChooseSpecialization
+#     examples: |
+#       - Neuro
+#       - Neuro Surgent
+
+#   - intent: ChooseDoctor
+#     examples: |
+#       - I need Dr Saman Kumara
+#       - Saman Kumara
+#       - Dr Saman Kumara
+
+#   - intent: ChooseDate
+#     examples: |
+#       - 2023/08/24
+#       - 2023.08.24
+
+#   - intent: ChooseTime
+#     examples: |
+#       - 9.00 am
+#       - 9.00
+# - intent: order_pizza
+#     examples: |
+#       - I want to order a [pizza](food)
+#       - Get me a [pizza](food)
+#       - I want a [pizza](food)
+#       - Can you get me a [pizza](food)
+#       - How about a [pizza](food)
+
+#   - intent: booking_doctor
+#     examples: |
+#       - I need to book [Sangaran](doctor)
+#       - Can I meet [Sangaran](doctor)
+#       - If it is possible I need to meet [Sangaran](doctor)
+#       - How to book [Sangaran](doctor)
+
+#   - intent: Ask_Hospital_Info
+#     examples: |
+#       - Can you provide information about the hospital?
+#       - Tell me about the hospital's services.
+#       - Explain the hospital's facilities.
+#       - I need details about the hospital.
+#       - What do you know about the hospital's offerings?
+#       - Teach me about the hospital.
+
+#   - intent: Hospital_active_time
+#     examples: |
+#       - What time does the hospital open?
+#       - When does the hospital open?
+#       - What are the hospital's operating hours?
+#       - Can you tell me the opening time of the hospital?
+#       - When is the hospital available for visits?
+#       - What's the hospital's schedule?
+
+#   - intent: Ask_Medical_Info
+#     examples: |
+#       - Can you provide medical information?
+#       - Tell me about medical topics.
+#       - Explain medical terms to me.
+#       - I need information about medical conditions.
+#       - What do you know about medical treatments?
+#       - Teach me about medical science.
+
+#   - intent: Search_Symptoms
+#     examples: |
+#       - What are the symptoms of the flu?
+#       - Can you list common cold symptoms?
+#       - Tell me about symptoms of diabetes.
+#       - I'm experiencing headaches, what could it be?
+#       - What are the signs of heart disease?
+
