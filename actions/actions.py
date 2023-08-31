@@ -58,6 +58,13 @@ class DatabaseConnection:
 
     def count(self, table, condition = None):
         return len(self.simple_query(table, '*', condition))
+    
+    def insert(self, query):
+        self.cursor = self.connection.cursor()
+        self.cursor.execute(query)
+        self.connection.commit()
+        self.cursor.close()
+        return True
 
 # set your details here
 DATABASE_NAME = 'hospitaldb'
@@ -254,10 +261,10 @@ class ActionSubmitAppointment(Action):
                     ({doctor_id}, '{first_name}', '{last_name}', '{start_time}', '{end_time}', '{date}');
                 """
         db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
-        success = db.query(AppointmentQuarry)
+        success = db.insert(AppointmentQuarry)
         db.disconnect()  
         if success: 
-            response = "Your appointment is successfully created!!! "
+            response = "Your appointment was successfully created!!! "
         else: 
             response = "Sorry your appointment cannot be created!"
         dispatcher.utter_message(text= response)
