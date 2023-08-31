@@ -1,290 +1,285 @@
 version: "3.1"
-
 nlu:
-  - intent: clinic_details
-    examples: |
-      - I'm interested in clinic details.
-      - Can you provide me with information about clinics?
-      - I want to learn about clinic specifics.
-      - Please share clinic details with me.
-      - Could you give me information on clinics?
-      - I'm looking for details about clinics.
-      - Can you tell me more about clinics?
-      - I'm curious about the details of clinics.
-      - Please provide me with clinic-related information.
-      - I'd like to know more about clinics.
-
-      - I'm interested in [burn clinic]{"entity": "clinics", "value": "burn"} details.
-      - Can you provide me with information about the [burn clinic]{"entity": "clinics", "value": "burn"}?
-      - I want to learn about [burn clinic]{"entity": "clinics", "value": "burn"} specifics.
-      - Please share [burn clinic]{"entity": "clinics", "value": "burn"} details with me.
-      - Could you give me information on the [burn clinic]{"entity": "clinics", "value": "burn"}?
-      - I'm looking for details about the clinic that specializes in [burn](clinics) cases.
-      - Can you tell me more about the clinic for [burn](clinics) patients?
-      - I'm curious about the specifics of the [burn](clinics) treatment center.
-      - Please provide me with information regarding the [burn care]{"entity": "clinics", "value": "burn"} facility.
-      - I'd like to know more about the clinic that deals with [burn](clinics) injuries.
-      - I'm interested in [cardiology](clinics) clinic details.
-      - Can you provide me with information about the [cardiology](clinics) clinic?
-      - I want to learn about [cardiology](clinics) clinic specifics.
-      - Please share [cardiology](clinics) clinic details with me.
-      - Could you give me information on the [heart clinic]{"entity": "clinics", "value": "cardiology"}?
-      - I'm looking for details about the clinic specializing in [heart]{"entity": "clinics", "value": "cardiology"} conditions.
-      - Can you tell me more about the [cardiology](clinics) department?
-      - I'm curious about the specifics of the [heart]{"entity": "clinics", "value": "cardiology"} care center.
-      - Please provide me with information regarding the [cardiac]{"entity": "clinics", "value": "cardiology"} clinic.
-      - I'd like to know more about the clinic for [heart-related]{"entity": "clinics", "value": "cardiology"} issues.
-      - I'm interested in [gynecology](clinics) clinic details.
-      - Can you provide me with information about the [gynecology](clinics) clinic?
-      - I want to learn about [gynecology](clinics) clinic specifics.
-      - Please share [gynecology](clinics) clinic details with me.
-      - Could you give me information on the [women's health]{"entity": "clinics", "value": "gynecology"} clinic?
-      - I'm looking for details about the clinic specializing in [female reproductive]{"entity": "clinics", "value": "gynecology"} health.
-      - Can you tell me more about the [gynecological]{"entity": "clinics", "value": "gynecology"} department?
-      - I'm curious about the specifics of the [women's wellness]{"entity": "clinics", "value": "gynecology"} center.
-      - Please provide me with information regarding the [gynecological]{"entity": "clinics", "value": "gynecology"} clinic.
-      - I'd like to know more about the clinic for [women's health]{"entity": "clinics", "value": "gynecology"}.
-      - I'm interested in [mental]{"entity": "clinics", "value": "psychology"} health clinic details.
-      - Can you provide me with information about the [mental]{"entity": "clinics", "value": "psychology"} health clinic?
-      - I want to learn about [mental]{"entity": "clinics", "value": "psychology"} health clinic specifics.
-      - Please share [mental]{"entity": "clinics", "value": "psychology"} health clinic details with me.
-      - Could you give me information on the clinic that focuses on [psychological]{"entity": "clinics", "value": "psychology"} well-being?
-      - I'm looking for details about the clinic specializing in [mental]{"entity": "clinics", "value": "psychology"} wellness.
-      - Can you tell me more about the [psychiatric]{"entity": "clinics", "value": "psychology"} ?
-      - I'm curious about the specifics of the [mental]{"entity": "clinics", "value": "psychology"} health treatment center.
-      - Please provide me with information regarding the clinic for [psychological]{"entity": "clinics", "value": "psychology"} care.
-      - I'd like to know more about the clinic that deals with [mental]{"entity": "clinics", "value": "psychology"} health.
-      - I'm interested in [neurology](clinics) clinic details.
-      - Can you provide me with information about the [neurology](clinics) clinic?
-      - I want to learn about [neurology](clinics) clinic specifics.
-      - Please share [neurology](clinics) clinic details with me.
-      - Could you give me information on the clinic that specializes in [nervous]{"entity": "clinics", "value": "neurology"} system disorders?
-      - I'm looking for details about the clinic focusing on [neurological]{"entity": "clinics", "value": "neurology"} conditions.
-      - Can you tell me more about the [neurologic]{"entity": "clinics", "value": "neurology"} department?
-      - I'm curious about the specifics of the [neurology](clinics) treatment center.
-      - Please provide me with information regarding the clinic for [nerve-related]{"entity": "clinics", "value": "neurology"} disorders.
-      - I'd like to know more about the clinic that deals with [neurology](clinics).
-      - I'm interested in [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details.
-      - Can you provide me with information about the [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic?
-      - I want to learn about [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic specifics.
-      - Please share [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details with me.
-      - Could you give me information on the [children's]{"entity": "clinics", "value": "pediatric"} clinic?
-      - I'm looking for details about the clinic specializing in [pediatric](clinics) care.
-      - Can you tell me more about the [pediatric](clinics) department?
-      - I'm curious about the specifics of the [children's]{"entity": "clinics", "value": "pediatric"} medical center.
-      - Please provide me with information regarding the [pediatric](clinics) clinic.
-      - I'd like to know more about the clinic for [kids' health]{"entity": "clinics", "value": "pediatric"}.
-      - I'm interested in [surgery](clinics) clinic details.
-      - Can you provide me with information about the [surgery](clinics) clinic?
-      - I want to learn about [surgery](clinics) clinic specifics.
-      - Please share [surgery](clinics) clinic details with me.
-      - Could you give me information on the clinic that specializes in [surgical]{"entity": "clinics", "value": "surgery"} procedures?
-      - I'm looking for details about the clinic focusing on [surgical]{"entity": "clinics", "value": "surgery"} interventions.
-      - Can you tell me more about the [surgical]{"entity": "clinics", "value": "surgery"} department?
-      - I'm curious about the specifics of the [surgical]{"entity": "clinics", "value": "surgery"} center.
-      - Please provide me with information regarding the clinic for [surgical]{"entity": "clinics", "value": "surgery"} treatments.
-      - I'd like to know more about the clinic that deals with [surgery](clinics).
-      - i want to know about [cardiology](clinics) clinic
-      - i want to know about [pediatric](clinics) clinic
-  - intent: doctor_details
-    examples: |
-      - i want to know the details of the doctor
-      - tell me about the doctor
-      - the name of the doctor
-      - what is the name of the doctor
-      - doctor details
-  - intent: greet
-    examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-      - moin
-      - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
-      - home
-      - go to home
-
-  - intent: goodbye
-    examples: |
-      - cu
-      - good by
-      - cee you later
-      - good night
-      - bye
-      - goodbye
-      - have a nice day
-      - see you around
-      - bye bye
-      - see you later
-
-  - intent: accept
-    examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
-
-  - intent: deny
-    examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
-
-  - intent: mood_great
-    examples: |
-      - perfect
-      - great
-      - amazing
-      - feeling like a king
-      - wonderful
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - so perfect
-
-  - intent: mood_unhappy
-    examples: |
-      - my day was horrible
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-      - not very good
-      - extremly sad
-      - so saad
-      - so sad
-
-  - intent: bot_challenge
-    examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
-
-  - intent: about_hospital
-    examples: |
-      - tell me about the hospital
-      - what is the hospital
-      - what is the hospital's name
-      - what is the hospital's location
-      - what is the hospital's address
-      - hospital details
-      - hospital info
-      - give me hospital details
-
-  - intent: parking_info
-    examples: |
-      - Is there parking available at the hospital?
-      - Tell me about the hospital's parking facilities.
-      - What are the parking options for visitors?
-      - Can you provide information about hospital parking?
-      - Where can I park my vehicle at the hospital?
-
-  - intent: cafeteria_info
-    examples: |
-      - Is there a cafeteria in the hospital?
-      - Tell me about the hospital's cafeteria.
-      - Can you provide information about food options at the hospital?
-      - What are the dining facilities available in the hospital?
-      - Where can I find something to eat within the hospital?
-
-  - intent: contact_info
-    examples: |
-      - How can I contact the hospital?
-      - Tell me the hospital's contact details.
-      - What is the hospital's phone number?
-      - Can you provide information about how to contact the hospital?
-      - How do I get in touch with the hospital's staff?
-      - hospital contact number.
-      - hospital contact info
-
-  - intent: medical_services
-    examples: |
-      - What medical services does the hospital provide?
-      - Tell me about the treatments available at the hospital.
-      - Can you list the healthcare services offered by the hospital?
-      - What types of medical care are available here?
-      - Explain the range of treatments and services at the hospital.
-      - Describe the specialties covered by the hospital's doctors.
-      - Give me an overview of the medical services provided.
-
-  - intent: ambulance_services
-    examples: |
-      - Do you provide ambulance services?
-      - How can I request an ambulance?
-      - Is there an ambulance service available?
-      - Can you arrange for an ambulance?
-      - What's the process for calling an ambulance?
-      - Tell me about the hospital's ambulance services.
-      - How do I get an ambulance to the hospital?
-
-  - intent: appointment_booking
-    examples: |
-      - How can I book an appointment with a doctor?
-      - Tell me the process for scheduling a medical appointment.
-      - Can I make an appointment to see a specialist?
-      - What's the procedure to schedule a doctor's visit?
-      - Explain how to book a consultation with a physician.
-      - Give me information about appointment availability.
-      - i need to make a booking.
-      - how can I make a booking.
-
-  - intent: visiting_hours
-    examples: |
-      - What are the visiting hours for patients?
-      - When can I visit someone in the hospital?
-      - Tell me the visiting hours for Qs.
-      - Can you provide information about the hospital's visiting hours?
-      - What time can I visit a Q?
-      - When are the best times to visit patients?
-      - How late can I stay to visit someone in the hospital?
-
-  - intent: doctor_specialties
-    examples: |
-      - What are the different types of doctors?
-      - Tell me about medical specialties.
-      - Explain various doctor specializations.
-      - Can you list different medical fields?
-      - Describe doctor roles and expertise.
-
-  - intent: emergency_procedures
-    examples: |
-      - What should I do in a medical emergency?
-      - Tell me about emergency procedures.
-      - Explain how to respond to medical crises.
-      - What steps should I take during emergencies?
-      - Describe actions in case of urgent situations.
-
-  - intent: hospital_billing
-    examples: |
-      - How does hospital billing work?
-      - Tell me about payment for medical services.
-      - Explain hospital charges and fees.
-      - What's the process for paying medical bills?
-      - Describe the billing and payment procedures.
+- intent: clinic_details
+  examples: |
+    - I'm interested in clinic details.
+    - Can you provide me with information about clinics?
+    - I want to learn about clinic specifics.
+    - Please share clinic details with me.
+    - Could you give me information on clinics?
+    - I'm looking for details about clinics.
+    - Can you tell me more about clinics?
+    - I'm curious about the details of clinics.
+    - Please provide me with clinic-related information.
+    - I'd like to know more about clinics.
+    - I'm interested in [burn clinic]{"entity": "clinics", "value": "burn"} details.
+    - Can you provide me with information about the [burn clinic]{"entity": "clinics", "value": "burn"}?
+    - I want to learn about [burn clinic]{"entity": "clinics", "value": "burn"} specifics.
+    - Please share [burn clinic]{"entity": "clinics", "value": "burn"} details with me.
+    - Could you give me information on the [burn clinic]{"entity": "clinics", "value": "burn"}?
+    - I'm looking for details about the clinic that specializes in [burn](clinics) cases.
+    - Can you tell me more about the clinic for [burn](clinics) patients?
+    - I'm curious about the specifics of the [burn](clinics) treatment center.
+    - Please provide me with information regarding the [burn care]{"entity": "clinics", "value": "burn"} facility.
+    - I'd like to know more about the clinic that deals with [burn](clinics) injuries.
+    - I'm interested in [cardiology](clinics) clinic details.
+    - Can you provide me with information about the [cardiology](clinics) clinic?
+    - I want to learn about [cardiology](clinics) clinic specifics.
+    - Please share [cardiology](clinics) clinic details with me.
+    - Could you give me information on the [heart clinic]{"entity": "clinics", "value": "cardiology"}?
+    - I'm looking for details about the clinic specializing in [heart]{"entity": "clinics", "value": "cardiology"} conditions.
+    - Can you tell me more about the [cardiology](clinics) department?
+    - I'm curious about the specifics of the [heart]{"entity": "clinics", "value": "cardiology"} care center.
+    - Please provide me with information regarding the [cardiac]{"entity": "clinics", "value": "cardiology"} clinic.
+    - I'd like to know more about the clinic for [heart-related]{"entity": "clinics", "value": "cardiology"} issues.
+    - I'm interested in [gynecology](clinics) clinic details.
+    - Can you provide me with information about the [gynecology](clinics) clinic?
+    - I want to learn about [gynecology](clinics) clinic specifics.
+    - Please share [gynecology](clinics) clinic details with me.
+    - Could you give me information on the [women's health]{"entity": "clinics", "value": "gynecology"} clinic?
+    - I'm looking for details about the clinic specializing in [female reproductive]{"entity": "clinics", "value": "gynecology"} health.
+    - Can you tell me more about the [gynecological]{"entity": "clinics", "value": "gynecology"} department?
+    - I'm curious about the specifics of the [women's wellness]{"entity": "clinics", "value": "gynecology"} center.
+    - Please provide me with information regarding the [gynecological]{"entity": "clinics", "value": "gynecology"} clinic.
+    - I'd like to know more about the clinic for [women's health]{"entity": "clinics", "value": "gynecology"}.
+    - I'm interested in [mental]{"entity": "clinics", "value": "psychology"} health clinic details.
+    - Can you provide me with information about the [mental]{"entity": "clinics", "value": "psychology"} health clinic?
+    - I want to learn about [mental]{"entity": "clinics", "value": "psychology"} health clinic specifics.
+    - Please share [mental]{"entity": "clinics", "value": "psychology"} health clinic details with me.
+    - Could you give me information on the clinic that focuses on [psychological]{"entity": "clinics", "value": "psychology"} well-being?
+    - I'm looking for details about the clinic specializing in [mental]{"entity": "clinics", "value": "psychology"} wellness.
+    - Can you tell me more about the [psychiatric]{"entity": "clinics", "value": "psychology"} ?
+    - I'm curious about the specifics of the [mental]{"entity": "clinics", "value": "psychology"} health treatment center.
+    - Please provide me with information regarding the clinic for [psychological]{"entity": "clinics", "value": "psychology"} care.
+    - I'd like to know more about the clinic that deals with [mental]{"entity": "clinics", "value": "psychology"} health.
+    - I'm interested in [neurology](clinics) clinic details.
+    - Can you provide me with information about the [neurology](clinics) clinic?
+    - I want to learn about [neurology](clinics) clinic specifics.
+    - Please share [neurology](clinics) clinic details with me.
+    - Could you give me information on the clinic that specializes in [nervous]{"entity": "clinics", "value": "neurology"} system disorders?
+    - I'm looking for details about the clinic focusing on [neurological]{"entity": "clinics", "value": "neurology"} conditions.
+    - Can you tell me more about the [neurologic]{"entity": "clinics", "value": "neurology"} department?
+    - I'm curious about the specifics of the [neurology](clinics) treatment center.
+    - Please provide me with information regarding the clinic for [nerve-related]{"entity": "clinics", "value": "neurology"} disorders.
+    - I'd like to know more about the clinic that deals with [neurology](clinics).
+    - I'm interested in [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details.
+    - Can you provide me with information about the [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic?
+    - I want to learn about [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic specifics.
+    - Please share [pediatrics]{"entity": "clinics", "value": "pediatric"} clinic details with me.
+    - Could you give me information on the [children's]{"entity": "clinics", "value": "pediatric"} clinic?
+    - I'm looking for details about the clinic specializing in [pediatric](clinics) care.
+    - Can you tell me more about the [pediatric](clinics) department?
+    - I'm curious about the specifics of the [children's]{"entity": "clinics", "value": "pediatric"} medical center.
+    - Please provide me with information regarding the [pediatric](clinics) clinic.
+    - I'd like to know more about the clinic for [kids' health]{"entity": "clinics", "value": "pediatric"}.
+    - I'm interested in [surgery](clinics) clinic details.
+    - Can you provide me with information about the [surgery](clinics) clinic?
+    - I want to learn about [surgery](clinics) clinic specifics.
+    - Please share [surgery](clinics) clinic details with me.
+    - Could you give me information on the clinic that specializes in [surgical]{"entity": "clinics", "value": "surgery"} procedures?
+    - I'm looking for details about the clinic focusing on [surgical]{"entity": "clinics", "value": "surgery"} interventions.
+    - Can you tell me more about the [surgical]{"entity": "clinics", "value": "surgery"} department?
+    - I'm curious about the specifics of the [surgical]{"entity": "clinics", "value": "surgery"} center.
+    - Please provide me with information regarding the clinic for [surgical]{"entity": "clinics", "value": "surgery"} treatments.
+    - I'd like to know more about the clinic that deals with [surgery](clinics).
+    - i want to know about [cardiology](clinics) clinic
+    - i want to know about [pediatric](clinics) clinic
+- intent: doctor_details
+  examples: |
+    - i want to know the details of the doctor
+    - tell me about the doctor
+    - the name of the doctor
+    - what is the name of the doctor
+    - doctor details
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: accept
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: about_hospital
+  examples: |
+    - tell me about the hospital
+    - what is the hospital
+    - what is the hospital's name
+    - what is the hospital's location
+    - what is the hospital's address
+    - what is the hospital's contact number
+    - Tell me about the hospital's services.
+- intent: parking_info
+  examples: |
+    - Is there parking available at the hospital?
+    - Tell me about the hospital's parking facilities.
+    - What are the parking options for visitors?
+    - Can you provide information about hospital parking?
+    - Where can I park my vehicle at the hospital?
+- intent: cafeteria_info
+  examples: |
+    - Is there a cafeteria in the hospital?
+    - Tell me about the hospital's cafeteria.
+    - Can you provide information about food options at the hospital?
+    - What are the dining facilities available in the hospital?
+    - Where can I find something to eat within the hospital?
+- intent: contact_info
+  examples: |
+    - How can I contact the hospital?
+    - Tell me the hospital's contact details.
+    - What is the hospital's phone number?
+    - Can you provide information about how to contact the hospital?
+    - How do I get in touch with the hospital's staff?
+- intent: medical_services
+  examples: |
+    - What medical services does the hospital provide?
+    - Tell me about the treatments available at the hospital.
+    - Can you list the healthcare services offered by the hospital?
+    - What types of medical care are available here?
+    - Explain the range of treatments and services at the hospital.
+    - Describe the specialties covered by the hospital's doctors.
+    - Give me an overview of the medical services provided.
+- intent: ambulance_services
+  examples: |
+    - Do you provide ambulance services?
+    - How can I request an ambulance?
+    - Is there an ambulance service available?
+    - Can you arrange for an ambulance?
+    - What's the process for calling an ambulance?
+    - Tell me about the hospital's ambulance services.
+    - How do I get an ambulance to the hospital?
+- intent: appointment_booking
+  examples: |
+    - How can I book an appointment with a doctor?
+    - Tell me the process for scheduling a medical appointment.
+    - Can I make an appointment to see a specialist?
+    - What's the procedure to schedule a doctor's visit?
+    - Explain how to book a consultation with a physician.
+    - Give me information about appointment availability.
+- intent: visiting_hours
+  examples: |
+    - What are the visiting hours for patients?
+    - When can I visit someone in the hospital?
+    - Tell me the visiting hours for Qs.
+    - Can you provide information about the hospital's visiting hours?
+    - What time can I visit a Q?
+    - When are the best times to visit patients?
+    - How late can I stay to visit someone in the hospital?
+- intent: doctor_specialties
+  examples: |
+    - What are the different types of doctors?
+    - Tell me about medical specialties.
+    - Explain various doctor specializations.
+    - Can you list different medical fields?
+    - Describe doctor roles and expertise.
+- intent: emergency_procedures
+  examples: |
+    - What should I do in a medical emergency?
+    - Tell me about emergency procedures.
+    - Explain how to respond to medical crises.
+    - What steps should I take during emergencies?
+    - Describe actions in case of urgent situations.
+- intent: hospital_billing
+  examples: |
+    - How does hospital billing work?
+    - Tell me about payment for medical services.
+    - Explain hospital charges and fees.
+    - What's the process for paying medical bills?
+    - Describe the billing and payment procedures.
+- intent: make_appointment
+  examples: |
+    - can i make an appointment with the doctor
+    - please make an appointment with the doctor
+    - make an appointment
+    - do a appointment for me
+    - arrange a meeting with a doctor
+    - doctor channeling
+    - channel a doctor
+    - doctor appointment
+    - shedule an appointment
+# - intent: patient_first_name
+#   examples: |
+#     - my name is [Jhon](first_name)
+#     - I'am [Jhon](first_name)
+#     - [Jhon](first_name)
+#     - My name is [Kamal](first_name)
+#     - here is [Kumar](first_name)
+#     - My first name is [Zeya](first_name)
+#     - I'am [Vincent](first_name)
+#     - my name is [[Jhon](first_name)]
 
   - intent: user_first_aid_burn
     examples: |
@@ -512,3 +507,4 @@ nlu:
 #       - Tell me about symptoms of diabetes.
 #       - I'm experiencing headaches, what could it be?
 #       - What are the signs of heart disease?
+

@@ -1,6 +1,10 @@
 version: "3.1"
 
 rules:
+  - rule: greet
+    steps: 
+      - intent: greet
+      - action: utter_greet
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
@@ -15,3 +19,23 @@ rules:
     steps:
       - intent: out_domain
       - action: utter_out_domain
+
+  - rule: Activate appointment form
+    steps:
+      - intent: make_appointment
+      - action: appointment_form
+      - active_loop: appointment_form
+
+  - rule: Submit form
+    condition:
+    # Condition that form is active.
+    - active_loop: appointment_form
+    steps:
+    # Form is deactivated
+    - action: appointment_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    # The actions we want to run when the form is submitted.
+    - action: action_submit_appointment
+
