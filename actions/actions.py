@@ -12,6 +12,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from datetime import timedelta, date
+from rasa_sdk.events import SlotSet
 
 import mysql.connector
 class DatabaseConnection:
@@ -163,3 +164,22 @@ class ActionGetAdditionalClinicDetails(Action):
                 
 
         return[]
+
+class ActionSubmitAppointment(Action):
+
+    def name(self) -> Text:
+        return "action_submit_appointment"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        first_name = tracker.get_slot("first_name")
+        date = tracker.get_slot("date")
+        response = f"First name is {first_name}     Date is: {date}"
+        dispatcher.utter_message(text= response)
+                
+
+        return[]
+
+

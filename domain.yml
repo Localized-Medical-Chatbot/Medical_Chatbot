@@ -1,40 +1,43 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - accept
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - about_hospital
-  - parking_info
-  - cafeteria_info
-  - contact_info
-  - medical_services
-  - ambulance_services
-  - appointment_booking
-  - visiting_hours
-  - doctor_specialties
-  - emergency_procedures
-  - hospital_billing
-  - clinic_details
-  - doctor_details
-
+- about_hospital
+- accept
+- ambulance_services
+- appointment_booking
+- appointment_date
+- bot_challenge
+- cafeteria_info
+- clinic_details
+- contact_info
+- deny
+- doctor_details
+- doctor_specialties
+- emergency_procedures
+- goodbye
+- greet
+- hospital_billing
+- make_appointment
+- medical_services
+- mood_great
+- mood_unhappy
+- out_domain
+- parking_info
+# - patient_first_name
+- visiting_hours
 actions:
+- action_submit_appointment
+- utter_greet
 - action_get_additional_clinic_details
 - utter_continue
 - action_get_clinic_details
 - utter_want_more_details
-- utter_greet
 - action_hello_world
 - action_get_doctor_name
-
 entities:
-  - food
-  - clinics
-
+- date
+# - first_name
+- food
+- clinics
 slots:
   clinic_type:
     type: text
@@ -43,140 +46,97 @@ slots:
     - type: from_entity
       entity: clinics
       intent: clinic_details
-
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: appointment_form
+            requested_slot: first_name
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: appointment_form
+            requested_slot: last_name
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date
+      intent: appointment_date
+forms:
+  appointment_form:
+    required_slots:
+    - first_name
+    - last_name
+    - date
 responses:
   utter_greet:
-    - text: "Hey! How can I help you?"
-
+  - text: Hey! How can I help you?
   utter_cheer_up:
-    - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
-    - text: "Did that help you?"
-
+  - text: Did that help you?
   utter_about_hospital:
-    - text: "We are Paira Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
-    \n We provide best service for you 
-    \n Our service time is 24 hours. 
-    \n You can come any time to our hospital. 
-    \n We have best doctors in Sri Lanka. 
-    \n We have best facilities in Sri Lanka. \
-    \n We have best medical equipment in Sri Lanka. 
-    \n We have best medical staff in Sri Lanka."
-
+  - text: |-
+      We are Paira Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
+       We provide best service for you 
+       Our service time is 24 hours. 
+       You can come any time to our hospital. 
+       We have best doctors in Sri Lanka. 
+       We have best facilities in Sri Lanka. 
+       We have best medical equipment in Sri Lanka. 
+       We have best medical staff in Sri Lanka.
   utter_want_more_details:
-    - text: do you want more details about the clinic?
-
+  - text: do you want more details about the clinic?
   utter_continue:
-    - text: If you want to know anything please ask me.
-
+  - text: If you want to know anything please ask me.
   utter_parking_info:
-    - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
-  
+  - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
   utter_cafeteria_info:
-    - text: Absolutely! We have a cafeteria located on the ground floor near the main entrance. It offers a variety of delicious food options for patients, visitors, and staff.
-
+  - text: Absolutely! We have a cafeteria located on the ground floor near the main entrance. It offers a variety of delicious food options for patients, visitors, and staff.
   utter_contact_info:
-    - text: "You can contact our hospital by calling our main phone number at 
-    \n 021 2227958 
-    \n 021 4532566
-    or email to us 
-    \n pariahospital@gmail.com
-    \n Our dedicated staff will be happy to assist you with any inquiries or information you may need."
-
+  - text: |-
+      You can contact our hospital by calling our main phone number at 
+       021 2227958 
+       021 4532566 or email to us 
+       pariahospital@gmail.com 
+       Our dedicated staff will be happy to assist you with any inquiries or information you may need.
   utter_medical_services:
-    - text: "Our hospital offers a comprehensive range of medical services, including diagnostics, treatments, surgeries, and specialized care. Our expert medical team is here to ensure your well-being."
-
+  - text: Our hospital offers a comprehensive range of medical services, including diagnostics, treatments, surgeries, and specialized care. Our expert medical team is here to ensure your well-being.
   utter_ambulance_services:
-    - text: "Yes, we provide ambulance services for medical emergencies. If you require an ambulance, please call our emergency helpline at 1990. Our trained medical team will respond promptly to assist you."
-
-
+  - text: Yes, we provide ambulance services for medical emergencies. If you require an ambulance, please call our emergency helpline at 1990. Our trained medical team will respond promptly to assist you.
   utter_happy:
-    - text: "Great, carry on!"
-
+  - text: Great, carry on!
   utter_goodbye:
-    - text: "Bye"
-
+  - text: Bye
   utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
-
+  - text: I am a bot, powered by Rasa.
   utter_appointment_booking:
-    - text: "To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time."
-
+  - text: To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time.
   utter_visiting_hours:
-    - text: "Our visiting hours for patients are from 8:00 AM to 8:00 PM. This allows visitors to spend quality time with their loved ones in the hospital."
-
+  - text: Our visiting hours for patients are from 8:00 AM to 8:00 PM. This allows visitors to spend quality time with their loved ones in the hospital.
   utter_doctor_specialties:
-    - text: "We have a range of doctor specialties, such as cardiology, dermatology, gastroenterology, and more. Each specialization focuses on specific areas of medical expertise."
-
+  - text: We have a range of doctor specialties, such as cardiology, dermatology, gastroenterology, and more. Each specialization focuses on specific areas of medical expertise.
   utter_emergency_procedures:
-    - text: "In a medical emergency, it's important to stay calm. Dial 1990 for immediate assistance. If needed, administer first aid and wait for medical professionals to arrive."
-
+  - text: In a medical emergency, it's important to stay calm. Dial 1990 for immediate assistance. If needed, administer first aid and wait for medical professionals to arrive.
   utter_hospital_billing:
-    - text: "Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available."
-
+  - text: Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available.
   utter_out_domain:
-    - text: "I'm a MedicalChatbot I can't answer for this type of questions \n Sorry!"
-
-
+  - text: |-
+      I'm a MedicalChatbot I can't answer for this type of questions 
+       Sorry!
+  utter_ask_appointment_form_first_name:
+  - text: Please provide your first name
+  utter_ask_appointment_form_last_name:
+  - text: Please provide your Last name
+  utter_ask_appointment_form_date:
+  - text: Please provide the date
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
-
-
-
-
-
-
-
-
-
-
-
-
-  # - ChooseSpecialization
-  # - ChooseDoctor
-  # - ChooseDate
-  # - ChooseTime
-  # - Ask_Medical_Info
-  # - Search_Symptoms
-  # - Ask_Hospital_Info
-  # - Hospital_active_time
-  # - booking_doctor
-  # - order_pizza
-  # - BookingAppointment
-######--------------------------------------########
-# utter_bookingHelp:
-#     - text: "Do you need special help to choose your problem ?"
-
-#   utter_chooseSpecialization:
-#     - text: "Specialization of the Doctor you need ?"
-
-#   utter_chooseDoctor:
-#     - text: "Who is the Doctor you need ?"
-
-#   utter_chooseDate:
-#     - text: "What is the date you need ?"
-
-#   utter_chooseTime:
-#     - text: "what is the time you need ?"
-
-#   utter_confirmAppointment:
-#     - text: "Do you want to confirm your Appointment"
-
-#   utter_InformconfirmAppointment:
-#     - text: "Your Appoinment is confirmed"
-
-#     utter_ask_hospital_info:
-#     - text: Sure you can ask!
-
-#   utter_hospital_active_time:
-#     - text: You can come any time to Hospital, because our hospital gives 24 hours service.
-
-#   # utter_ask_medical_info:
-#   #   - text: I'm here to provide medical information and answer your health-related questions. Just ask me anything!
-
-#   utter_search_symptoms:
-#     - text: Sure, I can help you with that. Please provide me with the specific symptoms you want to know about.
