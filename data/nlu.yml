@@ -106,6 +106,9 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - home
+    - go to home
+    
 - intent: goodbye
   examples: |
     - cu
@@ -175,13 +178,17 @@ nlu:
     - am I talking to a human?
 - intent: about_hospital
   examples: |
-    - tell me about the hospital
-    - what is the hospital
-    - what is the hospital's name
-    - what is the hospital's location
-    - what is the hospital's address
-    - what is the hospital's contact number
+    - tell me about the hospital.
+    - what is the hospital?
+    - what is the hospital's name?
+    - what is the hospital's location?
+    - what is the hospital's address?
+    - what is the hospital's contact number?
     - Tell me about the hospital's services.
+    - hospital details.
+    - hospital info.
+    - give me hospital details.
+    
 - intent: parking_info
   examples: |
     - Is there parking available at the hospital?
@@ -203,6 +210,9 @@ nlu:
     - What is the hospital's phone number?
     - Can you provide information about how to contact the hospital?
     - How do I get in touch with the hospital's staff?
+    - hospital contact number.
+    - hospital contact info.
+    
 - intent: medical_services
   examples: |
     - What medical services does the hospital provide?
@@ -210,7 +220,7 @@ nlu:
     - Can you list the healthcare services offered by the hospital?
     - What types of medical care are available here?
     - Explain the range of treatments and services at the hospital.
-    - Describe the specialties covered by the hospital's doctors.
+    - Describe the specialities covered by the hospital's doctors.
     - Give me an overview of the medical services provided.
 - intent: ambulance_services
   examples: |
@@ -229,6 +239,8 @@ nlu:
     - What's the procedure to schedule a doctor's visit?
     - Explain how to book a consultation with a physician.
     - Give me information about appointment availability.
+    - i need to make a booking.
+    - how can I make a booking.
 - intent: visiting_hours
   examples: |
     - What are the visiting hours for patients?
