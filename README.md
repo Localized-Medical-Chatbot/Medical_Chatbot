@@ -2,4 +2,8 @@
  <H2  >Medical Chatbot with RASA</H2>
 
                 
-[![Watch the video](https://github.com/Localized-Medical-Chatbot/Medical_Chatbot/assets/86839778/e4c475db-f80e-48e5-bbf2-35512d5c3a8c)](https://youtu.be/T-D1KVIuvjA)
+
+
+
+https://github.com/Localized-Medical-Chatbot/Medical_Chatbot/assets/86839778/beca69d1-77ab-4522-98d9-e12bfe26ac43
+
