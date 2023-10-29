@@ -39,3 +39,32 @@ rules:
     # The actions we want to run when the form is submitted.
     - action: action_submit_appointment
 
+  - rule : interrupt form 1
+    condition:
+    - active_loop: appointment_form
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+    - action: appointment_form
+    - active_loop: appointment_form
+
+  - rule : interrupt form 2 
+    condition:
+    - active_loop: appointment_form
+    steps:
+    - intent: ambulance_services
+    - action: utter_ambulance_services
+    - action: appointment_form
+    - active_loop: appointment_form
+
+  - rule : interrupt form 3
+    condition:
+    - active_loop: appointment_form
+    steps:
+    - intent: about_hospital
+    - action: utter_about_hospital
+    - action: appointment_form
+    - active_loop: appointment_form
+
+
+

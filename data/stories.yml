@@ -14,6 +14,7 @@ stories:
       - action: utter_want_more_details
       - intent: accept
       - action: action_get_additional_clinic_details
+      - action: utter_continue
 
   - story: clinic details with OUT additional info
     steps:
@@ -157,74 +158,58 @@ stories:
       - action: utter_did_that_help
       - intent: deny
       - action: utter_goodbye
-# - story: Booking Help Needed
-#   steps:
-#     - intent: greet
-#     - action: utter_greet
-#     - intent: BookAppointment
-#     - action: utter_bookingHelp
-#     - intent: accept
-#     - action: utter_bookingHelp
 
-# - story: Booking Help Not Needed
-#   steps:
-#     - intent: greet
-#     - action: utter_greet
-#     - intent: booking_doctor
-#     - action: utter_chooseDoctor
-#     # - intent: BookAppointment
-#     # - action: utter_bookingHelp
-#     - intent: deny
-#     - action: utter_chooseSpecialization
-#     - intent: ChooseSpecialization
-#     - action: utter_chooseDoctor
-#     - intent: ChooseDoctor+
-#     - action: utter_chooseDate
-#     - intent: ChooseDate
-#     - action: utter_chooseTime
-#     - intent: ChooseTime
-#     - action: utter_confirmAppointment
-#     - intent: accept
-#     - action: utter_InformconfirmAppointment
+  - story : interrupt form 4
+    steps:
+    - intent: clinic_details
+      entities:
+        - clinics: cardiology
+    - slot_was_set:
+        - clinic_type: cardiology
+    - action: action_get_clinic_details
+    - action: utter_want_more_details
+    - intent: accept
+    - action: action_get_additional_clinic_details
+    - action: appointment_form
+    - active_loop: appointment_form
 
-# # Hospital Common details
-# - story: Hospital Common Information
-#   steps:
-#     - intent: greet
-#     - action: utter_greet
-#     - intent: Ask_Hospital_Info
-#     - action: utter_ask_hospital_info
-#     - intent: Hospital_active_time
-#     - action: utter_hospital_active_time
-#     # - intent: Ask_Medical_Info
-#     # - action: utter_ask_medical_info
-#     # - intent: Search_Symptoms
-#     # - action: utter_search_symptoms
+  - story : interrupt form 5
+    steps:
+    - intent: clinic_details
+      entities:
+        - clinics: cardiology
+    - slot_was_set:
+        - clinic_type: cardiology
+    - action: action_get_clinic_details
+    - action: utter_want_more_details
+    - intent: deny
+    - action: appointment_form
+    - active_loop: appointment_form
 
-# - story: interactive_story_1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: make_appointment
-#   - action: appointment_form
-#   - active_loop: appointment_form
-#   - slot_was_set:
-#     - requested_slot: first_name
-#   - intent: patient_first_name
-#     entities:
-#     - first_name: Jhon
-#   - slot_was_set:
-#     - first_name: Jhon
-#   - action: appointment_form
-#   - slot_was_set:
-#     - requested_slot: date
-#   - intent: appointment_date
-#     entities:
-#     - date: 2023/08/31
-#   - slot_was_set:
-#     - date: 2023/08/31
-#   - action: appointment_form
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_submit_appointment
+  - story: user dont want to continue booking form 
+    steps:
+      - intent: greet 
+      - action: utter_greet
+      - intent: make_appointment
+      - action: appointment_form
+      - active_loop: appointment_form
+      - intent: stop_form
+      - action: utter_ask_stop
+      - or:
+        - intent: stop_form
+        - intent: accept
+      - action: action_deactivate_loop
+      - active_loop: null
+
+  - story: user dont want to continue booking form 
+    steps:
+      - intent: greet 
+      - action: utter_greet
+      - intent: make_appointment
+      - action: appointment_form
+      - active_loop: appointment_form
+      - intent: stop_form
+      - action: utter_ask_stop
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: appointment_form

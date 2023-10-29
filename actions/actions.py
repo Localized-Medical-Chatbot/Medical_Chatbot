@@ -165,7 +165,7 @@ class ActionGetAdditionalClinicDetails(Action):
                     end_time_str = str(end_time.seconds // 3600).zfill(2) + ':' + str((end_time.seconds // 60) % 60).zfill(2)
                     date_str = date_value.strftime('%Y-%m-%d')
 
-                    response = f"{response} Start time: {start_time_str}\n End time: {end_time_str}\n Date:{date_str} \n\n"
+                    response = f"{response} ආරම්භක වෙලාව: {start_time_str}\n    අවසාන වන වෙලාව: {end_time_str}\n    දිනය:{date_str} \n\n"
 
                 dispatcher.utter_message(text= response)
                 

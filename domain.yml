@@ -23,6 +23,7 @@ intents:
 - out_domain
 - parking_info
 - visiting_hours
+- stop_form
 - user_first_aid_burn
 - user_first_aid_choking
 - user_first_aid_bleeding
@@ -45,6 +46,7 @@ actions:
 - action_hello_world
 - action_get_doctor_name
 - validate_appointment_form
+- utter_ask_stop
 entities:
 - date
 - food
@@ -184,7 +186,14 @@ responses:
           payload: "/surgery"
         - title: "Home"
           payload: "/greet"
-       
+  
+  utter_ask_stop:
+    - text: Do you want to cancel the booking ?
+      buttons:
+        - title: "Yes"
+          payload: "/accept"
+        - title: "No"
+          payload: "/deny"
 
   utter_continue:
     - text: If you want to know anything please ask me.

@@ -188,6 +188,7 @@ nlu:
     - hospital details.
     - hospital info.
     - give me hospital details.
+    - I need to know the details of the hospital
     
 - intent: parking_info
   examples: |
@@ -203,6 +204,8 @@ nlu:
     - Can you provide information about food options at the hospital?
     - What are the dining facilities available in the hospital?
     - Where can I find something to eat within the hospital?
+    - Is there a hospital canteen?
+    - Hospital canteen
 - intent: contact_info
   examples: |
     - How can I contact the hospital?
@@ -222,6 +225,7 @@ nlu:
     - Explain the range of treatments and services at the hospital.
     - Describe the specialities covered by the hospital's doctors.
     - Give me an overview of the medical services provided.
+    - Hospital services
 - intent: ambulance_services
   examples: |
     - Do you provide ambulance services?
@@ -250,6 +254,7 @@ nlu:
     - What time can I visit a Q?
     - When are the best times to visit patients?
     - How late can I stay to visit someone in the hospital?
+    - How can I see a patient?
 - intent: doctor_specialties
   examples: |
     - What are the different types of doctors?
@@ -409,6 +414,18 @@ nlu:
     - Buy this product now!
     - You've won a prize! Click this link
     - Make money fast with this scheme!
+
+- intent: stop_form
+  examples: |
+    - i want to stop the bocking process
+    - stop this
+    - stop the boking
+    - don't continue 
+    - don't continue the booking 
+    - I don't need to make an appointment right now
+    - No need to set aside time
+    - cancel the booking 
+    - stop this 
 
 - synonym: burn
   examples: |

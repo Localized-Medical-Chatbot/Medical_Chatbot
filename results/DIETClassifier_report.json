@@ -1,0 +1,35 @@
+{
+  "clinics": {
+    "precision": 0.967391304347826,
+    "recall": 1.0,
+    "f1-score": 0.9834254143646408,
+    "support": 89,
+    "confused_with": {}
+  },
+  "date": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.97,
+    "recall": 1.0,
+    "f1-score": 0.9847715736040609,
+    "support": 97
+  },
+  "macro avg": {
+    "precision": 0.9836956521739131,
+    "recall": 1.0,
+    "f1-score": 0.9917127071823204,
+    "support": 97
+  },
+  "weighted avg": {
+    "precision": 0.9700806813088301,
+    "recall": 1.0,
+    "f1-score": 0.9847923904995158,
+    "support": 97
+  },
+  "accuracy": 0.9984725050916496
+}
