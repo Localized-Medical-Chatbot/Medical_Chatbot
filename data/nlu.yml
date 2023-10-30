@@ -106,8 +106,8 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-    - home
-    - go to home
+    - home page
+    - go to home page
     
 - intent: goodbye
   examples: |
