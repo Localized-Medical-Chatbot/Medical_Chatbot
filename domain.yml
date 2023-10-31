@@ -63,26 +63,26 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-      - type: from_text
-        conditions:
-          - active_loop: appointment_form
-            requested_slot: first_name
+    - type: from_text
+      conditions:
+        - active_loop: appointment_form
+          requested_slot: first_name
   doctor_id:
     type: text
     mappings:
-      - type: from_text
-        conditions:
-          - active_loop: appointment_form
-            requested_slot: doctor_id
+    - type: from_text
+      conditions:
+        - active_loop: appointment_form
+          requested_slot: doctor_id
 
   doctor_name:
     type: text
     influence_conversation: true
     mappings:
-      - type: from_text
-        conditions:
-          - active_loop: appointment_form
-            requested_slot: doctor_name
+    - type: from_text
+      conditions:
+        - active_loop: appointment_form
+          requested_slot: doctor_name
 
   last_name:
     type: text
@@ -106,6 +106,7 @@ forms:
     - doctor_name
     - date
     - doctor_id
+
 responses:
   utter_greet:
     - text: "Hey! How can I help you?"
@@ -816,7 +817,7 @@ responses:
   utter_ask_appointment_form_doctor_name:
     - text: "please provide the name of the doctor"
   utter_ask_appointment_form_date:
-    - text: "when do you want to make an appontment ?"
+    - text: "when do you want to make an appointment ?"
 
 
 session_config:

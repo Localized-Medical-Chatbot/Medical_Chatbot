@@ -7,6 +7,8 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
+from datetime import datetime, timedelta
+
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker, FormValidationAction
@@ -229,6 +231,74 @@ class ValidateAppointmentForm(FormValidationAction):
             db.disconnect()       # ----------------
             doctor_id = str(doctor_id[0][0])
             return{"doctor_id": doctor_id}
+        
+    
+    def validate_date(
+            self,
+            slot_value: any,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: DomainDict) -> Dict[Text,Any]:
+        
+        date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y']
+
+        # Try parsing the date using each format
+        for date_format in date_formats:
+            try:
+                date_obj = datetime.strptime(slot_value, date_format)
+                break  # Stop if successfully parsed
+            except ValueError:
+                pass
+
+        # Get today's date
+        today = datetime.now().date()
+
+        # Calculate the date one month from now
+        next_month = today + timedelta(days=30)
+
+        # Check if the parsed date is within today and the next month
+        if today <= date_obj.date() <= next_month:
+            doc_id = int(tracker.get_slot("doctor_id"))
+            app_date = str(tracker.get_slot("date"))
+            print(doc_id,app_date)
+            # AvilabilityTimeQuarry = f"""SELECT start_time, end_time FROM 
+            #                             availability WHERE doctor_id = {doc_id} AND date = {date};"""
+            AvilabilityTimeQuarry = f"""SELECT start_time, end_time FROM 
+                                        availability WHERE doctor_id = {doc_id} AND date = '{app_date}';"""
+            db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+            avilable_times = db.query(AvilabilityTimeQuarry)
+            db.disconnect()
+            print(avilable_times)
+            message = ""
+            if len(avilable_times):
+                message = "The doctor is available on  \n"
+                for row in avilable_times:
+                    start_time = row[0]
+                    end_time = row[1]
+                    message += f"---- {app_date} from {start_time} to {end_time}.\n\n"
+                
+                dispatcher.utter_message(text=message)
+                return {"date":slot_value}
+            else:
+                AvilabilityQuarry = f"""SELECT date, start_time, end_time FROM 
+                                    availability WHERE doctor_id = {doc_id} AND date BETWEEN '{today}' AND '{next_month}';"""
+                db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+                avilable_dates = db.query(AvilabilityQuarry)
+                db.disconnect()
+                message = f"The doctor is not available on {app_date}. Please provide a date from available dates:  \n\n"
+
+                for row in avilable_dates:
+                    avilable_dt = row[0]
+                    start_time = row[1]
+                    end_time= row[2]
+                    message += f"---- {avilable_dt} from {start_time} to {end_time}.\n\n"
+
+                dispatcher.utter_message(text=message)
+                return {"date":None}
+        else:
+            message = "Sorry You can only create an appointment within a month from today. the date you enterd is not valid. \n"
+            dispatcher.utter_message(text= message)
+            return {"date": None}
 
 
             # GetDoctorName = f"""SELECT first_name, last_name
