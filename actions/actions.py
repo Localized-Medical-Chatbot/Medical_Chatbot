@@ -190,7 +190,8 @@ class ValidateAppointmentForm(FormValidationAction):
         GetAllDoctorsQuerry = f"""SELECT
                                     d.first_name,
                                     d.last_name,
-                                    s.type AS specialization
+                                    s.type AS specialization,
+                                    d.id
                                 FROM
                                     doctor AS d
                                 JOIN
@@ -203,16 +204,23 @@ class ValidateAppointmentForm(FormValidationAction):
         doctor_names = []
         for row in all_doctors:
             doctor_names.extend(row)
-        doctor_names = [item.lower() for item in doctor_names]
+        # doctor_names = [item.lower() for item in doctor_names]
+        doctor_names = [item.lower() if isinstance(item, str) else item for item in doctor_names]
+
 
         if not slot_value.lower() in doctor_names:
             message = "You entered Docter name is not in our database. Please provide doctors in our hospital \n"
+            buttons = []
             for row in all_doctors:
                 full_name = f"{row[0]} {row[1]}"
                 specialization = row[2]
-                message += f"{full_name} : {specialization}\n"
+                title = f"{full_name} : {specialization}\n"
+                # payload = f'/doctor_slot_fill{{"doctor_id": "{row[3]}"}}'
+                payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{full_name}"}}'
+                buttons.append({"title":title, "payload":payload})
+                # message += f"{full_name} : {specialization}\n"
 
-            dispatcher.utter_message(text= message)
+            dispatcher.utter_message(text= message,buttons=buttons)
             return {"doctor_name": None}
         
         else:
@@ -231,7 +239,31 @@ class ValidateAppointmentForm(FormValidationAction):
             db.disconnect()       # ----------------
             doctor_id = str(doctor_id[0][0])
             return{"doctor_id": doctor_id}
+    
+    def doctor_name_frm_entity(
+            self,
+            slot_value: any,
+            dispatcher: CollectingDispatcher,
+            tarcker: Tracker,
+            domain: DomainDict) -> Dict[Text,Any]:
         
+        GetDoctorId = f"""SELECT
+                            d.id,d.first_name
+                        FROM
+                            doctor AS d
+                        JOIN
+                            speciality AS s ON d.specialty = s.id
+                        WHERE
+                            CONCAT(d.first_name, ' ', d.last_name) LIKE '%%{slot_value.lower()}%%'
+                            OR d.first_name LIKE '%%{slot_value.lower()}%%'
+                            OR d.last_name LIKE '%%{slot_value.lower()}%%';"""
+        db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+        doctor_details = db.query(GetDoctorId)
+        db.disconnect()       # ----------------
+        doctor_id = str(doctor_details[0][0])
+        doctor_name = str(doctor_details[0][1]) 
+        return{"doctor_name":doctor_name,"doctor_id": doctor_id}
+          
     
     def validate_date(
             self,
@@ -261,8 +293,7 @@ class ValidateAppointmentForm(FormValidationAction):
             doc_id = int(tracker.get_slot("doctor_id"))
             app_date = str(tracker.get_slot("date"))
             print(doc_id,app_date)
-            # AvilabilityTimeQuarry = f"""SELECT start_time, end_time FROM 
-            #                             availability WHERE doctor_id = {doc_id} AND date = {date};"""
+
             AvilabilityTimeQuarry = f"""SELECT start_time, end_time FROM 
                                         availability WHERE doctor_id = {doc_id} AND date = '{app_date}';"""
             db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
@@ -271,13 +302,16 @@ class ValidateAppointmentForm(FormValidationAction):
             print(avilable_times)
             message = ""
             if len(avilable_times):
-                message = "The doctor is available on  \n"
+                message = "You can meet your Doctor:  \n"
+                buttons=[]
                 for row in avilable_times:
                     start_time = row[0]
                     end_time = row[1]
-                    message += f"---- {app_date} from {start_time} to {end_time}.\n\n"
+                    title = f"- {app_date} from {start_time} to {end_time}.\n"
+                    payload = f'/time_slot{{"start_time":"{start_time}", "end_time":"{end_time}"}}'
+                    buttons.append({"title":title, "payload":payload})
                 
-                dispatcher.utter_message(text=message)
+                dispatcher.utter_message(text=message,buttons=buttons)
                 return {"date":slot_value}
             else:
                 AvilabilityQuarry = f"""SELECT date, start_time, end_time FROM 
@@ -286,14 +320,16 @@ class ValidateAppointmentForm(FormValidationAction):
                 avilable_dates = db.query(AvilabilityQuarry)
                 db.disconnect()
                 message = f"The doctor is not available on {app_date}. Please provide a date from available dates:  \n\n"
-
+                buttons = []
                 for row in avilable_dates:
                     avilable_dt = row[0]
                     start_time = row[1]
-                    end_time= row[2]
-                    message += f"---- {avilable_dt} from {start_time} to {end_time}.\n\n"
+                    end_time = row[2]
+                    title = f"- {avilable_dt} from {start_time} to {end_time}.\n"
+                    payload = f'/time_slot{{"date":"{avilable_dt}","start_time": "{start_time}", "end_time": "{end_time}"}}'
+                    buttons.append({"title":title, "payload":payload})
 
-                dispatcher.utter_message(text=message)
+                dispatcher.utter_message(text=message,buttons=buttons)
                 return {"date":None}
         else:
             message = "Sorry You can only create an appointment within a month from today. the date you enterd is not valid. \n"
@@ -323,8 +359,8 @@ class ActionSubmitAppointment(Action):
         last_name = tracker.get_slot("last_name")
         date = tracker.get_slot("date")
         doctor_id = int(tracker.get_slot("doctor_id"))
-        start_time = '10:00:00'
-        end_time = '10:30:00'
+        start_time = tracker.get_slot("start_time")
+        end_time = tracker.get_slot("end_time")
 
         AppointmentQuarry = f"""
                     INSERT INTO `appointment` (`doctor_id`, `first_name`, `last_name`, `start_time`, `end_time`, `date`) VALUES

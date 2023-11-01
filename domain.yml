@@ -35,6 +35,8 @@ intents:
 - user_first_aid_allergic_reaction
 - user_first_aid_eye_injury
 - user_first_aid_fainting
+- time_slot
+- get_doctor_name_frm_payload
 
 actions:
 - action_submit_appointment
@@ -51,6 +53,9 @@ entities:
 - date
 - food
 - clinics
+- start_time
+- end_time
+- doctor_name
 slots:
   clinic_type:
     type: text
@@ -84,6 +89,15 @@ slots:
         - active_loop: appointment_form
           requested_slot: doctor_name
 
+  doctor_name_frm_entity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: doctor_name
+      intent: get_doctor_name_frm_payload
+
+
   last_name:
     type: text
     influence_conversation: true
@@ -98,6 +112,21 @@ slots:
     - type: from_entity
       entity: date
       intent: appointment_date
+
+  start_time:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: start_time
+      intent: time_slot
+
+  end_time:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: end_time
+      intent: time_slot
+
 forms:
   appointment_form:
     required_slots:
@@ -106,6 +135,9 @@ forms:
     - doctor_name
     - date
     - doctor_id
+    - start_time
+    - end_time
+    - doctor_name_frm_entity
 
 responses:
   utter_greet:
@@ -134,7 +166,7 @@ responses:
   utter_did_that_help:
   - text: Did that help you?
   utter_about_hospital:
-    - text: "We are Paira Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
+    - text: "We are MedCare Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
     \n We provide best service for you 
     \n Our service time is 24 hours. 
     \n You can come any time to our hospital. 

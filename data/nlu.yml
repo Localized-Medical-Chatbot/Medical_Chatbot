@@ -427,6 +427,28 @@ nlu:
     - cancel the booking 
     - stop this 
 
+- intent: time_slot
+  examples: |
+    - date: [2023-11-01](date), start_time: [8:35:00](start_time), end_time: [8:50:00](end_time)
+    - date: [2024-12-01](date), start_time: [10:00:00](start_time), end_time: [10:10:00](end_time)
+    - date: [2021-07-30](date), start_time: [13:20:00](start_time), end_time: [15:00:00](end_time)
+    - date: [2023-12-31](date), start_time: [8:15:00](start_time), end_time: [9:00:00](end_time)
+    - date: [2023-11-01](date), start_time: [15:00:00](start_time), end_time: [15.30:00](end_time)
+    - start_time: [8:50](start_time), end_time: [9:10:00](end_time)
+    - start_time: [14:20](start_time), end_time: [15:15](end_time)
+    - start_time: [12:30:00](start_time), end_time: [13.00:00](end_time)
+    - start_time: [8:50:00](start_time), end_time: [10:10:00](end_time)
+
+- intent: get_doctor_name_frm_payload
+  examples: |
+    - [john smith](doctor_name)
+    - [john](doctor_name)
+    - [Emily Johnson](doctor_name)
+    - [Sarah](doctor_name)
+    - [Jennifer Lee](doctor_name)
+    - [Linda taylor](doctor_name)
+    - [Cristopher Wilson](doctor_name)
+    - [David](doctor_name)
 - synonym: burn
   examples: |
     - burn clinic
@@ -489,13 +511,7 @@ nlu:
 #     examples: |
 #       - 9.00 am
 #       - 9.00
-# - intent: order_pizza
-#     examples: |
-#       - I want to order a [pizza](food)
-#       - Get me a [pizza](food)
-#       - I want a [pizza](food)
-#       - Can you get me a [pizza](food)
-#       - How about a [pizza](food)
+
 
 #   - intent: booking_doctor
 #     examples: |
