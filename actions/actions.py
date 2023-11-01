@@ -216,7 +216,7 @@ class ValidateAppointmentForm(FormValidationAction):
                 specialization = row[2]
                 title = f"{full_name} : {specialization}\n"
                 # payload = f'/doctor_slot_fill{{"doctor_id": "{row[3]}"}}'
-                payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{full_name}"}}'
+                payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{row[0]}"}}'
                 buttons.append({"title":title, "payload":payload})
                 # message += f"{full_name} : {specialization}\n"
 
