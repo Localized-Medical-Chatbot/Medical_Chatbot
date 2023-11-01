@@ -13,6 +13,7 @@ intents:
 - doctor_details
 - doctor_specialties
 - emergency_procedures
+- get_doctor_name_frm_payload
 - goodbye
 - greet
 - hospital_billing
@@ -20,27 +21,31 @@ intents:
 - medical_services
 - mood_great
 - mood_unhappy
+- nlu_fallback
 - out_domain
 - parking_info
-- visiting_hours
 - stop_form
+- time_slot
+- user_first_aid_allergic_reaction
+- user_first_aid_bleeding
 - user_first_aid_burn
 - user_first_aid_choking
-- user_first_aid_bleeding
 - user_first_aid_drowning
-- user_first_aid_poisoning
-- user_first_aid_fracture
-- user_first_aid_seizure
-- user_first_aid_heart_attack
-- user_first_aid_allergic_reaction
 - user_first_aid_eye_injury
 - user_first_aid_fainting
-- time_slot
-- get_doctor_name_frm_payload
-
+- user_first_aid_fracture
+- user_first_aid_heart_attack
+- user_first_aid_poisoning
+- user_first_aid_seizure
+- visiting_hours
 actions:
+- utter_about_hospital
 - action_submit_appointment
+- utter_parking_info
 - utter_greet
+- utter_medical_services
+- utter_contact_info
+- utter_visiting_hours
 - action_get_additional_clinic_details
 - utter_continue
 - action_get_clinic_details
@@ -51,11 +56,11 @@ actions:
 - utter_ask_stop
 entities:
 - date
+- end_time
+- start_time
+- doctor_name
 - food
 - clinics
-- start_time
-- end_time
-- doctor_name
 slots:
   clinic_type:
     type: text
@@ -70,25 +75,23 @@ slots:
     mappings:
     - type: from_text
       conditions:
-        - active_loop: appointment_form
-          requested_slot: first_name
+      - active_loop: appointment_form
+        requested_slot: first_name
   doctor_id:
     type: text
     mappings:
     - type: from_text
       conditions:
-        - active_loop: appointment_form
-          requested_slot: doctor_id
-
+      - active_loop: appointment_form
+        requested_slot: doctor_id
   doctor_name:
     type: text
     influence_conversation: true
     mappings:
     - type: from_text
       conditions:
-        - active_loop: appointment_form
-          requested_slot: doctor_name
-
+      - active_loop: appointment_form
+        requested_slot: doctor_name
   doctor_name_frm_entity:
     type: text
     influence_conversation: true
@@ -96,37 +99,34 @@ slots:
     - type: from_entity
       entity: doctor_name
       intent: get_doctor_name_frm_payload
-
-
   last_name:
     type: text
     influence_conversation: true
     mappings:
-      - type: from_text
-        conditions:
-          - active_loop: appointment_form
-            requested_slot: last_name
+    - type: from_text
+      conditions:
+      - active_loop: appointment_form
+        requested_slot: last_name
   date:
     type: text
     mappings:
     - type: from_entity
       entity: date
-      intent: appointment_date
-
+      intent: |
+        - appointment_date
+        - time_slot
   start_time:
     type: text
     mappings:
     - type: from_entity
       entity: start_time
       intent: time_slot
-
   end_time:
     type: text
     mappings:
     - type: from_entity
       entity: end_time
       intent: time_slot
-
 forms:
   appointment_form:
     required_slots:
@@ -138,720 +138,630 @@ forms:
     - start_time
     - end_time
     - doctor_name_frm_entity
-
 responses:
   utter_greet:
-    - text: "Hey! How can I help you?"
-      buttons:
-
-        - title: "About Hospital Details?"
-          payload: "/about_hospital"
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "What to do in an EMERGENCY"
-          payload: "/emergency_procedures"
-
-
+  - text: Hey! How can I help you?
+    buttons:
+    - title: About Hospital Details?
+      payload: /about_hospital
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: What to do in an EMERGENCY
+      payload: /emergency_procedures
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
     image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
   - text: Did that help you?
   utter_about_hospital:
-    - text: "We are MedCare Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
-    \n We provide best service for you 
-    \n Our service time is 24 hours. 
-    \n You can come any time to our hospital. 
-    \n We have best doctors in Sri Lanka. 
-    \n We have best facilities in Sri Lanka. \
-    \n We have best medical equipment in Sri Lanka. 
-    \n We have best medical staff in Sri Lanka."
-      buttons:
-
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "Types of Doctors"
-          payload: "/doctor_specialties" 
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "What to do in an EMERGENCY"
-          payload: "/emergency_procedures"
-        - title: "About Hospital Billings"
-          payload: "/hospital_billing"
-        - title: "Home Page"
-          payload: "/greet"
-
+  - text: |-
+      We are MedCare Hospital. We are here to provide you the best service. We are Located in colombo 05 WellaWatta. 
+       We provide best service for you 
+       Our service time is 24 hours. 
+       You can come any time to our hospital. 
+       We have best doctors in Sri Lanka. 
+       We have best facilities in Sri Lanka. 
+       We have best medical equipment in Sri Lanka. 
+       We have best medical staff in Sri Lanka.
+    buttons:
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: Types of Doctors
+      payload: /doctor_specialties
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: What to do in an EMERGENCY
+      payload: /emergency_procedures
+    - title: About Hospital Billings
+      payload: /hospital_billing
+    - title: Home Page
+      payload: /greet
   utter_want_more_details:
-    - text: do you want more details about the clinic?
-      buttons:
-
-        - title: "Burn related"
-          payload: "/burn"
-        - title: "Cardiology"
-          payload: "/cardiology"
-        - title: "Gynecology"
-          payload: "/gynecology"
-        - title: "Psychology"
-          payload: "/psychology"
-        - title: "Neurology"
-          payload: "/neurology"
-        - title: "Pediatric"
-          payload: "/pediatric"
-        - title: "Surgery"
-          payload: "/surgery"
-        - title: "Home Page"
-          payload: "/greet"
-  
+  - text: do you want more details about the clinic?
+    buttons:
+    - title: Burn related
+      payload: /burn
+    - title: Cardiology
+      payload: /cardiology
+    - title: Gynecology
+      payload: /gynecology
+    - title: Psychology
+      payload: /psychology
+    - title: Neurology
+      payload: /neurology
+    - title: Pediatric
+      payload: /pediatric
+    - title: Surgery
+      payload: /surgery
+    - title: Home Page
+      payload: /greet
   utter_ask_stop:
-    - text: Do you want to cancel the booking ?
-      buttons:
-        - title: "Yes"
-          payload: "/accept"
-        - title: "No"
-          payload: "/deny"
-
+  - text: Do you want to cancel the booking ?
+    buttons:
+    - title: Yes
+      payload: /accept
+    - title: No
+      payload: /deny
   utter_continue:
-    - text: If you want to know anything please ask me.
-      buttons:
-
-        - title: "About Hospital Details?"
-          payload: "/about_hospital"
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "Details about the doctor"
-          payload: "/doctor_details" 
-        - title: "Types of Doctors"
-          payload: "/doctor_specialties" 
-        - title: "Details about the clinic"
-          payload: "clinic_details"
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "What to do in an EMERGENCY"
-          payload: "/emergency_procedures"
-        - title: "About Hospital Billings"
-          payload: "/hospital_billing"
-        - title: "Home Page"
-          payload: "/greet"
-
+  - text: If you want to know anything please ask me.
+    buttons:
+    - title: About Hospital Details?
+      payload: /about_hospital
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: Details about the doctor
+      payload: /doctor_details
+    - title: Types of Doctors
+      payload: /doctor_specialties
+    - title: Details about the clinic
+      payload: clinic_details
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: What to do in an EMERGENCY
+      payload: /emergency_procedures
+    - title: About Hospital Billings
+      payload: /hospital_billing
+    - title: Home Page
+      payload: /greet
   utter_parking_info:
-    - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
-      buttons:
-
-        
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "Home Page"
-          payload: "/greet"
-        
-
+  - text: Yes, we provide parking facilities for visitors. Our parking area is conveniently located near the main entrance, ensuring easy access to the hospital premises.
+    buttons:
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: Home Page
+      payload: /greet
   utter_cafeteria_info:
-    - text: Absolutely! We have a cafeteria located on the ground floor near the main entrance. It offers a variety of delicious food options for patients, visitors, and staff.
-      buttons:
-
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "Home Page"
-          payload: "/greet"
-      
-
+  - text: Absolutely! We have a cafeteria located on the ground floor near the main entrance. It offers a variety of delicious food options for patients, visitors, and staff.
+    buttons:
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: Home Page
+      payload: /greet
   utter_contact_info:
-    - text: "You can contact our hospital by calling our main phone number at 
-    \n 021 2227958 
-    \n 021 4532566
-    or email to us 
-    \n pariahospital@gmail.com
-    \n Our dedicated staff will be happy to assist you with any inquiries or information you may need."
-      buttons:
-
-        
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "Types of Doctors"
-          payload: "/doctor_specialties" 
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "About Hospital Billings"
-          payload: "/hospital_billing"
-        - title: "Home Page"
-          payload: "/greet"
-  
+  - text: |-
+      You can contact our hospital by calling our main phone number at 
+       021 2227958 
+       021 4532566 or email to us 
+       pariahospital@gmail.com 
+       Our dedicated staff will be happy to assist you with any inquiries or information you may need.
+    buttons:
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: Types of Doctors
+      payload: /doctor_specialties
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: About Hospital Billings
+      payload: /hospital_billing
+    - title: Home Page
+      payload: /greet
   utter_medical_services:
-    - text: "Our hospital offers a comprehensive range of medical services, including diagnostics, treatments, surgeries, and specialized care. Our expert medical team is here to ensure your well-being."
-      buttons:
-
-        
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "Types of Doctors"
-          payload: "/doctor_specialties" 
-        - title: "Details about the clinic"
-          payload: "clinic_details"
-        - title: "Home Page"
-          payload: "/greet"
-  
+  - text: Our hospital offers a comprehensive range of medical services, including diagnostics, treatments, surgeries, and specialized care. Our expert medical team is here to ensure your well-being.
+    buttons:
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: Types of Doctors
+      payload: /doctor_specialties
+    - title: Details about the clinic
+      payload: clinic_details
+    - title: Home Page
+      payload: /greet
   utter_ambulance_services:
-    - text: "Yes, we provide ambulance services for medical emergencies. If you require an ambulance, please call our emergency helpline at 1990. Our trained medical team will respond promptly to assist you."
-      buttons:
-
-        
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "What to do in an EMERGENCY"
-          payload: "/emergency_procedures"
-        - title: "About Hospital Billings"
-          payload: "/hospital_billing"
-        - title: "Home Page"
-          payload: "/greet"
-
+  - text: Yes, we provide ambulance services for medical emergencies. If you require an ambulance, please call our emergency helpline at 1990. Our trained medical team will respond promptly to assist you.
+    buttons:
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: What to do in an EMERGENCY
+      payload: /emergency_procedures
+    - title: About Hospital Billings
+      payload: /hospital_billing
+    - title: Home Page
+      payload: /greet
   utter_happy:
   - text: Great, carry on!
   utter_goodbye:
   - text: Bye
   utter_iamabot:
-    - text: "I am a Hospital Bot, Who is here to help you."
-
+  - text: I am a Hospital Bot, Who is here to help you.
   utter_appointment_booking:
-    - text: "To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time."
-      buttons:
-
-        - title: "Details about the doctor"
-          payload: "/doctor_details" 
-        - title: "Types of Doctors"
-          payload: "/doctor_specialties"
-        - title: "Home Page"
-          payload: "/greet" 
-  
+  - text: To book a medical appointment,You can use me or you can call our appointment line at 021 5869158 or visit our website(http://www.example.com/) to schedule online. Our team will help you find a suitable time.
+    buttons:
+    - title: Details about the doctor
+      payload: /doctor_details
+    - title: Types of Doctors
+      payload: /doctor_specialties
+    - title: Home Page
+      payload: /greet
   utter_visiting_hours:
-    - text: "Our visiting hours for patients are from 8:00 AM to 8:00 PM. This allows visitors to spend quality time with their loved ones in the hospital."
-      buttons:
-
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "Home Page"
-          payload: "/greet"
-
-        
+  - text: Our visiting hours for patients are from 8:00 AM to 8:00 PM. This allows visitors to spend quality time with their loved ones in the hospital.
+    buttons:
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: Home Page
+      payload: /greet
   utter_doctor_specialties:
-    - text: "We have a range of doctor specialties, such as Burn related, Cardiology, Gynecology, and more. Each specialization focuses on specific areas of medical expertise."
-      buttons:
-
-        - title: "Burn related"
-          payload: "/burn"
-        - title: "Cardiology"
-          payload: "/cardiology"
-        - title: "Gynecology"
-          payload: "/gynecology"
-        - title: "Psychology"
-          payload: "/psychology"
-        - title: "Neurology"
-          payload: "/neurology"
-        - title: "Pediatric"
-          payload: "/pediatric"
-        - title: "Surgery"
-          payload: "/surgery"
-        - title: "Home Page"
-          payload: "/greet"
+  - text: We have a range of doctor specialties, such as Burn related, Cardiology, Gynecology, and more. Each specialization focuses on specific areas of medical expertise.
+    buttons:
+    - title: Burn related
+      payload: /burn
+    - title: Cardiology
+      payload: /cardiology
+    - title: Gynecology
+      payload: /gynecology
+    - title: Psychology
+      payload: /psychology
+    - title: Neurology
+      payload: /neurology
+    - title: Pediatric
+      payload: /pediatric
+    - title: Surgery
+      payload: /surgery
+    - title: Home Page
+      payload: /greet
   utter_emergency_procedures:
-    - text: "In a medical emergency, it's important to stay calm. Dial 1990 for immediate assistance. If needed, administer first aid and wait for medical professionals to arrive."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
+  - text: In a medical emergency, it's important to stay calm. Dial 1990 for immediate assistance. If needed, administer first aid and wait for medical professionals to arrive.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_hospital_billing:
-    - text: "Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available."
-      buttons:
-
-        - title: "About Hospital Details?"
-          payload: "/about_hospital"
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "Home Page"
-          payload: "/greet"
-        
-        
-        
+  - text: Hospital billing involves charging for medical services, treatments, and facilities. You'll receive a detailed bill that includes itemized charges. Payment options are available.
+    buttons:
+    - title: About Hospital Details?
+      payload: /about_hospital
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: Home Page
+      payload: /greet
   utter_out_domain:
-    - text: "I'm a MedicalChatbot I can't answer for this type of questions \n Sorry!"
-      buttons:
-
-        - title: "About Hospital Details?"
-          payload: "/about_hospital"
-        - title: "Hospital Contact Details"
-          payload: "/contact_info"
-        - title: "Services Provided from the Hospital"
-          payload: "/medical_services"
-        - title: "How to Book an Appointment with a Doctor"
-          payload: "/appointment_booking"
-        - title: "About Ambulance Services"
-          payload: "/ambulance_services"
-        - title: "About Parking facilities"
-          payload: "/parking_info"
-        - title: "About Cafeteria Details"
-          payload: "/cafeteria_info"
-        - title: "Details about the doctor"
-          payload: "/doctor_details" 
-        - title: "Types of Doctors"
-          payload: "/doctor_specialties" 
-        - title: "Details about the clinic"
-          payload: "clinic_details"
-        - title: "About Patient visiting hours"
-          payload: "/visiting_hours"
-        - title: "What to do in an EMERGENCY"
-          payload: "/emergency_procedures"
-        - title: "About Hospital Billings"
-          payload: "/hospital_billing"
-        - title: "Home Page"
-          payload: "/greet"
-
+  - text: |-
+      I'm a MedicalChatbot I can't answer for this type of questions 
+       Sorry!
+    buttons:
+    - title: About Hospital Details?
+      payload: /about_hospital
+    - title: Hospital Contact Details
+      payload: /contact_info
+    - title: Services Provided from the Hospital
+      payload: /medical_services
+    - title: How to Book an Appointment with a Doctor
+      payload: /appointment_booking
+    - title: About Ambulance Services
+      payload: /ambulance_services
+    - title: About Parking facilities
+      payload: /parking_info
+    - title: About Cafeteria Details
+      payload: /cafeteria_info
+    - title: Details about the doctor
+      payload: /doctor_details
+    - title: Types of Doctors
+      payload: /doctor_specialties
+    - title: Details about the clinic
+      payload: clinic_details
+    - title: About Patient visiting hours
+      payload: /visiting_hours
+    - title: What to do in an EMERGENCY
+      payload: /emergency_procedures
+    - title: About Hospital Billings
+      payload: /hospital_billing
+    - title: Home Page
+      payload: /greet
   utter_user_first_aid_burn:
-    - text: "I'm not a medical professional, but for a minor burn, you can run cool water over the affected area for about 10 minutes and cover it with a clean, non-stick bandage."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
+  - text: I'm not a medical professional, but for a minor burn, you can run cool water over the affected area for about 10 minutes and cover it with a clean, non-stick bandage.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_user_first_aid_choking:
-    - text: "If someone is choking and can't breathe, you can perform the Heimlich maneuver. Stand behind the person, place a fist just above their navel and below the ribcage, and perform quick upward thrusts."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
-  
+  - text: If someone is choking and can't breathe, you can perform the Heimlich maneuver. Stand behind the person, place a fist just above their navel and below the ribcage, and perform quick upward thrusts.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_user_first_aid_bleeding:
-    - text: "For heavy bleeding, apply direct pressure on the wound with a clean cloth. If bleeding doesn't stop, keep pressure and get medical help."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
-  
+  - text: For heavy bleeding, apply direct pressure on the wound with a clean cloth. If bleeding doesn't stop, keep pressure and get medical help.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_drowning:
-    - text: "If someone is drowning, remember to prioritize your safety. Call for emergency help and try to reach out to the person with a flotation device or long object. Do not put yourself in danger."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
-  
+  - text: If someone is drowning, remember to prioritize your safety. Call for emergency help and try to reach out to the person with a flotation device or long object. Do not put yourself in danger.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_poisoning:
-    - text: "If someone has ingested poison, it's crucial to call emergency services immediately. Try to identify the substance and provide this information to medical professionals."
-    - text: "If you suspect someone has consumed poison, it's vital to dial emergency services without delay. Attempt to discern the nature of the substance and relay this information to healthcare professionals promptly. help him to vomit the poison."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
-  
+  - text: If someone has ingested poison, it's crucial to call emergency services immediately. Try to identify the substance and provide this information to medical professionals.
+  - text: If you suspect someone has consumed poison, it's vital to dial emergency services without delay. Attempt to discern the nature of the substance and relay this information to healthcare professionals promptly. help him to vomit the poison.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_fracture:
-    - text: "For a suspected fracture, keep the injured area immobilized and avoid moving it. Apply ice wrapped in a cloth to reduce swelling. Seek medical attention as soon as possible."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
+  - text: For a suspected fracture, keep the injured area immobilized and avoid moving it. Apply ice wrapped in a cloth to reduce swelling. Seek medical attention as soon as possible.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_seizure:
-    - text: "During a seizure, ensure the person's safety by gently guiding them to the ground and placing them on their side. Cushion their head and remove any nearby objects. Call for medical help if the seizure lasts longer than 5 minutes."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-        
-
-  
-  
+  - text: During a seizure, ensure the person's safety by gently guiding them to the ground and placing them on their side. Cushion their head and remove any nearby objects. Call for medical help if the seizure lasts longer than 5 minutes.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_heart_attack:
-    - text: "If someone is having a heart attack, call emergency services immediately. Have them rest, keep calm, and chew on an aspirin if available. Perform CPR if they become unresponsive and aren't breathing normally."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-  
-  
+  - text: If someone is having a heart attack, call emergency services immediately. Have them rest, keep calm, and chew on an aspirin if available. Perform CPR if they become unresponsive and aren't breathing normally.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_allergic_reaction:
-    - text: "If someone is having a severe allergic reaction with difficulty breathing, call emergency services. If they have an epinephrine auto-injector, help them use it. Keep them comfortable and monitor their condition."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-  
-  
+  - text: If someone is having a severe allergic reaction with difficulty breathing, call emergency services. If they have an epinephrine auto-injector, help them use it. Keep them comfortable and monitor their condition.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_eye_injury:
-    - text: "For an eye injury, do not rub the eye. Rinse gently with clean water if there's a foreign object. Cover the eye with a sterile dressing and seek medical attention."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
-  
-  
+  - text: For an eye injury, do not rub the eye. Rinse gently with clean water if there's a foreign object. Cover the eye with a sterile dressing and seek medical attention.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_first_aid_fainting:
-    - text: "If someone faints, lay them down on their back and elevate their legs slightly. Ensure they have proper air circulation and monitor their breathing. If they don't regain consciousness, seek medical help."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack"
-        - title: "when allergic reaction"
-          payload: "/user_first_aid_allergic_reaction"  
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-
+  - text: If someone faints, lay them down on their back and elevate their legs slightly. Ensure they have proper air circulation and monitor their breathing. If they don't regain consciousness, seek medical help.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when allergic reaction
+      payload: /user_first_aid_allergic_reaction
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_user_first_aid_allergic_reaction:
-    - text: "In the event of an allergic reaction, act swiftly by calling emergency services, particularly if the reaction is severe. Keep the affected person calm, help them identify and go away themselves from the allergen, and, if he has the medicine prescribed by doctor for alllergy give them medicine accordingly. If breathing difficulties arise, help to find a seated position to aid in breathing. Seek professional medical assistance promptly for severe reactions, as these advices, may vary based on the situation."
-      buttons:
-
-        - title: "when skin burned"
-          payload: "/user_first_aid_burn"
-        - title: "when someone is choking"
-          payload: "/user_first_aid_choking"
-        - title: "when bleeding wound"
-          payload: "/user_first_aid_bleeding"
-        - title: "when someone drowning"
-          payload: "/user_first_aid_drowning"
-        - title: "when someone poisoned"
-          payload: "/user_first_aid_poisoning"
-        - title: "when broken bone"
-          payload: "/user_first_aid_fracture"
-        - title: "when heart attack"
-          payload: "/user_first_aid_heart_attack" 
-        - title: "when eye injury"
-          payload: "/user_first_aid_eye_injury"
-        - title: "when someone fainted"
-          payload: "/user_first_aid_fainting"
-        - title: "Home Page"
-          payload: "/greet"
-  
-  
+  - text: In the event of an allergic reaction, act swiftly by calling emergency services, particularly if the reaction is severe. Keep the affected person calm, help them identify and go away themselves from the allergen, and, if he has the medicine prescribed by doctor for alllergy give them medicine accordingly. If breathing difficulties arise, help to find a seated position to aid in breathing. Seek professional medical assistance promptly for severe reactions, as these advices, may vary based on the situation.
+    buttons:
+    - title: when skin burned
+      payload: /user_first_aid_burn
+    - title: when someone is choking
+      payload: /user_first_aid_choking
+    - title: when bleeding wound
+      payload: /user_first_aid_bleeding
+    - title: when someone drowning
+      payload: /user_first_aid_drowning
+    - title: when someone poisoned
+      payload: /user_first_aid_poisoning
+    - title: when broken bone
+      payload: /user_first_aid_fracture
+    - title: when heart attack
+      payload: /user_first_aid_heart_attack
+    - title: when eye injury
+      payload: /user_first_aid_eye_injury
+    - title: when someone fainted
+      payload: /user_first_aid_fainting
+    - title: Home Page
+      payload: /greet
   utter_ask_appointment_form_first_name:
-    - text: "please provide your first name"
+  - text: please provide your first name
   utter_ask_appointment_form_last_name:
-    - text: "please provide your last name"
+  - text: please provide your last name
   utter_ask_appointment_form_doctor_name:
-    - text: "please provide the name of the doctor"
+  - text: please provide the name of the doctor
   utter_ask_appointment_form_date:
-    - text: "when do you want to make an appointment ?"
-
-
+  - text: when do you want to make an appointment ?
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

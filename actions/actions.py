@@ -203,11 +203,11 @@ class ValidateAppointmentForm(FormValidationAction):
 
         doctor_names = []
         for row in all_doctors:
-            doctor_names.extend(row)
+            doctor_names.extend(row) 
         # doctor_names = [item.lower() for item in doctor_names]
         doctor_names = [item.lower() if isinstance(item, str) else item for item in doctor_names]
-
-
+        # print(doctor_names)
+        # print(slot_value)
         if not slot_value.lower() in doctor_names:
             message = "You entered Docter name is not in our database. Please provide doctors in our hospital \n"
             buttons = []
@@ -216,7 +216,8 @@ class ValidateAppointmentForm(FormValidationAction):
                 specialization = row[2]
                 title = f"{full_name} : {specialization}\n"
                 # payload = f'/doctor_slot_fill{{"doctor_id": "{row[3]}"}}'
-                payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{full_name}"}}'
+                # payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{full_name}"}}'
+                payload = f'{row[0]}'
                 buttons.append({"title":title, "payload":payload})
                 # message += f"{full_name} : {specialization}\n"
 
@@ -240,7 +241,7 @@ class ValidateAppointmentForm(FormValidationAction):
             doctor_id = str(doctor_id[0][0])
             return{"doctor_id": doctor_id}
     
-    def doctor_name_frm_entity(
+    def validate_doctor_name_frm_entity(
             self,
             slot_value: any,
             dispatcher: CollectingDispatcher,

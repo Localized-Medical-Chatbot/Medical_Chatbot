@@ -213,3 +213,118 @@ stories:
       - intent: deny
       - action: action_deactivate_loop
       - active_loop: appointment_form
+  
+  - story: interactive_story_2
+    steps:
+    - action: action_submit_appointment
+    - intent: about_hospital
+    - action: utter_about_hospital
+    - intent: user_first_aid_fainting
+    - action: utter_ask_first_aid_fainting
+    - intent: parking_info
+    - action: utter_parking_info
+    - intent: contact_info
+    - action: utter_contact_info
+    - intent: visiting_hours
+    - action: utter_visiting_hours
+    - intent: medical_services
+    - action: utter_medical_services
+    - intent: user_first_aid_poisoning
+    - action: utter_ask_first_aid_poisoning
+    - intent: greet
+    - action: utter_greet
+
+  - story: interactive_story_1
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: make_appointment
+    - action: appointment_form
+    - active_loop: appointment_form
+    - slot_was_set:
+      - requested_slot: first_name
+    - intent: nlu_fallback
+    - slot_was_set:
+      - first_name: Saman
+    - action: appointment_form
+    - slot_was_set:
+      - first_name: Gimhan
+    - slot_was_set:
+      - requested_slot: last_name
+    - intent: nlu_fallback
+    - slot_was_set:
+      - last_name: Sandeeptha
+    - action: appointment_form
+    - slot_was_set:
+      - last_name: Sandeeptha
+    - slot_was_set:
+      - requested_slot: doctor_name
+    - intent: nlu_fallback
+    - slot_was_set:
+      - doctor_name: twgrw
+    - action: appointment_form
+    - slot_was_set:
+      - doctor_name: null
+    - slot_was_set:
+      - requested_slot: doctor_name
+    - intent: get_doctor_name_frm_payload
+      entities:
+      - doctor_name: john
+      - doctor_name: john
+    - slot_was_set:
+      - doctor_name: John
+    - slot_was_set:
+      - doctor_name_frm_entity: john
+    - action: appointment_form
+    - slot_was_set:
+      - doctor_name: John
+    - slot_was_set:
+      - doctor_name_frm_entity: john
+    - slot_was_set:
+      - doctor_id: '1'
+    - slot_was_set:
+      - requested_slot: date
+    - intent: appointment_date
+      entities:
+      - date: '2023-11-02'
+      - date: '2023-11-02'
+    - slot_was_set:
+      - date: '2023-11-02'
+    - action: appointment_form
+    - slot_was_set:
+      - date: '2023-11-02'
+    - slot_was_set:
+      - requested_slot: start_time
+    - intent: time_slot
+      entities:
+      - start_time: :"15:00:00
+      - end_time: :"15:20:00
+      - start_time: :"15:00:00
+      - end_time: :"15:20:00
+    - slot_was_set:
+      - start_time: :"15:00:00
+    - slot_was_set:
+      - end_time: :"15:20:00
+    - action: appointment_form
+    - slot_was_set:
+      - start_time: :"15:00:00
+    - slot_was_set:
+      - end_time: :"15:20:00
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_submit_appointment
+    - intent: greet
+    - action: utter_greet
+    - intent: about_hospital
+    - action: utter_about_hospital
+    - intent: parking_info
+    - action: utter_parking_info
+    - intent: contact_info
+    - action: utter_contact_info
+    - intent: visiting_hours
+    - action: utter_visiting_hours
+    - intent: medical_services
+    - action: utter_medical_services
+    - intent: greet
+    - action: utter_greet

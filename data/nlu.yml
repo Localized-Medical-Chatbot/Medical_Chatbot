@@ -108,7 +108,6 @@ nlu:
     - good afternoon
     - home page
     - go to home page
-    
 - intent: goodbye
   examples: |
     - cu
@@ -189,7 +188,7 @@ nlu:
     - hospital info.
     - give me hospital details.
     - I need to know the details of the hospital
-    
+    - about hospital
 - intent: parking_info
   examples: |
     - Is there parking available at the hospital?
@@ -197,6 +196,7 @@ nlu:
     - What are the parking options for visitors?
     - Can you provide information about hospital parking?
     - Where can I park my vehicle at the hospital?
+    - parking
 - intent: cafeteria_info
   examples: |
     - Is there a cafeteria in the hospital?
@@ -215,7 +215,6 @@ nlu:
     - How do I get in touch with the hospital's staff?
     - hospital contact number.
     - hospital contact info.
-    
 - intent: medical_services
   examples: |
     - What medical services does the hospital provide?
@@ -287,28 +286,25 @@ nlu:
     - channel a doctor
     - doctor appointment
     - shedule an appointment
-
+    - Make an appointment
 - intent: user_first_aid_burn
   examples: |
     - What should I do for a minor burn?
     - I burned my hand, what's the first aid?
     - How do I treat a burn at home?
     - when skin burned
-
 - intent: user_first_aid_choking
   examples: |
     - Someone is choking, what do I do?
     - How can I help if someone is choking?
     - Steps for assisting a choking person?
     - when someone is choking
-
 - intent: user_first_aid_bleeding
   examples: |
     - How do I stop heavy bleeding?
     - What's the first aid for a deep cut?
     - My friend is bleeding, what should I do?
     - when bleeding wound
-
 - intent: user_first_aid_drowning
   examples: |
     - What are the steps for helping a drowning person?
@@ -316,7 +312,6 @@ nlu:
     - First aid for drowning
     - Drowning victim emergency
     - when someone drowning
-
 - intent: user_first_aid_poisoning
   examples: |
     - I think someone ingested poison, what should I do?
@@ -324,7 +319,6 @@ nlu:
     - First aid for poisoning cases
     - Poison ingestion emergency
     - when someone poisoned
-
 - intent: user_first_aid_fracture
   examples: |
     - What's the first aid for a broken bone?
@@ -332,14 +326,12 @@ nlu:
     - First aid for fractures
     - Fracture injury care
     - when broken bone
-
 - intent: user_first_aid_seizure
   examples: |
     - Someone is having a seizure, what should I do?
     - How to help with seizures?
     - First aid for seizures
     - Seizure emergency response
-
 - intent: user_first_aid_heart_attack
   examples: |
     - What should I do if someone has a heart attack?
@@ -347,7 +339,6 @@ nlu:
     - First aid for heart attack
     - Heart attack emergency response
     - when heart attack
-
 - intent: user_first_aid_allergic_reaction
   examples: |
     - Someone is having an allergic reaction, what do I do?
@@ -355,7 +346,6 @@ nlu:
     - First aid for allergic reactions
     - Allergic reaction emergency
     - when allergic reaction
-
 - intent: user_first_aid_eye_injury
   examples: |
     - What's the first aid for an eye injury?
@@ -363,7 +353,6 @@ nlu:
     - First aid for eye injuries
     - Eye injury care instructions
     - when eye injury
-
 - intent: user_first_aid_fainting
   examples: |
     - Someone fainted, what should I do?
@@ -371,7 +360,6 @@ nlu:
     - First aid for fainting
     - Fainting emergency response
     - when someone fainted
-
 - intent: appointment_date
   examples: |
     - appointment date is [2023/09/08](date)
@@ -382,7 +370,7 @@ nlu:
     - [2023/08/31](date)
     - [2020-1-14](date)
     - [2004.08.05](date)
-
+    - [2023-11-02][{"entity": "date"}, {"entity": "date"}]
 - intent: out_domain
   examples: |
     - What's the weather like today?
@@ -414,19 +402,28 @@ nlu:
     - Buy this product now!
     - You've won a prize! Click this link
     - Make money fast with this scheme!
-
+    - what can i eat
+    - how to book a hotel
+    - book a airplane ticket
+    - i am tall boy
+    - can you sing a song
+    - personal details give me
+    - sing a song.
+    - do you know the tempreture of the rooom
+    - how can i grow vegitables 
+    - steps to make coffie
+    - my house is beautiful 
+  
 - intent: stop_form
   examples: |
     - i want to stop the bocking process
     - stop this
     - stop the boking
-    - don't continue 
-    - don't continue the booking 
+    - don't continue
+    - don't continue the booking
     - I don't need to make an appointment right now
     - No need to set aside time
-    - cancel the booking 
-    - stop this 
-
+    - cancel the booking
 - intent: time_slot
   examples: |
     - date: [2023-11-01](date), start_time: [8:35:00](start_time), end_time: [8:50:00](end_time)
@@ -438,7 +435,7 @@ nlu:
     - start_time: [14:20](start_time), end_time: [15:15](end_time)
     - start_time: [12:30:00](start_time), end_time: [13.00:00](end_time)
     - start_time: [8:50:00](start_time), end_time: [10:10:00](end_time)
-
+    - (/time_slot{"start_time"[:"15:00:00][{"entity": "start_time"}, {"entity": "start_time"}]", "end_time"[:"15:20:00][{"entity": "end_time"}, {"entity": "end_time"}]"})
 - intent: get_doctor_name_frm_payload
   examples: |
     - [john smith](doctor_name)
@@ -449,6 +446,12 @@ nlu:
     - [Linda taylor](doctor_name)
     - [Cristopher Wilson](doctor_name)
     - [David](doctor_name)
+    - [John][{"entity": "doctor_name", "value": "john"}, {"entity": "doctor_name", "value": "john"}]
+- intent: nlu_fallback
+  examples: |
+    - Gimhan
+    - Sandeeptha
+    - twgrw
 - synonym: burn
   examples: |
     - burn clinic
@@ -489,69 +492,3 @@ nlu:
   examples: |
     - surgical
     - surgery
-
-
-# - intent: ChooseSpecialization
-#     examples: |
-#       - Neuro
-#       - Neuro Surgent
-
-#   - intent: ChooseDoctor
-#     examples: |
-#       - I need Dr Saman Kumara
-#       - Saman Kumara
-#       - Dr Saman Kumara
-
-#   - intent: ChooseDate
-#     examples: |
-#       - 2023/08/24
-#       - 2023.08.24
-
-#   - intent: ChooseTime
-#     examples: |
-#       - 9.00 am
-#       - 9.00
-
-
-#   - intent: booking_doctor
-#     examples: |
-#       - I need to book [Sangaran](doctor)
-#       - Can I meet [Sangaran](doctor)
-#       - If it is possible I need to meet [Sangaran](doctor)
-#       - How to book [Sangaran](doctor)
-
-#   - intent: Ask_Hospital_Info
-#     examples: |
-#       - Can you provide information about the hospital?
-#       - Tell me about the hospital's services.
-#       - Explain the hospital's facilities.
-#       - I need details about the hospital.
-#       - What do you know about the hospital's offerings?
-#       - Teach me about the hospital.
-
-#   - intent: Hospital_active_time
-#     examples: |
-#       - What time does the hospital open?
-#       - When does the hospital open?
-#       - What are the hospital's operating hours?
-#       - Can you tell me the opening time of the hospital?
-#       - When is the hospital available for visits?
-#       - What's the hospital's schedule?
-
-#   - intent: Ask_Medical_Info
-#     examples: |
-#       - Can you provide medical information?
-#       - Tell me about medical topics.
-#       - Explain medical terms to me.
-#       - I need information about medical conditions.
-#       - What do you know about medical treatments?
-#       - Teach me about medical science.
-
-#   - intent: Search_Symptoms
-#     examples: |
-#       - What are the symptoms of the flu?
-#       - Can you list common cold symptoms?
-#       - Tell me about symptoms of diabetes.
-#       - I'm experiencing headaches, what could it be?
-#       - What are the signs of heart disease?
-
