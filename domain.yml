@@ -36,7 +36,7 @@ intents:
 - user_first_aid_eye_injury
 - user_first_aid_fainting
 - time_slot
-- get_doctor_name_frm_payload
+# - get_doctor_name_frm_payload
 - user_login
 - provide_login_details
 
@@ -102,22 +102,22 @@ slots:
         - active_loop: appointment_form
           requested_slot: doctor_id
 
-  # doctor_name:
-  #   type: text
-  #   influence_conversation: true
-  #   mappings:
-  #   - type: from_text
-  #     conditions:
-  #       - active_loop: appointment_form
-  #         requested_slot: doctor_name
-
   doctor_name:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: doctor_name
-      intent: get_doctor_name_frm_payload
+    - type: from_text
+      conditions:
+        - active_loop: appointment_form
+          requested_slot: doctor_name
+
+  # doctor_name:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #   - type: from_entity
+  #     entity: doctor_name
+  #     intent: get_doctor_name_frm_payload
 
   # doctor_name_frm_entity:
   #   type: text

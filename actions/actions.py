@@ -17,6 +17,7 @@ from datetime import timedelta, date
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
 import mysql.connector
+from rasa_sdk.events import UserUttered
 class DatabaseConnection:
     hostname = None
     database = None
@@ -228,18 +229,19 @@ class ValidateAppointmentForm(FormValidationAction):
 
 
         if not slot_value.lower() in doctor_names:
-            message = "You entered Docter name is not in our database. Please provide doctors in our hospital \n"
+            message = "You entered Docter name is not in our database. Please provide doctors in our hospital \n\n"
             buttons = []
             for row in all_doctors:
                 full_name = f"{row[0]} {row[1]}"
                 specialization = row[2]
-                title = f"{full_name} : {specialization}\n"
-                payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{row[0]}"}}'
+                title = f"{full_name} : {specialization}. \n ***"
+                message += title
                 # payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{row[0]}"}}'
-                buttons.append({"title":title, "payload":payload})
+                # payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{row[0]}"}}'
+                # buttons.append({"title":title, "payload":payload})
                 # message += f"{full_name} : {specialization}\n"
 
-            dispatcher.utter_message(text= message,buttons=buttons)
+            dispatcher.utter_message(text= message)
             return {"doctor_name": None}
         
         else:
@@ -421,12 +423,26 @@ class ActionAuthenticateUser(Action):
                 print(stored_password)
                 if password == stored_password:
                     dispatcher.utter_message(text="Authentication successful!")
+                    db.disconnect()
                 else:
+                    print("Incorrect")
                     dispatcher.utter_message(text="Incorrect password. Please try again.")
+                    db.disconnect()
+                    tracker.slots['usename'] = None
+                    tracker.slots['password'] = None
+                    print("incorrect 2")
+                    print(tracker.getSlot("password"))
+
             else:
                 dispatcher.utter_message(text="Username not found. Please register or try again.")
-            
-            db.disconnect()
+                db.disconnect()
+                # return {"username": None,}
+                tracker.slots['usename'] = None
+                tracker.slots['password'] = None
+                # evt = UserUttered("/user_login")
+                # return [evt]
+            return []
+                  
             
         except Exception as e:
             dispatcher.utter_message(text=f"Error during authentication: {str(e)}")

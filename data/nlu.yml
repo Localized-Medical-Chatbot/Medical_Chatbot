@@ -439,19 +439,19 @@ nlu:
     - start_time: [12:30:00](start_time), end_time: [13.00:00](end_time)
     - start_time: [8:50:00](start_time), end_time: [10:10:00](end_time)
 
-- intent: get_doctor_name_frm_payload
-  examples: |
-    - [john](doctor_name)
-    - [john](doctor_name)
-    - [Johnson](doctor_name)
-    - [Sarah](doctor_name)
-    - [Jennifer](doctor_name)
-    - [taylor](doctor_name)
-    - [Cristopher](doctor_name)
-    - [Wilson](doctor_name)
-    - [Saman](doctor_name)
-    - [Kevin](doctor_name)
-    - [David](doctor_name)
+# - intent: get_doctor_name_frm_payload
+#   examples: |
+#     - [john](doctor_name)
+#     - [john](doctor_name)
+#     - [Johnson](doctor_name)
+#     - [Sarah](doctor_name)
+#     - [Jennifer](doctor_name)
+#     - [taylor](doctor_name)
+#     - [Cristopher](doctor_name)
+#     - [Wilson](doctor_name)
+#     - [Saman](doctor_name)
+#     - [Kevin](doctor_name)
+#     - [David](doctor_name)
 
 - intent: user_login
   examples: |
