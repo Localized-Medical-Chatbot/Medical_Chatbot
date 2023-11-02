@@ -80,22 +80,30 @@ slots:
         - active_loop: appointment_form
           requested_slot: doctor_id
 
-  doctor_name:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_text
-      conditions:
-        - active_loop: appointment_form
-          requested_slot: doctor_name
+  # doctor_name:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #   - type: from_text
+  #     conditions:
+  #       - active_loop: appointment_form
+  #         requested_slot: doctor_name
 
-  doctor_name_frm_entity:
+  doctor_name:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: doctor_name
       intent: get_doctor_name_frm_payload
+
+  # doctor_name_frm_entity:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #   - type: from_entity
+  #     entity: doctor_name
+  #     intent: get_doctor_name_frm_payload
 
 
   last_name:
@@ -137,11 +145,12 @@ forms:
     - doctor_id
     - start_time
     - end_time
-    - doctor_name_frm_entity
+    # - doctor_name_frm_entity
 
 responses:
   utter_greet:
     - text: "Hey! How can I help you?"
+    - text: "Welcome !!! I am here to assist you today."
       buttons:
 
         - title: "About Hospital Details?"

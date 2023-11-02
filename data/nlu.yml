@@ -441,13 +441,16 @@ nlu:
 
 - intent: get_doctor_name_frm_payload
   examples: |
-    - [john smith](doctor_name)
     - [john](doctor_name)
-    - [Emily Johnson](doctor_name)
+    - [john](doctor_name)
+    - [Johnson](doctor_name)
     - [Sarah](doctor_name)
-    - [Jennifer Lee](doctor_name)
-    - [Linda taylor](doctor_name)
-    - [Cristopher Wilson](doctor_name)
+    - [Jennifer](doctor_name)
+    - [taylor](doctor_name)
+    - [Cristopher](doctor_name)
+    - [Wilson](doctor_name)
+    - [Saman](doctor_name)
+    - [Kevin](doctor_name)
     - [David](doctor_name)
 - synonym: burn
   examples: |

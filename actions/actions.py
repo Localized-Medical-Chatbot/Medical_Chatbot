@@ -97,13 +97,32 @@ class ActionGetDoctorName(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
-        results = db.query("SELECT first_name FROM doctor WHERE first_name = 'Jennifer';")
-        # developer_name = results[0]
-        results = str(results[0])
-        db.disconnect()
+        GetAllDoctorsQuerry = f"""SELECT
+                                    d.first_name,
+                                    d.last_name,
+                                    s.type AS specialization,
+                                    d.id
+                                FROM
+                                    doctor AS d
+                                JOIN
+                                    speciality AS s ON d.specialty = s.id"""
         
-        dispatcher.utter_message(text=results+"Just hardcorded value")
+        db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+        all_doctors = db.query(GetAllDoctorsQuerry)
+        db.disconnect()
+
+        doctor_names = []
+        for row in all_doctors:
+            doctor_names.extend(row)
+        # # doctor_names = [item.lower() for item in doctor_names]
+        # doctor_names = [item.lower() if isinstance(item, str) else item for item in doctor_names]
+
+        string =  ' These are few Doctors that we have: \n\n **** '
+        for row in all_doctors:
+            full_name = f"{row[0]} {row[1]}"
+            specialization = row[2]
+            string += f"{full_name} : {specialization}. **** \n"
+        dispatcher.utter_message(text=string)
         return[]
     
 class ActionGetClinicDetails(Action):
@@ -215,8 +234,8 @@ class ValidateAppointmentForm(FormValidationAction):
                 full_name = f"{row[0]} {row[1]}"
                 specialization = row[2]
                 title = f"{full_name} : {specialization}\n"
-                # payload = f'/doctor_slot_fill{{"doctor_id": "{row[3]}"}}'
                 payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{row[0]}"}}'
+                # payload = f'/get_doctor_name_frm_payload{{"doctor_name":"{row[0]}"}}'
                 buttons.append({"title":title, "payload":payload})
                 # message += f"{full_name} : {specialization}\n"
 
@@ -240,29 +259,29 @@ class ValidateAppointmentForm(FormValidationAction):
             doctor_id = str(doctor_id[0][0])
             return{"doctor_id": doctor_id}
     
-    def doctor_name_frm_entity(
-            self,
-            slot_value: any,
-            dispatcher: CollectingDispatcher,
-            tarcker: Tracker,
-            domain: DomainDict) -> Dict[Text,Any]:
+    # def doctor_name_frm_entity(
+    #         self,
+    #         slot_value: any,
+    #         dispatcher: CollectingDispatcher,
+    #         tarcker: Tracker,
+    #         domain: DomainDict) -> Dict[Text,Any]:
         
-        GetDoctorId = f"""SELECT
-                            d.id,d.first_name
-                        FROM
-                            doctor AS d
-                        JOIN
-                            speciality AS s ON d.specialty = s.id
-                        WHERE
-                            CONCAT(d.first_name, ' ', d.last_name) LIKE '%%{slot_value.lower()}%%'
-                            OR d.first_name LIKE '%%{slot_value.lower()}%%'
-                            OR d.last_name LIKE '%%{slot_value.lower()}%%';"""
-        db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
-        doctor_details = db.query(GetDoctorId)
-        db.disconnect()       # ----------------
-        doctor_id = str(doctor_details[0][0])
-        doctor_name = str(doctor_details[0][1]) 
-        return{"doctor_name":doctor_name,"doctor_id": doctor_id}
+    #     GetDoctorId = f"""SELECT
+    #                         d.id,d.first_name
+    #                     FROM
+    #                         doctor AS d
+    #                     JOIN
+    #                         speciality AS s ON d.specialty = s.id
+    #                     WHERE
+    #                         CONCAT(d.first_name, ' ', d.last_name) LIKE '%%{slot_value.lower()}%%'
+    #                         OR d.first_name LIKE '%%{slot_value.lower()}%%'
+    #                         OR d.last_name LIKE '%%{slot_value.lower()}%%';"""
+    #     db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+    #     doctor_details = db.query(GetDoctorId)
+    #     db.disconnect()       # ----------------
+    #     doctor_id = str(doctor_details[0][0])
+    #     doctor_name = str(doctor_details[0][1]) 
+    #     return{"doctor_name":doctor_name,"doctor_id": doctor_id}
           
     
     def validate_date(
@@ -370,9 +389,21 @@ class ActionSubmitAppointment(Action):
         success = db.insert(AppointmentQuarry)
         db.disconnect()  
         if success: 
-            response = "Your appointment was successfully created!!! "
+            response = "Your appointment was successfully saved, on the database !!!  The confirmation of appointment with the doctor and The billing details will be informed to you soon."
         else: 
             response = "Sorry your appointment cannot be created!"
         dispatcher.utter_message(text= response)
                 
         return[]
+
+# class YourCustomAction(Action):
+#     def name(self) -> Text:
+#         return "action_fill_slot"
+
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         # Assuming your payload is stored in the tracker as 'your_payload'
+#         payload_value = tracker.get_slot('your_payload')
+
+#         # Fill the slot 'your_slot' with the extracted value
+#         return [SlotSet('your_slot', payload_value)]
+    
