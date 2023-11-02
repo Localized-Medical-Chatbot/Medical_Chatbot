@@ -452,6 +452,23 @@ nlu:
     - [Saman](doctor_name)
     - [Kevin](doctor_name)
     - [David](doctor_name)
+
+- intent: user_login
+  examples: |
+    - I want to login to my account
+    - user login
+    - login
+    - log In
+    - user login potral
+    - access to my account 
+    - account login
+    - can i login ?
+- intent: provide_login_details
+  examples: |
+    - My username is [john_doe](username) and password is [password123](password)
+    - Username: [gimhan@123](username), Password: [GS456](password)
+    - Here are my details: [Sankaja99](username) with password [SS99](password)
+
 - synonym: burn
   examples: |
     - burn clinic

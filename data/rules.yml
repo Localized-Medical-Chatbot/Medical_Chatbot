@@ -38,7 +38,6 @@ rules:
       - requested_slot: null
     # The actions we want to run when the form is submitted.
     - action: action_submit_appointment
-    - action: action_listen
 
   - rule : interrupt form 1
     condition:

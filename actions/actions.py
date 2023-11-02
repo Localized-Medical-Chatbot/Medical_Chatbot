@@ -396,14 +396,40 @@ class ActionSubmitAppointment(Action):
                 
         return[]
 
-# class YourCustomAction(Action):
-#     def name(self) -> Text:
-#         return "action_fill_slot"
 
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         # Assuming your payload is stored in the tracker as 'your_payload'
-#         payload_value = tracker.get_slot('your_payload')
+class ActionAuthenticateUser(Action):
 
-#         # Fill the slot 'your_slot' with the extracted value
-#         return [SlotSet('your_slot', payload_value)]
+    def name(self) -> Text:
+        return "action_authenticate_user"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Extracting username and password from the slots
+        username = tracker.get_slot('username')
+        password = tracker.get_slot('password')
+        
+        # Connecting to the MySQL database
+        try:
+            db = DatabaseConnection(HOST, DATABASE_NAME, USERNAME, PASSWORD)
+            Query = f"SELECT password FROM users WHERE username='{username}'"
+            result = db.query(Query)
+            
+            if result:
+                stored_password = result[0][0]
+                print(stored_password)
+                if password == stored_password:
+                    dispatcher.utter_message(text="Authentication successful!")
+                else:
+                    dispatcher.utter_message(text="Incorrect password. Please try again.")
+            else:
+                dispatcher.utter_message(text="Username not found. Please register or try again.")
+            
+            db.disconnect()
+            
+        except Exception as e:
+            dispatcher.utter_message(text=f"Error during authentication: {str(e)}")
+        
+        return []
     

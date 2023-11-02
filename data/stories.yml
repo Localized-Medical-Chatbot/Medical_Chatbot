@@ -30,6 +30,21 @@ stories:
       - intent: deny
       - action: utter_continue
 
+  - story: User login authentication
+    steps:
+      - intent: user_login
+      - action: utter_ask_for_login_details
+      - intent: provide_login_details
+      - action: action_authenticate_user
+
+  - story: User login authentication 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: user_login
+      - action: utter_ask_for_login_details
+      - intent: provide_login_details
+      - action: action_authenticate_user
 
   - story: doctor details demo
     steps:

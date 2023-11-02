@@ -37,6 +37,8 @@ intents:
 - user_first_aid_fainting
 - time_slot
 - get_doctor_name_frm_payload
+- user_login
+- provide_login_details
 
 actions:
 - action_submit_appointment
@@ -49,6 +51,8 @@ actions:
 - action_get_doctor_name
 - validate_appointment_form
 - utter_ask_stop
+- action_authenticate_user
+- utter_ask_for_login_details
 entities:
 - date
 - food
@@ -56,7 +60,25 @@ entities:
 - start_time
 - end_time
 - doctor_name
+- username
+- password
 slots:
+  username:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: username
+      intent: provide_login_details
+
+  password:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: password
+      intent: provide_login_details
+
   clinic_type:
     type: text
     influence_conversation: true
@@ -849,6 +871,10 @@ responses:
           payload: "/user_first_aid_fainting"
         - title: "Home Page"
           payload: "/greet"
+
+  utter_ask_for_login_details:
+   - text: "please provide your username and password"
+   - text: "provide the MedCare username and Password."
   
   
   utter_ask_appointment_form_first_name:
