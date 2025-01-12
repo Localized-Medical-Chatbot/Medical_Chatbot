@@ -1,7 +1,7 @@
 
 
 <a href="https://github.com/SuwanSankaja/Private_Files/blob/main/Medical_Chatbot/DSE%20Group%20Project%20%20%20Group%2022_1080p.mp4">
-    <img src="https://github.com/SuwanSankaja/Private_Files/blob/main/Medical_Chatbot/Homepage.png" alt="Watch the video" width="600" height="300">
+    <img src="https://github.com/Localized-Medical-Chatbot/Medical_Chatbot/blob/main/Homepage.png" alt="Watch the video" width="600" height="300">
 </a>
 
 
@@ -89,7 +89,7 @@ The chatbot intelligently detects user intents and fills slots to provide tailor
 
 ## 🖼️ Screenshots
 
-![Chat Interface](https://github.com/SuwanSankaja/Private_Files/blob/main/Medical_Chatbot/chatbot_UI.png)
+![Chat Interface](https://github.com/Localized-Medical-Chatbot/Medical_Chatbot/blob/main/chatbot_UI.png)
 
 ## 👥 Contribution Guidelines
 
