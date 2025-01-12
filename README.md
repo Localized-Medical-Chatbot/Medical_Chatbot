@@ -23,7 +23,7 @@ Welcome to the **Medical Chatbot**, an intelligent and user-friendly virtual ass
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/medical-chatbot.git
+   git clone https://github.com/Localized-Medical-Chatbot/Medical_Chatbot.git
    cd medical-chatbot
    ```
 
